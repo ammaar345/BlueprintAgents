@@ -3,143 +3,487 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Ember & Ash — Halal Grilled Recipes</title>
-<meta name="description" content="20 halal grilled, smoked and charred recipes. Kebabs, kofta, BBQ, tandoori — dark, smoky, simple." />
+<title>Ember & Ash — 20 Halal Grilled Recipes</title>
+<meta name="description" content="20 halal grilled, smoked and charred recipes — kebabs, kofta, tandoori, BBQ, fish. Dark edition." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#0B0D12;
-  --surface:#14171F;
-  --surface-2:#1A1F2A;
-  --border:#252B38;
-  --border-soft:#1E2330;
-  --text:#E4E7EC;
-  --text-muted:#8B94A3;
-  --text-dim:#5C6577;
-  --ember:#FF6A35;
-  --ember-soft:#FF8B5A;
-  --ember-dim:rgba(255,106,53,.12);
-  --blue:#4A90E2;
-  --blue-dim:rgba(74,144,226,.10);
-  --gold:#E8B84B;
-  --ok:#3DDC97;
-  --radius:10px;
-  --font:'Inter',system-ui,-apple-system,sans-serif;
-  --display:'Fraunces',serif;
-  --maxw:720px;
+  /* DARK PALETTE — ember, charcoal, ink */
+  --bg-deep:#0A0B0F;          /* page base */
+  --bg-1:#0F1117;              /* main surface */
+  --bg-2:#15181F;              /* card surface */
+  --bg-3:#1C2029;              /* nested surface (recipe card) */
+  --line:#232733;              /* hairline */
+  --line-soft:#1A1E27;         /* faint divider */
+  --ink-1:#F2EFE8;             /* primary text (warm bone) */
+  --ink-2:#A8A399;             /* secondary text */
+  --ink-3:#6E6A60;             /* tertiary */
+  --ember:#E25822;             /* primary accent (smooth ember) */
+  --ember-2:#F47B45;           /* lighter ember */
+  --ember-3:#8C3414;           /* deep ember */
+  --orange:#E8A464;            /* warm orange (smooth) */
+  --blue:#3E6FA8;              /* deep smooth blue */
+  --blue-2:#5A8AC4;            /* lighter blue */
+  --red:#B83A2C;               /* smooth red */
+  --gold:#D4A85A;              /* muted gold */
+  --ok:#6BBF8A;                /* success green */
+  --shadow-s:0 2px 8px rgba(0,0,0,.35);
+  --shadow-m:0 8px 24px rgba(0,0,0,.45);
+  --shadow-l:0 20px 60px rgba(0,0,0,.55);
+  --shadow-glow:0 0 40px rgba(226,88,34,.18);
+
+  --radius-s:12px;--radius-m:20px;--radius-l:28px;--radius-pill:999px;
+
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Fraunces','Times New Roman',serif;
+  --maxw:880px;
+
+  --bg:
+    radial-gradient(1100px 600px at 18% -8%, rgba(140,52,20,.16) 0%, transparent 55%),
+    radial-gradient(900px 600px at 100% 4%, rgba(62,111,168,.14) 0%, transparent 55%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(140,52,20,.10) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-deep) 0%, #0C0E14 100%);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--font);
-  color:var(--text);
+  color:var(--ink-1);
+  line-height:1.6;
+  min-height:100dvh;
+  overflow-x:hidden;
   background:var(--bg);
-  line-height:1.65;
-  font-size:16px;
+  background-attachment:fixed;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:anywhere;
 }
-.bg-fixed{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 80% 50% at 50% 0%, #1A1208 0%, transparent 60%),radial-gradient(ellipse 60% 40% at 100% 100%, #0A1828 0%, transparent 60%),var(--bg)}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:80px 24px 120px}
+/* GRAIN OVERLAY — subtle film grain for richness (no flashy blobs) */
+.grain{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/</filter><rect width='100%' height='100%' filter='url(%23n)'/</svg>");
+  mix-blend-mode:overlay;
+}
 
-/* HERO */
-.hero{text-align:center;margin-bottom:80px}
-.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:24px;padding:6px 14px;border:1px solid var(--ember);border-radius:99px;background:var(--ember-dim)}
-h1.title{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,6vw,3rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px;color:var(--text)}
-h1.title em{font-style:italic;color:var(--ember);font-weight:500}
-.hero-sub{color:var(--text-muted);font-size:1.05rem;max-width:42ch;margin:0 auto}
+/* LAYOUT — CENTRAL COLUMN */
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:40px max(20px,env(safe-area-inset-right)) 80px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  min-width:0;
+  position:relative;
+}
 
-/* TOC */
-.toc{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:99px;margin-bottom:80px}
-.toc a{font-size:.8rem;font-weight:500;color:var(--text-muted);padding:8px 14px;border-radius:99px;text-decoration:none;transition:all .2s}
-.toc a:hover{color:var(--bg);background:var(--ember)}
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(20px);animation:rise .85s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
 
-/* SECTION HEADER */
-.section{margin-bottom:64px}
-.section-head{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border-soft)}
-.section-num{font-family:var(--display);font-style:italic;font-size:.85rem;color:var(--ember);font-weight:500;letter-spacing:1px;margin-bottom:6px}
-.section-title{font-family:var(--display);font-weight:600;font-size:1.6rem;letter-spacing:-.01em;color:var(--text);margin-bottom:8px}
-.section-desc{color:var(--text-muted);font-size:.95rem}
+/* BADGE — circular emblem, premium */
+.badge{
+  width:128px;height:128px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 28%, #2A211B 0%, var(--bg-1) 70%);
+  border:1.5px solid var(--ember-3);
+  box-shadow:
+    0 0 0 6px var(--bg-deep),
+    0 0 0 7px rgba(226,88,34,.18),
+    0 0 60px rgba(226,88,34,.25),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;margin:0 auto 6px;
+  position:relative;
+}
+.badge::after{
+  content:"";position:absolute;inset:8px;border-radius:50%;
+  border:1px dashed rgba(226,88,34,.35);
+  pointer-events:none;
+}
+.badge .b-top{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:3.5px;color:var(--ember-2);font-style:italic;text-transform:uppercase}
+.badge .b-run{font-family:var(--font-display);font-weight:700;font-size:30px;line-height:.9;color:var(--ink-1);letter-spacing:-.02em}
+.badge .b-hq{font-family:var(--font);font-weight:600;font-size:9px;letter-spacing:3px;color:var(--ember);text-transform:uppercase;margin-top:4px;padding-top:4px;border-top:1px solid rgba(226,88,34,.3);width:60%;text-align:center}
 
-/* RECIPE CARD */
-.recipe{padding:28px 0;border-bottom:1px solid var(--border-soft)}
-.recipe:last-child{border-bottom:none}
-.recipe-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:8px}
-.recipe-name{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--text);letter-spacing:-.01em}
-.recipe-num{font-family:var(--display);font-style:italic;color:var(--ember);font-size:.9rem;font-weight:500;flex-shrink:0}
-.recipe-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.tag{font-size:.72rem;font-weight:500;padding:3px 10px;border-radius:99px;background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border)}
-.tag.time{color:var(--text)}
-.tag.cost{color:var(--ember);border-color:rgba(255,106,53,.25)}
-.tag.diff-easy{color:var(--ok);border-color:rgba(61,220,151,.25)}
-.tag.diff-med{color:var(--gold);border-color:rgba(232,184,75,.25)}
-.tag.diff-hard{color:var(--ember);border-color:rgba(255,106,53,.25)}
-.recipe-desc{color:var(--text-muted);font-size:.92rem;margin-bottom:16px;font-style:italic}
+/* HERO COPY */
+.hero-copy{text-align:center;padding:8px 0 12px}
+h1.wordmark{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(2.1rem,6vw,3.1rem);
+  color:var(--ink-1);
+  text-wrap:balance;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin-bottom:14px;
+}
+h1.wordmark .run{color:var(--ember-2);font-style:italic;font-weight:500}
+.tagline{
+  font-size:clamp(.96rem,2.6vw,1.08rem);
+  color:var(--ink-2);
+  font-weight:400;
+  max-width:48ch;
+  margin:0 auto 10px;
+  line-height:1.55;
+}
+.tagline b{color:var(--ink-1);font-weight:600}
+.asof{font-size:.74rem;font-weight:500;color:var(--ink-3);letter-spacing:.8px;text-transform:uppercase}
 
-.recipe-body{display:grid;gap:20px}
-.ingredients-title,.steps-title{font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px}
-.ingredients{list-style:none;display:grid;gap:6px}
-.ingredients li{font-size:.9rem;color:var(--text);padding-left:14px;position:relative}
-.ingredients li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;background:var(--ember);border-radius:50%;opacity:.7}
-.ingredients li .cost{margin-left:6px;color:var(--text-dim);font-size:.82rem}
-.steps{list-style:none;counter-reset:step;display:grid;gap:10px}
-.steps li{font-size:.9rem;color:var(--text);padding-left:32px;position:relative;counter-increment:step}
-.steps li::before{content:counter(step);position:absolute;left:0;top:1px;font-family:var(--display);font-style:italic;font-size:.85rem;color:var(--ember);font-weight:600;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ember);border-radius:50%;background:var(--ember-dim)}
+/* TOC — sticky pill bar */
+.toc{
+  position:sticky;top:max(10px,env(safe-area-inset-top));z-index:30;
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  padding:8px;
+  background:rgba(15,17,23,.82);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border:1px solid var(--line);
+  border-radius:var(--radius-pill);
+  box-shadow:var(--shadow-m);
+}
+.toc a{
+  font-family:var(--font);
+  font-weight:500;
+  font-size:.76rem;
+  letter-spacing:.4px;
+  color:var(--ink-2);
+  background:transparent;
+  padding:9px 16px;
+  border-radius:var(--radius-pill);
+  min-height:36px;
+  display:inline-flex;align-items:center;
+  text-decoration:none;
+  transition:all .25s cubic-bezier(.22,1,.36,1);
+}
+.toc a:hover{background:var(--ember);color:var(--ink-1);box-shadow:0 0 18px rgba(226,88,34,.35)}
 
-/* HERO CARD */
-.intro-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:80px}
-.intro-card h2{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:14px;color:var(--text)}
-.intro-card h2 em{font-style:italic;color:var(--ember);font-weight:500}
-.intro-card p{color:var(--text-muted);font-size:.95rem;margin-bottom:18px}
-.intro-card ol{list-style:none;counter-reset:i;display:grid;gap:10px}
-.intro-card ol li{padding-left:30px;position:relative;color:var(--text);font-size:.92rem;counter-increment:i}
-.intro-card ol li::before{content:counter(i);position:absolute;left:0;top:1px;font-family:var(--display);font-style:italic;font-size:.85rem;color:var(--ember);font-weight:600;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ember);border-radius:50%;background:var(--ember-dim)}
-.intro-card ol li b{color:var(--text);font-weight:600}
-.intro-card ol li a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(255,106,53,.3)}
-.intro-card ol li a:hover{border-bottom-color:var(--ember)}
+/* CARDS */
+.card{
+  width:100%;min-width:0;
+  background:var(--bg-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  padding:32px 30px;
+  position:relative;
+}
+
+/* HERO CARD — sourcing intro */
+.hero-card{
+  background:
+    linear-gradient(155deg, #1A1410 0%, #0E1418 100%);
+  border:1px solid rgba(226,88,34,.18);
+  color:var(--ink-1);
+  position:relative;
+  overflow:hidden;
+  padding:34px 30px;
+}
+.hero-card::before{
+  content:"";position:absolute;top:-80px;right:-60px;width:240px;height:240px;
+  background:radial-gradient(circle,rgba(226,88,34,.20),transparent 65%);
+  border-radius:50%;filter:blur(30px);pointer-events:none;
+}
+.hero-card::after{
+  content:"";position:absolute;bottom:-60px;left:-40px;width:180px;height:180px;
+  background:radial-gradient(circle,rgba(62,111,168,.14),transparent 65%);
+  border-radius:50%;filter:blur(30px);pointer-events:none;
+}
+.hero-card > *{position:relative}
+.hero-card h2{font-family:var(--font-display);font-weight:600;font-size:clamp(1.4rem,4vw,1.75rem);color:var(--ink-1);margin-bottom:12px;text-wrap:balance;letter-spacing:-.01em}
+.hero-card h2 .acc{color:var(--ember-2);font-style:italic;font-weight:500}
+.hero-card .sub{font-size:1rem;color:var(--ink-2);font-weight:400;margin-bottom:22px;max-width:56ch;line-height:1.55}
+.hero-card ol{display:flex;flex-direction:column;gap:10px;padding-left:1.2em;color:var(--ink-2)}
+.hero-card ol li{font-weight:500;line-height:1.55}
+.hero-card ol li b{color:var(--ink-1);font-weight:600}
+.hero-card ol li a{color:var(--ember-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(226,88,34,.4)}
+.hero-card ol li a:hover{text-decoration-color:var(--ember-2)}
+
+/* BUTTONS */
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{
+  border:none;cursor:pointer;
+  font-family:var(--font);font-weight:600;font-size:.95rem;
+  color:var(--bg-deep);
+  background:linear-gradient(180deg, var(--ember-2) 0%, var(--ember) 100%);
+  padding:14px 22px;
+  border-radius:var(--radius-pill);
+  box-shadow:0 8px 24px rgba(226,88,34,.30),inset 0 1px 0 rgba(255,255,255,.18);
+  min-height:48px;
+  display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  flex:1 1 180px;
+  transition:all .25s cubic-bezier(.22,1,.36,1);
+  letter-spacing:.2px;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(226,88,34,.45),inset 0 1px 0 rgba(255,255,255,.2);text-decoration:none}
+.btn.ghost{
+  background:transparent;
+  color:var(--ink-1);
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.btn.ghost:hover{border-color:var(--ember-2);color:var(--ember-2);box-shadow:0 0 20px rgba(226,88,34,.20);transform:translateY(-2px)}
+
+/* SECTION HEADERS */
+h2.sec{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(1.5rem,4.5vw,1.85rem);
+  color:var(--ink-1);
+  margin-bottom:8px;
+  text-wrap:balance;
+  letter-spacing:-.015em;
+}
+h2.sec .acc{color:var(--ember-2);font-style:italic;font-weight:500}
+.lede{color:var(--ink-2);font-weight:400;margin-bottom:24px;max-width:60ch;line-height:1.6}
+.kicker{
+  font-family:var(--font);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:3px;
+  color:var(--ember-2);
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+/* RECIPE CARDS */
+.recipe-card{
+  background:var(--bg-3);
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-m);
+  padding:26px 26px;
+  box-shadow:var(--shadow-s);
+  margin-bottom:12px;
+  position:relative;
+  transition:border-color .25s ease;
+}
+.recipe-card:hover{border-color:var(--line)}
+.recipe-card .rc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.recipe-card .rc-num{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:.85rem;
+  color:var(--ember-2);
+  letter-spacing:.5px;
+  flex-shrink:0;
+  padding-top:4px;
+}
+.recipe-card h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.25rem;
+  color:var(--ink-1);
+  margin-bottom:8px;
+  letter-spacing:-.01em;
+  line-height:1.25;
+}
+.recipe-card .rc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.recipe-card .rc-meta .pill{font-size:.7rem}
+.recipe-card .rc-desc{
+  color:var(--ink-2);
+  font-size:.95rem;
+  font-weight:400;
+  margin-bottom:18px;
+  line-height:1.55;
+  font-style:italic;
+}
+.recipe-card h4{
+  font-family:var(--font);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:2px;
+  color:var(--ink-3);
+  margin:18px 0 10px;
+  text-transform:uppercase;
+}
+.recipe-card ul.ingr{display:flex;flex-direction:column;gap:6px;padding-left:0;list-style:none}
+.recipe-card ul.ingr li{
+  font-size:.92rem;
+  color:var(--ink-2);
+  padding-left:18px;
+  position:relative;
+  line-height:1.55;
+}
+.recipe-card ul.ingr li::before{
+  content:"";position:absolute;left:0;top:10px;
+  width:6px;height:1px;background:var(--ember);
+  opacity:.6;
+}
+.recipe-card ul.ingr .cost{
+  margin-left:6px;
+  color:var(--ok);
+  font-weight:600;
+  font-size:.85rem;
+  font-variant-numeric:tabular-nums;
+}
+.costnote{
+  font-size:.82rem;
+  color:var(--ink-3);
+  font-weight:500;
+  margin-top:10px;
+  padding:8px 12px;
+  background:rgba(226,88,34,.06);
+  border-left:2px solid var(--ember-3);
+  border-radius:4px;
+}
+
+/* STEPS */
+ol.steps{display:flex;flex-direction:column;gap:10px;padding-left:0;list-style:none;counter-reset:step}
+ol.steps li{
+  font-size:.93rem;
+  color:var(--ink-2);
+  padding-left:34px;
+  position:relative;
+  counter-increment:step;
+  line-height:1.55;
+}
+ol.steps li::before{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;left:0;top:0;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:.8rem;
+  color:var(--ember-2);
+  letter-spacing:.5px;
+  width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(226,88,34,.3);
+  border-radius:50%;
+  background:rgba(226,88,34,.08);
+}
+
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.pill{
+  font-family:var(--font);
+  font-weight:500;
+  font-size:.72rem;
+  letter-spacing:.4px;
+  padding:4px 10px;
+  border-radius:var(--radius-pill);
+  background:var(--bg-2);
+  color:var(--ink-2);
+  border:1px solid var(--line);
+}
+.pill.easy{color:var(--ok);border-color:rgba(107,191,138,.25);background:rgba(107,191,138,.06)}
+.pill.med{color:var(--gold);border-color:rgba(212,168,90,.25);background:rgba(212,168,90,.06)}
+.pill.hard{color:var(--ember-2);border-color:rgba(226,88,34,.30);background:rgba(226,88,34,.08)}
+.pill.cost{color:var(--ink-1);border-color:var(--line)}
+
+/* NOTES */
+.note{
+  margin-top:14px;
+  background:rgba(212,168,90,.08);
+  border:1px solid rgba(212,168,90,.20);
+  border-radius:var(--radius-s);
+  padding:12px 14px;
+  font-weight:500;
+  color:var(--gold);
+  font-size:.9rem;
+  line-height:1.5;
+}
+.warnbox{
+  background:rgba(184,58,44,.08);
+  border:1px solid rgba(184,58,44,.25);
+  border-radius:var(--radius-s);
+  padding:12px 14px;
+  font-weight:500;
+  color:var(--red);
+  font-size:.9rem;
+  margin-top:12px;
+}
 
 /* TIPS GRID */
-.tips{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:80px}
-.tips-head{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border-soft)}
-.tips-head .section-num{margin-bottom:6px}
-.tips-head .section-title{margin-bottom:0}
-.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.tip h4{font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--ember);margin-bottom:10px;font-style:italic}
-.tip ul{list-style:none;display:grid;gap:8px}
-.tip li{font-size:.85rem;color:var(--text-muted);padding-left:14px;position:relative}
-.tip li::before{content:"–";position:absolute;left:0;color:var(--ember);opacity:.6}
-@media(max-width:600px){.tips-grid{grid-template-columns:1fr}}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px;min-width:0}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+
+.mini{
+  background:var(--bg-3);
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-m);
+  padding:22px 22px;
+}
+.mini h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.05rem;
+  margin-bottom:10px;
+  color:var(--ember-2);
+  font-style:italic;
+}
+.mini ul.facts{display:flex;flex-direction:column;gap:8px;padding-left:0;list-style:none}
+.mini ul.facts li{font-size:.88rem;font-weight:400;color:var(--ink-2);padding-left:14px;position:relative;line-height:1.55}
+.mini ul.facts li::before{content:"—";position:absolute;left:0;color:var(--ember-2);opacity:.7}
 
 /* FOOTER */
-footer{text-align:center;padding-top:60px;border-top:1px solid var(--border-soft);margin-top:40px}
-footer p{font-size:.78rem;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;font-weight:500}
-footer em{font-style:italic;color:var(--ember);font-weight:500}
+.foot{text-align:center;margin-top:14px;padding:30px 0 0;font-family:var(--font);font-weight:500;font-size:.78rem;letter-spacing:3px;color:var(--ink-3);text-transform:uppercase;border-top:1px solid var(--line-soft)}
+.foot .g{color:var(--ember-2);font-family:var(--font-display);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0}
 
-@media(max-width:600px){
-  .wrap{padding:60px 20px 80px}
-  .hero{margin-bottom:60px}
-  .toc{margin-bottom:60px}
-  .intro-card,.tips{padding:24px}
-  .section{margin-bottom:48px}
-  .recipe{padding:24px 0}
+/* RESPONSIVE — mobile first, then enhance */
+@media(max-width:719px){
+  .wrap{padding:24px 16px 60px;gap:14px}
+  .card,.hero-card{padding:22px 18px;border-radius:20px}
+  .badge{width:104px;height:104px}
+  .badge .b-run{font-size:24px}
+  .badge .b-top{font-size:9px;letter-spacing:2.5px}
+  .badge .b-hq{font-size:8px;letter-spacing:2px}
+  h1.wordmark{font-size:clamp(1.9rem,9vw,2.4rem)}
+  h2.sec{font-size:1.35rem}
+  .lede,.note,.warnbox{font-size:.88rem}
+  .toc{gap:5px;padding:7px;top:6px}
+  .toc a{font-size:.7rem;padding:7px 12px}
+  .btn{width:100%;flex:1 1 100%;font-size:.92rem;padding:13px 18px}
+  .recipe-card{padding:20px 16px;border-radius:18px}
+  .recipe-card h3{font-size:1.1rem}
+  .mini{padding:18px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  .grain{display:none}
 }
 </style>
 </head>
 <body>
-<div class="bg-fixed</div>
+<div class="grain" aria-hidden="true</div>
 
 <main class="wrap">
 
-  <header class="hero">
-    <span class="eyebrow">Halal · Charred · Simple</span>
-    <h1 class="title">Ember <em>&amp</em> Ash</h1>
-    <p class="hero-sub">Twenty grilled and smoked recipes, mostly under thirty minutes. Fire, spice, no fuss</p>
+  <div class="badge reveal" aria-hidden="true">
+    <span class="b-top">Charred</span>
+    <span class="b-run">Ember</span>
+    <span class="b-hq">& Ash</span>
+ </div>
+
+  <header class="hero-copy reveal">
+    <h1 class="wordmark">Ember <span class="run">&amp</span> Ash</h1>
+    <p class="tagline">Twenty halal grilled & smoked recipes, mostly under <b>30 minutes</b>. Kebabs, kofta, tandoori, BBQ — fire, spice, simplicity</p>
+    <p class="asof">Halal · Charcoal & Stovetop · USD prices</p>
  </header>
 
-  <nav class="toc">
-    <a href="#sourcing">Sourcing</a>
+  <div class="card hero-card reveal">
+    <h2>Where to source your <span class="acc">halal meat</span</h2>
+    <p class="sub">You don't need a backyard. A stovetop grill pan, oven broiler, or small charcoal chimney gets you 95% of the way there. Start with the right source</p>
+    <ol>
+      <li><b>Local halal butchers</b> — best value, freshest cuts, and they'll grind custom mince or cut to your thickness for free</li>
+      <li><b>Trader Joe's / Whole Foods / H-E-B</b> — many stock halal-certified chicken and lamb. Look for the halal symbol on the pack</li>
+      <li><b>Halal online butchers</b> — <a href="#">BoxedBeef</a>, <a href="#">Lazeez</a>, or local WhatsApp groups for weekly delivery nationwide</li>
+      <li><b>Middle Eastern / Turkish markets</b> — pre-marinated shish tawook, kofta, Adana mince ready to throw on the fire</li>
+      <li><b>For charcoal</b> — coconut-shell burns hotter and cleaner than briquettes. Restaurant supply stores stock it cheap</li>
+   </ol>
+    <div class="btn-row">
+      <a class="btn" href="#kebabs">Start with Kebabs</a>
+      <a class="btn ghost" href="#bbq">Jump to BBQ</a>
+   </div>
+ </div>
+
+  <nav class="toc reveal" aria-label="Jump to section">
     <a href="#kebabs">Kebabs</a>
     <a href="#kofta">Kofta</a>
     <a href="#tandoori">Tandoori</a>
@@ -149,889 +493,536 @@ footer em{font-style:italic;color:var(--ember);font-weight:500}
     <a href="#tips">Tips</a>
  </nav>
 
-  <section class="intro-card" id="sourcing">
-    <h2>Where to <em>source</em> your halal meat</h2>
-    <p>You don't need a backyard — a grill pan, broiler, or charcoal chimney gets you 95% there</p>
-    <ol>
-      <li><b>Halal butchers</b> — best for cubes, mince, and custom cuts. They'll cut to your thickness for free</li>
-      <li><b>Whole Foods, Trader Joe's, H-E-B</b> — many stock halal-certified chicken and lamb. Look for the halal symbol on the pack</li>
-      <li><b>Halal online butchers</b> — <a href="#">BoxedBeef</a>, <a href="#">Lazeez</a>, or local WhatsApp groups for weekly delivery</li>
-      <li><b>Middle Eastern markets</b> — pre-marinated shish tawook, kofta, Adana mince ready to throw on the fire</li>
-      <li><b>Charcoal</b> — coconut-shell burns hotter and cleaner than briquettes. Restaurant supply stores stock it cheap</li>
-   </ol>
- </section>
-
   <!-- KEBABS -->
-  <section class="section" id="kebabs">
-    <div class="section-head">
-      <div class="section-num">One — Five</div>
-      <h2 class="section-title">Skewers & Kebabs</h2>
-      <p class="section-desc">The fastest path to grilled flavour. Cubed meat, marinade, fire</p>
+  <section class="card reveal" id="kebabs">
+    <p class="kicker">One — Five</p>
+    <h2 class="sec">Skewers & <span class="acc">Kebabs</span</h2>
+    <p class="lede">The fastest path to grilled flavour. Cubed meat, marinade, fire. Each recipe feeds three to four</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Chicken Shish Tawook</h3><div class="rc-meta"><span class="pill">25 min</span><span class="pill med">Medium</span><span class="pill cost">~$6</span</div</div><div class="rc-num">01</div</div>
+      <p class="rc-desc">Yoghurt-marinated chicken cubes charred on skewers. Lebanese street-food classic — dead-simple at home</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal chicken breast, cubed 3cm <span class="cost">$4</span</li>
+        <li>½ cup yoghurt + 2 tbsp tomato paste <span class="cost">$0.45</span</li>
+        <li>2 tbsp olive oil + 1 tbsp lemon <span class="cost">$0.20</span</li>
+        <li>2 garlic cloves + 1 tsp paprika + 1 tsp oregano + ½ tsp turmeric <span class="cost">$0.25</span</li>
+        <li>1 onion + 1 bell pepper, cubed <span class="cost">$0.60</span</li>
+        <li>Salt + black pepper <span class="cost">$0</span</li>
+     </ul>
+      <p class="costnote">Total ~$5.50 · Wooden skewers (soak 20 min) ~$0.30 · Serve with rice + garlic sauce</p>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Mix yoghurt, tomato paste, oil, lemon, garlic, spices, salt. Marinate chicken 15 min minimum (overnight is gold</li>
+        <li>Thread chicken, onion, pepper onto soaked skewers</li>
+        <li>Grill pan on HIGH heat, oiled. Lay skewers down. Don't move for 2 min — you want char marks</li>
+        <li>Flip, 2 min more. Done when slightly charred outside, juicy inside (75°C internal</li>
+        <li>Squeeze lemon over. Serve with garlic sauce, rice, or pita</li>
+     </ol>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Chicken Shish Tawook</h3>
-        <span class="recipe-num">01</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">25 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$6</span>
-     </div>
-      <p class="recipe-desc">Yoghurt-marinated chicken cubes charred on skewers. Lebanese street-food king</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal chicken breast, cubed 3cm <span class="cost">$4</span</li>
-            <li>½ cup yoghurt + 2 tbsp tomato paste <span class="cost">$0.45</span</li>
-            <li>2 tbsp olive oil + 1 tbsp lemon <span class="cost">$0.20</span</li>
-            <li>2 garlic cloves + 1 tsp paprika + 1 tsp oregano + ½ tsp turmeric <span class="cost">$0.25</span</li>
-            <li>1 onion + 1 bell pepper, cubed <span class="cost">$0.60</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Mix yoghurt, tomato paste, oil, lemon, garlic, spices. Marinate chicken 15 min minimum</li>
-            <li>Thread onto soaked skewers with onion and pepper</li>
-            <li>Grill pan on HIGH, oiled. Lay skewers, don't move for 2 min — you want char marks</li>
-            <li>Flip, 2 min more. Internal temp 75°C</li>
-            <li>Lemon squeeze over the top. Serve with garlic sauce</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Beef / Lamb Seekh Kebab</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill med">Medium</span><span class="pill cost">~$7</span</div</div><div class="rc-num">02</div</div>
+      <p class="rc-desc">Spiced minced meat moulded on skewers and grilled. Restaurant-style — no oven required</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal beef or lamb mince, 15% fat min <span class="cost">$5</span</li>
+        <li>1 small onion, grated + squeezed <span class="cost">$0.15</span</li>
+        <li>2 garlic cloves + 1 inch ginger, grated <span class="cost">$0.20</span</li>
+        <li>1 tsp garam masala + 1 tsp cumin + 1 tsp coriander + ½ tsp chilli <span class="cost">$0.30</span</li>
+        <li>2 tbsp chopped mint + 2 tbsp chopped coriander <span class="cost">$0.30</span</li>
+        <li>1 tsp salt + 1 tbsp oil <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Mix everything by hand for 3 min — sticky paste = right texture</li>
+        <li>Wet hands, mould meat around flat skewers in long sausage shapes (~12cm</li>
+        <li>Chill 10 min on a tray (helps them hold shape</li>
+        <li>Grill pan on high, oiled. Lay kebabs. 3 min per side, 4 sides total = 12 min</li>
+        <li>Charred outside, firm inside = done. Serve with mint chutney + naan</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Beef / Lamb Seekh Kebab</h3>
-        <span class="recipe-num">02</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$7</span>
-     </div>
-      <p class="recipe-desc">Spiced mince moulded on skewers. Restaurant-style at home, no oven needed</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal beef or lamb mince, 15% fat <span class="cost">$5</span</li>
-            <li>1 small onion, grated and squeezed <span class="cost">$0.15</span</li>
-            <li>2 garlic + 1 inch ginger, grated <span class="cost">$0.20</span</li>
-            <li>1 tsp garam masala + 1 tsp cumin + 1 tsp coriander + ½ tsp chilli <span class="cost">$0.30</span</li>
-            <li>2 tbsp mint + 2 tbsp coriander, chopped <span class="cost">$0.30</span</li>
-            <li>1 tsp salt + 1 tbsp oil <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Mix by hand for 3 min until sticky</li>
-            <li>Mould around flat skewers in long sausage shapes</li>
-            <li>Chill 10 min to hold shape</li>
-            <li>Grill pan HIGH. 3 min per side, 4 sides total</li>
-            <li>Serve with mint chutney and naan</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Chicken Tikka Skewers</h3><div class="rc-meta"><span class="pill">40 min</span><span class="pill med">Medium</span><span class="pill cost">~$5</span</div</div><div class="rc-num">03</div</div>
+      <p class="rc-desc">Yoghurt + spice marinade with a longer rest = deeper red colour and smokier flavour</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal chicken thighs, cubed <span class="cost">$3.50</span</li>
+        <li>½ cup yoghurt + 1 tbsp ginger-garlic paste <span class="cost">$0.40</span</li>
+        <li>1 tsp Kashmiri chilli (or paprika + ½ tsp cayenne) <span class="cost">$0.20</span</li>
+        <li>1 tsp garam masala + ½ tsp turmeric + ½ tsp cumin <span class="cost">$0.30</span</li>
+        <li>1 tbsp lemon + 1 tbsp oil + 1 tsp salt <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate chicken 30 min minimum (overnight fridge = best</li>
+        <li>Skewer. Grill pan HIGH. 3 min per side, getting char spots</li>
+        <li>Finish with lemon squeeze + chat masala (optional). Serve with mint chutney</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Chicken Tikka Skewers</h3>
-        <span class="recipe-num">03</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">40 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$5</span>
-     </div>
-      <p class="recipe-desc">Longer marinade = deeper red colour and smokier flavour</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal chicken thighs, cubed <span class="cost">$3.50</span</li>
-            <li>½ cup yoghurt + 1 tbsp ginger-garlic paste <span class="cost">$0.40</span</li>
-            <li>1 tsp Kashmiri chilli + 1 tsp garam masala + ½ tsp turmeric + ½ tsp cumin <span class="cost">$0.50</span</li>
-            <li>1 tbsp lemon + 1 tbsp oil + 1 tsp salt <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate 30 min minimum, overnight for best results</li>
-            <li>Skewer. Grill pan HIGH. 3 min per side, char marks</li>
-            <li>Lemon squeeze + chaat masala. Mint chutney on the side</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Beef Shish Kebab</h3><div class="rc-meta"><span class="pill">25 min</span><span class="pill med">Medium</span><span class="pill cost">~$9</span</div</div><div class="rc-num">04</div</div>
+      <p class="rc-desc">Cubes of halal beef or lamb shoulder, marinated, grilled with vegetables. Armenian / Turkish classic</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal beef or lamb shoulder, cubed 3cm <span class="cost">$7</span</li>
+        <li>1 onion + 1 tomato + 1 green pepper, cubed to match meat <span class="cost">$0.80</span</li>
+        <li>2 tbsp olive oil + 1 tbsp pomegranate molasses (or honey + lemon) <span class="cost">$0.30</span</li>
+        <li>1 tsp salt + 1 tsp black pepper + 1 tsp sumac <span class="cost">$0.20</span</li>
+        <li>2 garlic cloves, crushed <span class="cost">$0.05</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Toss meat with marinade. Rest 15 min</li>
+        <li>Skewer meat + veg alternating. Grill pan HIGH</li>
+        <li>3 min per side, 4 rotations = 12 min. Beef stays pink-ish inside (medium) or cook longer for well</li>
+        <li>Squeeze lemon + dust sumac on top. Serve with rice or lavash</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Beef Shish Kebab</h3>
-        <span class="recipe-num">04</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">25 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$9</span>
-     </div>
-      <p class="recipe-desc">Cubes of halal beef or lamb shoulder with vegetables. Armenian / Turkish classic</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal beef or lamb shoulder, cubed 3cm <span class="cost">$7</span</li>
-            <li>1 onion + 1 tomato + 1 green pepper, cubed <span class="cost">$0.80</span</li>
-            <li>2 tbsp olive oil + 1 tbsp pomegranate molasses <span class="cost">$0.30</span</li>
-            <li>1 tsp salt + 1 tsp pepper + 1 tsp sumac + 2 garlic cloves <span class="cost">$0.25</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate meat 15 min</li>
-            <li>Skewer meat + veg alternating</li>
-            <li>Grill pan HIGH. 3 min per side, 4 rotations</li>
-            <li>Lemon + dust sumac on top. Serve with rice or lavash</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Chicken Malai Boti</h3>
-        <span class="recipe-num">05</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">35 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$6</span>
-     </div>
-      <p class="recipe-desc">Pakistani cream-and-cheese marinade. Ultra-tender, mild, slightly smoky</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal chicken breast, cubed <span class="cost">$4</span</li>
-            <li>3 tbsp cream + 2 tbsp cream cheese <span class="cost">$0.40</span</li>
-            <li>1 tsp white pepper + ½ tsp turmeric + ½ tsp cumin <span class="cost">$0.20</span</li>
-            <li>1 tbsp ginger-garlic paste + 1 tsp green chilli paste <span class="cost">$0.20</span</li>
-            <li>1 tbsp lemon + 1 tsp salt <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate 30 min. Cream tenderises fast</li>
-            <li>Skewer. Grill pan medium-high, 3 min per side</li>
-            <li>Don't overcook — breast dries out fast</li>
-            <li>Lemon squeeze + chaat masala</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Chicken Malai Boti</h3><div class="rc-meta"><span class="pill">35 min</span><span class="pill med">Medium</span><span class="pill cost">~$6</span</div</div><div class="rc-num">05</div</div>
+      <p class="rc-desc">Pakistani-style: cream + cheese marinade for ultra-tender, mild, slightly smoky chicken. Kids love it</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal chicken breast, cubed <span class="cost">$4</span</li>
+        <li>3 tbsp cream + 2 tbsp cream cheese (or thick yoghurt) <span class="cost">$0.40</span</li>
+        <li>1 tsp white pepper + ½ tsp turmeric + ½ tsp cumin <span class="cost">$0.20</span</li>
+        <li>1 tbsp ginger-garlic paste + 1 tsp green chilli paste <span class="cost">$0.20</span</li>
+        <li>1 tbsp lemon + 1 tsp salt <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate 30 min in fridge (cream tenderises the meat</li>
+        <li>Skewer. Grill pan medium-high. 3 min per side. Don't overcook — breast dries out fast</li>
+        <li>Squeeze lemon + sprinkle chaat masala (or salt + pepper). Done</li>
+     </ol>
+   </div>
  </section>
 
   <!-- KOFTA -->
-  <section class="section" id="kofta">
-    <div class="section-head">
-      <div class="section-num">Six — Nine</div>
-      <h2 class="section-title">Kofta & Patties</h2>
-      <p class="section-desc">Moulded and grilled. Mince absorbs smoke fast — done in under ten minutes</p>
+  <section class="card reveal" id="kofta">
+    <p class="kicker">Six — Nine</p>
+    <h2 class="sec">Kofta, Patties & <span class="acc">Burgers</span</h2>
+    <p class="lede">Moulded and grilled. Ground meat absorbs smoke fast — these cook in under ten minutes</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Chapli Kebab</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill med">Medium</span><span class="pill cost">~$7</span</div</div><div class="rc-num">06</div</div>
+      <p class="rc-desc">Flat, round, smoky Afghani-Pakistani kebab. Pounded thin so the edges crisp. No skewer needed</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal beef or mutton mince <span class="cost">$5</span</li>
+        <li>1 tomato, finely chopped (squeeze out seeds) <span class="cost">$0.30</span</li>
+        <li>1 onion, finely chopped <span class="cost">$0.15</span</li>
+        <li>2 tbsp coriander + 2 tbsp mint <span class="cost">$0.20</span</li>
+        <li>1 tbsp ginger + 2 green chillies <span class="cost">$0.15</span</li>
+        <li>1 tsp cumin + 1 tsp coriander powder + ½ tsp chilli + 1 tsp salt <span class="cost">$0.30</span</li>
+        <li>1 egg + 2 tbsp besan (chickpea flour) <span class="cost">$0.20</span</li>
+        <li>2 tbsp oil for frying <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Mix everything by hand. Rest 10 min</li>
+        <li>Divide into 8 balls. Flatten to thin discs (8cm wide, 1cm thick) on oiled hands</li>
+        <li>Grill pan HIGH with oil. Lay 4 kebabs. Don't move 3 min — char on bottom</li>
+        <li>Flip, 3 min more. Dark char marks both sides</li>
+        <li>Serve with naan, chutney, raw onion, lemon</li>
+     </ol>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Chapli Kebab</h3>
-        <span class="recipe-num">06</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$7</span>
-     </div>
-      <p class="recipe-desc">Flat, round, smoky Afghani-Pakistani kebab. No skewer needed</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal beef or mutton mince <span class="cost">$5</span</li>
-            <li>1 tomato, chopped and seeded <span class="cost">$0.30</span</li>
-            <li>1 onion, finely chopped <span class="cost">$0.15</span</li>
-            <li>2 tbsp coriander + 2 tbsp mint <span class="cost">$0.20</span</li>
-            <li>1 tbsp ginger + 2 green chillies <span class="cost">$0.15</span</li>
-            <li>1 tsp cumin + 1 tsp coriander powder + ½ tsp chilli + 1 tsp salt <span class="cost">$0.30</span</li>
-            <li>1 egg + 2 tbsp besan (chickpea flour) <span class="cost">$0.20</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Mix everything by hand. Rest 10 min</li>
-            <li>Flatten into 8 thin discs (8cm wide, 1cm thick</li>
-            <li>Grill pan HIGH with oil. 3 min first side, char</li>
-            <li>Flip, 3 min more</li>
-            <li>Serve with naan, chutney, raw onion, lemon</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Lamb Kofta</h3><div class="rc-meta"><span class="pill">25 min</span><span class="pill med">Medium</span><span class="pill cost">~$8</span</div</div><div class="rc-num">07</div</div>
+      <p class="rc-desc">Herby lamb meatballs grilled as oblong patties. Serve over rice, in pita, or with yoghurt dip</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g halal lamb mince <span class="cost">$6</span</li>
+        <li>1 small onion, grated + squeezed <span class="cost">$0.15</span</li>
+        <li>3 garlic cloves + 1 tbsp each: parsley, mint, coriander <span class="cost">$0.40</span</li>
+        <li>1 tsp cumin + 1 tsp paprika + ½ tsp cinnamon + 1 tsp salt <span class="cost">$0.30</span</li>
+        <li>1 tbsp olive oil + lemon wedge <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Mix everything. Form 8 oblong patties (8cm long</li>
+        <li>Grill pan HIGH + oil. 4 min per side = 8 min. Charred outside, juicy inside</li>
+        <li>Lemon squeeze. Serve with tzatziki or mint yoghurt</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Lamb Kofta</h3>
-        <span class="recipe-num">07</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">25 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$8</span>
-     </div>
-      <p class="recipe-desc">Herby lamb patties. Over rice, in pita, or with yoghurt dip</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g halal lamb mince <span class="cost">$6</span</li>
-            <li>1 small onion, grated and squeezed <span class="cost">$0.15</span</li>
-            <li>3 garlic + 1 tbsp parsley + 1 tbsp mint + 1 tbsp coriander <span class="cost">$0.40</span</li>
-            <li>1 tsp cumin + 1 tsp paprika + ½ tsp cinnamon + 1 tsp salt <span class="cost">$0.30</span</li>
-            <li>1 tbsp olive oil + lemon <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Mix everything. Form 8 oblong patties (8cm long</li>
-            <li>Grill pan HIGH with oil. 4 min per side</li>
-            <li>Lemon squeeze + tzatziki or mint yoghurt</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Smash Chicken Burger</h3><div class="rc-meta"><span class="pill">15 min</span><span class="pill easy">Easy</span><span class="pill cost">~$4</span</div</div><div class="rc-num">08</div</div>
+      <p class="rc-desc">Smashed-thin chicken thigh patty. The crust is the whole point. Done in a hot pan in 6 minutes</p>
+      <h4>Ingredients — 2 burgers</h4>
+      <ul class="ingr">
+        <li>300g halal chicken thigh mince (or chop thighs finely) <span class="cost">$2.50</span</li>
+        <li>1 tsp salt + ½ tsp black pepper + 1 tsp garlic powder <span class="cost">$0.10</span</li>
+        <li>2 brioche buns + lettuce + tomato + mayo <span class="cost">$1.20</span</li>
+        <li>1 tbsp oil for frying <span class="cost">$0.05</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Heat pan HIGH with oil. Form 2 loose balls of chicken mince</li>
+        <li>Drop on pan. Press HARD with spatula to flatten thin (1cm). Salt top</li>
+        <li>3 min — don't touch. Crust forms. Flip. 2 min more</li>
+        <li>Toast buns in same pan 30 sec. Build: bun + sauce + lettuce + patty + tomato + bun</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Smash Chicken Burger</h3>
-        <span class="recipe-num">08</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">15 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$4</span>
-     </div>
-      <p class="recipe-desc">Smashed-thin chicken thigh patty. The crust is the whole point. Six minutes in a hot pan</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients — 2 burgers</h4>
-          <ul class="ingredients">
-            <li>300g halal chicken thigh mince <span class="cost">$2.50</span</li>
-            <li>1 tsp salt + ½ tsp pepper + 1 tsp garlic powder <span class="cost">$0.10</span</li>
-            <li>2 brioche buns + lettuce + tomato + mayo <span class="cost">$1.20</span</li>
-            <li>1 tbsp oil <span class="cost">$0.05</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Heat pan HIGH with oil. Form 2 loose balls of mince</li>
-            <li>Drop on pan. Press HARD with spatula to flatten thin (1cm). Salt top</li>
-            <li>3 min — don't touch. Crust forms. Flip. 2 min more</li>
-            <li>Toast buns in same pan 30 sec. Build: bun + sauce + lettuce + patty + tomato</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Smash Lamb Burger</h3>
-        <span class="recipe-num">09</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">15 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$5</span>
-     </div>
-      <p class="recipe-desc">Same smash technique, lamb instead. The fat content means next-level char</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients — 2 burgers</h4>
-          <ul class="ingredients">
-            <li>300g halal lamb mince <span class="cost">$3.50</span</li>
-            <li>1 tsp cumin + 1 tsp sumac + ½ tsp salt + ½ tsp pepper <span class="cost">$0.20</span</li>
-            <li>2 buns + garlic sauce + pickled onion + arugula <span class="cost">$1.20</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Same as smash chicken — hot pan, press flat, 3 min, flip, 2 min</li>
-            <li>Top with garlic sauce + arugula + pickled onion</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Smash Lamb Burger</h3><div class="rc-meta"><span class="pill">15 min</span><span class="pill easy">Easy</span><span class="pill cost">~$5</span</div</div><div class="rc-num">09</div</div>
+      <p class="rc-desc">Same smash technique, lamb instead. The fat content means next-level char and juiciness</p>
+      <h4>Ingredients — 2 burgers</h4>
+      <ul class="ingr">
+        <li>300g halal lamb mince <span class="cost">$3.50</span</li>
+        <li>1 tsp cumin + 1 tsp sumac + ½ tsp salt + ½ tsp pepper <span class="cost">$0.20</span</li>
+        <li>2 buns + garlic sauce + pickled onion + arugula <span class="cost">$1.20</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Same as smash chicken — hot pan, press flat, 3 min, flip, 2 min</li>
+        <li>Top with garlic sauce + arugula + pickled onion. Done</li>
+     </ol>
+      <div class="note">Pickled onion = sliced red onion + 2 tbsp vinegar + pinch salt + pinch sugar. 10 min in fridge</div>
+   </div>
  </section>
 
   <!-- TANDOORI -->
-  <section class="section" id="tandoori">
-    <div class="section-head">
-      <div class="section-num">Ten — Thirteen</div>
-      <h2 class="section-title">Tandoori & Whole Cuts</h2>
-      <p class="section-desc">The big pieces. Longer marination, bigger payoff</p>
+  <section class="card reveal" id="tandoori">
+    <p class="kicker">Ten — Thirteen</p>
+    <h2 class="sec">Tandoori & <span class="acc">Whole Cuts</span</h2>
+    <p class="lede">The big pieces. Bone-in chicken, whole fish, thick steaks. Longer marination, bigger payoff</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Tandoori Chicken</h3><div class="rc-meta"><span class="pill">45 min</span><span class="pill med">Medium</span><span class="pill cost">~$6</span</div</div><div class="rc-num">10</div</div>
+      <p class="rc-desc">Classic. The red comes from Kashmiri chilli, not food dye. Bone-in thighs stay juicy under the broiler</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>6 halal chicken thighs, bone-in, skinless <span class="cost">$4</span</li>
+        <li>½ cup yoghurt + 2 tbsp lemon <span class="cost">$0.40</span</li>
+        <li>2 tbsp ginger-garlic paste + 1 tsp Kashmiri chilli <span class="cost">$0.30</span</li>
+        <li>1 tsp garam masala + ½ tsp turmeric + ½ tsp cumin + ½ tsp paprika <span class="cost">$0.30</span</li>
+        <li>1 tsp salt + 2 tbsp oil + pinch red food colour (optional) <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Score chicken thighs (2 cuts per thigh). Marinate 1 hr minimum, overnight better</li>
+        <li>Wire rack on baking sheet. Broiler on HIGH. 15 cm from heat</li>
+        <li>Broil 8 min, flip, 8 min more. Edges should char slightly. Internal temp 75°C</li>
+        <li>Squeeze lemon + fresh coriander. Serve with mint chutney + naan</li>
+     </ol>
+      <div class="note">No broiler? Use a grill pan on HIGH, cover with foil, 6 min per side</div>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Tandoori Chicken</h3>
-        <span class="recipe-num">10</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">45 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$6</span>
-     </div>
-      <p class="recipe-desc">The red comes from Kashmiri chilli, not food dye. Bone-in thighs stay juicy</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>6 halal chicken thighs, bone-in, skinless <span class="cost">$4</span</li>
-            <li>½ cup yoghurt + 2 tbsp lemon <span class="cost">$0.40</span</li>
-            <li>2 tbsp ginger-garlic paste + 1 tsp Kashmiri chilli <span class="cost">$0.30</span</li>
-            <li>1 tsp garam masala + ½ tsp turmeric + ½ tsp cumin + ½ tsp paprika <span class="cost">$0.30</span</li>
-            <li>1 tsp salt + 2 tbsp oil <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Score thighs (2 cuts each). Marinate 1 hr minimum, overnight better</li>
-            <li>Wire rack on baking sheet. Broiler HIGH, 15 cm from heat</li>
-            <li>Broil 8 min, flip, 8 min more. Char on edges. Internal 75°C</li>
-            <li>Lemon + coriander. Serve with mint chutney + naan</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Whole Roast Chicken</h3><div class="rc-meta"><span class="pill">60 min</span><span class="pill hard">Medium-Hard</span><span class="pill cost">~$9</span</div</div><div class="rc-num">11</div</div>
+      <p class="rc-desc">Halal small chicken, butterflied, herb-rubbed, oven-roasted. Crispy skin, juicy meat. Feeds four</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>1 whole halal chicken (~1.4kg) <span class="cost">$7</span</li>
+        <li>3 tbsp butter or ghee, softened <span class="cost">$0.30</span</li>
+        <li>4 garlic cloves + 1 tbsp each: paprika, thyme, oregano, salt <span class="cost">$0.40</span</li>
+        <li>½ lemon + 1 tsp black pepper <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Spatchcock: cut along both sides of backbone with kitchen shears, remove bone. Flatten chicken (breast up</li>
+        <li>Mix butter + garlic + herbs + salt + pepper. Rub all over chicken, under skin too</li>
+        <li>Roast at 220°C / 425°F for 35–45 min. Internal temp 75°C in thigh</li>
+        <li>Rest 10 min before cutting. Squeeze lemon over. Crispy skin = success</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Whole Roast Chicken</h3>
-        <span class="recipe-num">11</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">60 min</span>
-        <span class="tag diff-hard">Medium-Hard</span>
-        <span class="tag cost">~$9</span>
-     </div>
-      <p class="recipe-desc">Spatchcocked, herb-rubbed, oven-roasted. Crispy skin, juicy meat. Feeds four</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>1 whole halal chicken (~1.4kg) <span class="cost">$7</span</li>
-            <li>3 tbsp butter or ghee, softened <span class="cost">$0.30</span</li>
-            <li>4 garlic + 1 tbsp paprika + 1 tbsp thyme + 1 tbsp oregano + 1 tsp salt <span class="cost">$0.40</span</li>
-            <li>½ lemon + 1 tsp pepper <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Spatchcock: cut along both sides of backbone with shears. Flatten</li>
-            <li>Mix butter + garlic + herbs + salt + pepper. Rub all over, under the skin too</li>
-            <li>Roast at 220°C / 425°F for 35–45 min. Internal 75°C in thigh</li>
-            <li>Rest 10 min before cutting. Squeeze lemon</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Lamb Chops with Rosemary</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill med">Medium</span><span class="pill cost">~$12</span</div</div><div class="rc-num">12</div</div>
+      <p class="rc-desc">Thick halal lamb chops marinated 15 min, seared hard on both sides. Restaurant quality</p>
+      <h4>Ingredients — 4 chops</h4>
+      <ul class="ingr">
+        <li>4 halal lamb chops (~800g total) <span class="cost">$10</span</li>
+        <li>3 garlic cloves + 2 tbsp rosemary leaves + 2 tbsp olive oil <span class="cost">$0.40</span</li>
+        <li>1 tsp salt + 1 tsp black pepper + 1 tbsp Dijon mustard <span class="cost">$0.20</span</li>
+        <li>Lemon wedges <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate chops in oil + garlic + rosemary + mustard + salt + pepper. 15 min room temp</li>
+        <li>Cast iron pan on HIGH. Dry chops with paper towel. Sear 3 min first side, 2 min second (medium-rare</li>
+        <li>Rest 5 min. Squeeze lemon. Salt flakes on top. Done</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Lamb Chops with Rosemary</h3>
-        <span class="recipe-num">12</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$12</span>
-     </div>
-      <p class="recipe-desc">Thick halal chops marinated 15 min, seared hard on both sides. Restaurant quality</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients — 4 chops</h4>
-          <ul class="ingredients">
-            <li>4 halal lamb chops (~800g) <span class="cost">$10</span</li>
-            <li>3 garlic + 2 tbsp rosemary + 2 tbsp olive oil <span class="cost">$0.40</span</li>
-            <li>1 tsp salt + 1 tsp pepper + 1 tbsp Dijon mustard <span class="cost">$0.20</span</li>
-            <li>Lemon wedges <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate in oil + garlic + rosemary + mustard + salt + pepper, 15 min room temp</li>
-            <li>Cast iron pan HIGH. Dry chops. Sear 3 min first side, 2 min second (medium-rare</li>
-            <li>Rest 5 min. Squeeze lemon. Salt flakes on top</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Whole Chicken Tikka</h3>
-        <span class="recipe-num">13</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">50 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$8</span>
-     </div>
-      <p class="recipe-desc">Boneless thighs marinated whole, then broiled. Slice over rice or wrap</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>6 halal chicken thighs, boneless <span class="cost">$4.50</span</li>
-            <li>½ cup yoghurt + 2 tbsp cream <span class="cost">$0.50</span</li>
-            <li>2 tbsp ginger-garlic + 1 tsp each: garam masala, chilli, cumin, coriander, paprika <span class="cost">$0.50</span</li>
-            <li>1 tsp salt + 1 tbsp lemon <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate 1 hr minimum</li>
-            <li>Lay flat on rack. Broil HIGH 6 min. Flip. 5 min more</li>
-            <li>Rest 5 min. Slice into strips. Rice + naan + chutney</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Whole Chicken Tikka</h3><div class="rc-meta"><span class="pill">50 min</span><span class="pill med">Medium</span><span class="pill cost">~$8</span</div</div><div class="rc-num">13</div</div>
+      <p class="rc-desc">Boneless chicken thighs marinated whole, then broiled. Slice and serve over rice or in wraps</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>6 halal chicken thighs, boneless <span class="cost">$4.50</span</li>
+        <li>½ cup yoghurt + 2 tbsp cream <span class="cost">$0.50</span</li>
+        <li>2 tbsp ginger-garlic + 1 tsp each: garam masala, chilli, cumin, coriander, paprika <span class="cost">$0.50</span</li>
+        <li>1 tsp salt + 1 tbsp lemon <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate 1 hr minimum</li>
+        <li>Lay flat on rack. Broil HIGH 6 min. Flip. Broil 5 min more. Charred = good</li>
+        <li>Rest 5 min. Slice into strips. Serve with rice + naan + mint chutney</li>
+     </ol>
+   </div>
  </section>
 
   <!-- FISH -->
-  <section class="section" id="fish">
-    <div class="section-head">
-      <div class="section-num">Fourteen — Seventeen</div>
-      <h2 class="section-title">Grilled Fish & Seafood</h2>
-      <p class="section-desc">Fast. Light. Six to ten minutes total. Fish picks up smoke faster than any meat</p>
+  <section class="card reveal" id="fish">
+    <p class="kicker">Fourteen — Seventeen</p>
+    <h2 class="sec">Grilled <span class="acc">Fish</span> & Seafood</h2>
+    <p class="lede">Fast. Light. Six to ten minutes total. Fish picks up smoke faster than any meat</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Tandoori Salmon</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill easy">Easy</span><span class="pill cost">~$9</span</div</div><div class="rc-num">14</div</div>
+      <p class="rc-desc">Salmon fillets in yoghurt-spice marinade, then grilled. Crispy edges, soft centre. Six minutes under the broiler</p>
+      <h4>Ingredients — 4 fillets</h4>
+      <ul class="ingr">
+        <li>4 salmon fillets (~600g) — confirm wild-caught halal source <span class="cost">$7</span</li>
+        <li>½ cup yoghurt + 1 tbsp ginger-garlic + 1 tbsp lemon <span class="cost">$0.50</span</li>
+        <li>1 tsp each: garam masala, paprika, cumin + ½ tsp turmeric + 1 tsp salt <span class="cost">$0.30</span</li>
+        <li>1 tbsp oil <span class="cost">$0.05</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate 15 min. Line up on oiled rack</li>
+        <li>Broil HIGH 5–6 min. Watch carefully — fish goes from perfect to dry in 60 seconds</li>
+        <li>Done when edges char and centre flakes. Serve with rice + cucumber yoghurt</li>
+     </ol>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Tandoori Salmon</h3>
-        <span class="recipe-num">14</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$9</span>
-     </div>
-      <p class="recipe-desc">Yoghurt-spice marinade, six minutes under the broiler. Crispy edges, soft centre</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients — 4 fillets</h4>
-          <ul class="ingredients">
-            <li>4 salmon fillets (~600g) <span class="cost">$7</span</li>
-            <li>½ cup yoghurt + 1 tbsp ginger-garlic + 1 tbsp lemon <span class="cost">$0.50</span</li>
-            <li>1 tsp each: garam masala, paprika, cumin + ½ tsp turmeric + 1 tsp salt <span class="cost">$0.30</span</li>
-            <li>1 tbsp oil <span class="cost">$0.05</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate 15 min. Line up on oiled rack</li>
-            <li>Broil HIGH 5–6 min. Watch carefully — fish goes from perfect to dry in 60 seconds</li>
-            <li>Serve with rice + cucumber yoghurt</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Grilled Whole Fish</h3><div class="rc-meta"><span class="pill">30 min</span><span class="pill med">Medium</span><span class="pill cost">~$13</span</div</div><div class="rc-num">15</div</div>
+      <p class="rc-desc">Whole fish scored, stuffed with herbs + lemon, grilled. Mediterranean staple. Looks dramatic, easy to do</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>1 whole fish (~700g), gutted + scaled — sea bream, snapper, or trout <span class="cost">$11</span</li>
+        <li>1 lemon, sliced + 4 garlic cloves + handful parsley + 4 tbsp olive oil <span class="cost">$0.60</span</li>
+        <li>1 tsp salt + 1 tsp paprika + ½ tsp cumin <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Score fish both sides (3 diagonal cuts each). Stuff cavity with lemon + garlic + parsley</li>
+        <li>Rub outside with olive oil + spices + salt</li>
+        <li>Grill pan or BBQ medium-high. Cook 5 min per side, total 10 min</li>
+        <li>Done when eye clouds + flesh near spine flakes. Drizzle olive oil + lemon to serve</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Grilled Whole Fish</h3>
-        <span class="recipe-num">15</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">30 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$13</span>
-     </div>
-      <p class="recipe-desc">Whole fish scored and stuffed with herbs + lemon. Mediterranean staple</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>1 whole fish (~700g), gutted and scaled <span class="cost">$11</span</li>
-            <li>1 lemon, sliced + 4 garlic cloves + handful parsley + 4 tbsp olive oil <span class="cost">$0.60</span</li>
-            <li>1 tsp salt + 1 tsp paprika + ½ tsp cumin <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Score both sides (3 diagonal cuts each). Stuff cavity with lemon + garlic + parsley</li>
-            <li>Rub outside with olive oil + spices + salt</li>
-            <li>Grill pan medium-high. 5 min per side, 10 min total</li>
-            <li>Done when eye clouds + flesh near spine flakes. Drizzle olive oil + lemon</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Grilled Shrimp Skewers</h3><div class="rc-meta"><span class="pill">15 min</span><span class="pill easy">Easy</span><span class="pill cost">~$8</span</div</div><div class="rc-num">16</div</div>
+      <p class="rc-desc">Large shrimp marinated in garlic-chilli oil, skewered, grilled 2 min per side. The fastest grilled dish here</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g large shrimp, peeled + deveined <span class="cost">$6</span</li>
+        <li>3 tbsp olive oil + 2 garlic cloves + 1 tsp chilli flakes + 1 tsp paprika <span class="cost">$0.30</span</li>
+        <li>1 tbsp lemon + 1 tsp salt + 2 tbsp chopped parsley <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Marinate 10 min. Thread 5–6 shrimp per skewer</li>
+        <li>Grill pan HIGH. 90 sec per side. Done when pink + curled</li>
+        <li>Lemon + parsley. Serve with garlic rice or grilled flatbread</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Grilled Shrimp Skewers</h3>
-        <span class="recipe-num">16</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">15 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$8</span>
-     </div>
-      <p class="recipe-desc">Garlic-chilli oil marinade, ninety seconds per side. The fastest grilled dish here</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g large shrimp, peeled and deveined <span class="cost">$6</span</li>
-            <li>3 tbsp olive oil + 2 garlic + 1 tsp chilli flakes + 1 tsp paprika <span class="cost">$0.30</span</li>
-            <li>1 tbsp lemon + 1 tsp salt + 2 tbsp parsley <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Marinate 10 min. Thread 5–6 shrimp per skewer</li>
-            <li>Grill pan HIGH. 90 sec per side. Pink + curled = done</li>
-            <li>Lemon + parsley. Garlic rice or flatbread on the side</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Fish Tikka</h3>
-        <span class="recipe-num">17</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$6</span>
-     </div>
-      <p class="recipe-desc">White fish cubes in tikka marinade. Cheap, fast, converts fish-skeptics</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>500g boneless white fish (tilapia, cod, basa) <span class="cost">$4</span</li>
-            <li>½ cup yoghurt + 1 tbsp ginger-garlic + 1 tsp each: turmeric, chilli, garam masala <span class="cost">$0.50</span</li>
-            <li>1 tsp salt + 1 tbsp lemon <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Cut fish into 3cm chunks. Marinate 15 min</li>
-            <li>Skewer. Broil or grill 3 min per side — flip carefully</li>
-            <li>Lemon squeeze + chat masala. Mint chutney on the side</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Fish Tikka</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill easy">Easy</span><span class="pill cost">~$6</span</div</div><div class="rc-num">17</div</div>
+      <p class="rc-desc">White fish cubes in tikka marinade. Cheap, fast, and converts fish-skeptics</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>500g boneless white fish (tilapia, cod, basa) <span class="cost">$4</span</li>
+        <li>½ cup yoghurt + 1 tbsp ginger-garlic + 1 tsp each: turmeric, chilli, garam masala <span class="cost">$0.50</span</li>
+        <li>1 tsp salt + 1 tbsp lemon <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Cut fish into 3cm chunks. Marinate 15 min</li>
+        <li>Skewer. Broil or grill 3 min per side — fish is delicate, flip carefully</li>
+        <li>Lemon squeeze + chat masala. Serve with mint chutney</li>
+     </ol>
+   </div>
  </section>
 
   <!-- BBQ -->
-  <section class="section" id="bbq">
-    <div class="section-head">
-      <div class="section-num">Eighteen — Twenty</div>
-      <h2 class="section-title">BBQ & Smoked</h2>
-      <p class="section-desc">Slow and low classics. Time + smoke. Covered grill, smoker, or low oven</p>
+  <section class="card reveal" id="bbq">
+    <p class="kicker">Eighteen — Twenty</p>
+    <h2 class="sec">BBQ & <span class="acc">Smoked</span</h2>
+    <p class="lede">The slow-and-low classics. Time + smoke. Covered grill, smoker, or low oven</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>BBQ Chicken Thighs</h3><div class="rc-meta"><span class="pill">50 min</span><span class="pill med">Medium</span><span class="pill cost">~$5</span</div</div><div class="rc-num">18</div</div>
+      <p class="rc-desc">Halal bone-in thighs in homemade BBQ sauce. Sticky, charred, finger-licking. Grill or oven</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>6 halal chicken thighs, bone-in <span class="cost">$3.50</span</li>
+        <li>1 cup ketchup + 3 tbsp brown sugar + 2 tbsp apple cider vinegar <span class="cost">$0.60</span</li>
+        <li>1 tbsp Worcestershire + 1 tsp garlic powder + 1 tsp smoked paprika <span class="cost">$0.30</span</li>
+        <li>1 tsp salt + ½ tsp black pepper <span class="cost">$0.05</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Whisk sauce ingredients in a pot. Simmer 5 min. Reserve ½ for serving</li>
+        <li>Rub chicken with salt + pepper. Grill or bake at 200°C / 400°F for 25 min</li>
+        <li>Brush sauce on both sides. Grill/broil 5 min more, sticky + charred</li>
+        <li>Rest 5 min. Serve with extra sauce + coleslaw</li>
+     </ol>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">BBQ Chicken Thighs</h3>
-        <span class="recipe-num">18</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">50 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$5</span>
-     </div>
-      <p class="recipe-desc">Bone-in thighs in homemade BBQ sauce. Sticky, charred, finger-licking</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>6 halal chicken thighs, bone-in <span class="cost">$3.50</span</li>
-            <li>1 cup ketchup + 3 tbsp brown sugar + 2 tbsp apple cider vinegar <span class="cost">$0.60</span</li>
-            <li>1 tbsp Worcestershire + 1 tsp garlic powder + 1 tsp smoked paprika <span class="cost">$0.30</span</li>
-            <li>1 tsp salt + ½ tsp pepper <span class="cost">$0.05</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Whisk sauce in a pot. Simmer 5 min. Reserve half for serving</li>
-            <li>Rub chicken with salt + pepper. Bake at 200°C / 400°F for 25 min</li>
-            <li>Brush sauce both sides. Broil 5 min, sticky + charred</li>
-            <li>Rest 5 min. Serve with extra sauce + coleslaw</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Beef Short Ribs</h3><div class="rc-meta"><span class="pill">2.5 hr</span><span class="pill hard">Medium-Hard</span><span class="pill cost">~$14</span</div</div><div class="rc-num">19</div</div>
+      <p class="rc-desc">Low-and-slow braise, then a final char on the grill. Korean / American cross. Fork-tender with crispy edges</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>1 kg halal beef short ribs <span class="cost">$11</span</li>
+        <li>1 onion + 4 garlic cloves + 1 inch ginger <span class="cost">$0.40</span</li>
+        <li>3 tbsp soy sauce + 2 tbsp gochujang (or chilli paste) + 1 tbsp honey <span class="cost">$0.60</span</li>
+        <li>1 cup beef stock + 2 tbsp sesame oil + 4 spring onions <span class="cost">$0.50</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Heavy pot, sear ribs 2 min per side. Remove</li>
+        <li>Sauté onion + garlic + ginger 3 min. Add sauces + honey + stock. Stir</li>
+        <li>Return ribs. Cover. Simmer 2 hrs (or 35 min in pressure cooker) until tender</li>
+        <li>Remove ribs. Reduce sauce to glaze consistency (10 min</li>
+        <li>Brush ribs with glaze. Grill pan HIGH 90 sec per side for char</li>
+        <li>Serve with rice + extra glaze + sliced spring onions</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Beef Short Ribs</h3>
-        <span class="recipe-num">19</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">2.5 hr</span>
-        <span class="tag diff-hard">Medium-Hard</span>
-        <span class="tag cost">~$14</span>
-     </div>
-      <p class="recipe-desc">Low-and-slow braise, then a final char on the grill. Korean / American cross</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>1 kg halal beef short ribs <span class="cost">$11</span</li>
-            <li>1 onion + 4 garlic + 1 inch ginger <span class="cost">$0.40</span</li>
-            <li>3 tbsp soy sauce + 2 tbsp gochujang + 1 tbsp honey <span class="cost">$0.60</span</li>
-            <li>1 cup beef stock + 2 tbsp sesame oil + 4 spring onions <span class="cost">$0.50</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Sear ribs 2 min per side. Remove</li>
-            <li>Sauté aromatics 3 min. Add sauces + stock</li>
-            <li>Return ribs. Cover. Simmer 2 hrs (or 35 min pressure cooker</li>
-            <li>Reduce sauce to glaze (10 min). Brush ribs</li>
-            <li>Grill pan HIGH 90 sec per side. Serve with rice + glaze + spring onions</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Smoked Whole Chicken</h3>
-        <span class="recipe-num">20</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">4 hr</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$9</span>
-     </div>
-      <p class="recipe-desc">True low-and-smoke. If you have a charcoal grill — this is the project meal</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>1 whole halal chicken (~1.4kg) <span class="cost">$7</span</li>
-            <li>2 tbsp olive oil + 1 tbsp each: smoked paprika, garlic powder, salt, brown sugar <span class="cost">$0.40</span</li>
-            <li>1 tsp pepper + 1 tsp onion powder <span class="cost">$0.10</span</li>
-            <li>Wood chunks (apple, hickory, cherry), 2 cups soaked <span class="cost">$0.50</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Rub chicken with oil + dry mix. Rest 30 min</li>
-            <li>Set up grill for indirect heat. Add wood</li>
-            <li>Maintain 110–120°C / 230–250°F. Smoke 3 hours</li>
-            <li>Internal 75°C in thigh. Skin deep mahogany. Rest 15 min. Carve</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Smoked Whole Chicken</h3><div class="rc-meta"><span class="pill">4 hr</span><span class="pill med">Medium</span><span class="pill cost">~$9</span</div</div><div class="rc-num">20</div</div>
+      <p class="rc-desc">True low-and-smoke. If you have a charcoal grill or cheap smoker — this is the project meal. Worth it</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>1 whole halal chicken (~1.4kg) <span class="cost">$7</span</li>
+        <li>2 tbsp olive oil + 1 tbsp each: smoked paprika, garlic powder, salt, brown sugar <span class="cost">$0.40</span</li>
+        <li>1 tsp black pepper + 1 tsp onion powder <span class="cost">$0.10</span</li>
+        <li>Wood chips (apple, hickory, or cherry) — 2 cups soaked <span class="cost">$0.50</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Rub chicken with oil + dry mix. Rest 30 min</li>
+        <li>Set up grill for indirect heat (coals on one side, chicken on other). Add wood chips</li>
+        <li>Maintain 110–120°C / 230–250°F. Close lid. Smoke 3 hours</li>
+        <li>Internal temp 75°C in thigh. Skin = deep mahogany. Rest 15 min. Carve</li>
+     </ol>
+      <div class="note">No smoker? Use oven at 120°C / 250°F with a small pan of wood chips + water on the rack below the chicken. Less authentic but still smoky</div>
+   </div>
  </section>
 
   <!-- SIDES -->
-  <section class="section" id="sides">
-    <div class="section-head">
-      <div class="section-num">Sides</div>
-      <h2 class="section-title">Smoke-Friendly Sides</h2>
-      <p class="section-desc">Fresh, fast, all halal. Under fifteen minutes each</p>
+  <section class="card reveal" id="sides">
+    <p class="kicker">Sides</p>
+    <h2 class="sec">Smoke-Friendly <span class="acc">Sides</span</h2>
+    <p class="lede">What to serve alongside. All halal, all fresh, all under fifteen minutes</p>
+
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Smoky Eggplant Dip</h3><div class="rc-meta"><span class="pill">25 min</span><span class="pill easy">Easy</span><span class="pill cost">~$3</span</div</div><div class="rc-num">S1</div</div>
+      <p class="rc-desc">Charred eggplant + tahini + lemon. The smoky side that beats hummus</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>2 large eggplants <span class="cost">$1.50</span</li>
+        <li>3 tbsp tahini + 1 lemon juiced + 1 garlic clove <span class="cost">$0.50</span</li>
+        <li>1 tsp salt + 2 tbsp olive oil + pinch cumin <span class="cost">$0.20</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Char eggplants directly on gas flame or under broiler until blackened all over (10 min). Cool</li>
+        <li>Scoop flesh out. Mash with tahini, lemon, garlic, salt, cumin</li>
+        <li>Drizzle olive oil. Eat with bread or as a side</li>
+     </ol>
    </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Smoky Eggplant Dip</h3>
-        <span class="recipe-num">S1</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">25 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$3</span>
-     </div>
-      <p class="recipe-desc">Charred eggplant + tahini + lemon. Beats hummus</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>2 large eggplants <span class="cost">$1.50</span</li>
-            <li>3 tbsp tahini + 1 lemon juiced + 1 garlic clove <span class="cost">$0.50</span</li>
-            <li>1 tsp salt + 2 tbsp olive oil + pinch cumin <span class="cost">$0.20</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Char eggplants directly on flame or under broiler until blackened (10 min). Cool</li>
-            <li>Scoop flesh out. Mash with everything else</li>
-            <li>Drizzle olive oil. Eat with bread</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Mint & Yoghurt Sauce</h3><div class="rc-meta"><span class="pill">5 min</span><span class="pill easy">Easy</span><span class="pill cost">~$1</span</div</div><div class="rc-num">S2</div</div>
+      <p class="rc-desc">The sauce that makes kebabs. Mint + yoghurt + chilli + salt. Done in 5 minutes</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>1 cup yoghurt + ½ cup mint leaves + ¼ cup coriander <span class="cost">$0.80</span</li>
+        <li>1 green chilli + 1 garlic clove + ½ tsp salt + 1 tbsp lemon <span class="cost">$0.15</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Blend everything until smooth. Done. Keeps 3 days in fridge</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Mint & Yoghurt Sauce</h3>
-        <span class="recipe-num">S2</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">5 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$1</span>
-     </div>
-      <p class="recipe-desc">The sauce that makes kebabs</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>1 cup yoghurt + ½ cup mint + ¼ cup coriander <span class="cost">$0.80</span</li>
-            <li>1 green chilli + 1 garlic clove + ½ tsp salt + 1 tbsp lemon <span class="cost">$0.15</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Blend everything until smooth. Keeps 3 days in the fridge</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Charred Corn Salad</h3><div class="rc-meta"><span class="pill">15 min</span><span class="pill easy">Easy</span><span class="pill cost">~$3</span</div</div><div class="rc-num">S3</div</div>
+      <p class="rc-desc">Grilled corn + lime + feta + chilli. The summer BBQ side. Done on the same grill</p>
+      <h4>Ingredients</h4>
+      <ul class="ingr">
+        <li>4 corn cobs (or 2 cups frozen kernels) <span class="cost">$1.50</span</li>
+        <li>½ cup feta, crumbled <span class="cost">$1</span</li>
+        <li>1 lime + 2 tbsp olive oil + 1 tsp chilli flakes + ½ tsp salt <span class="cost">$0.30</span</li>
+        <li>2 tbsp chopped coriander <span class="cost">$0.10</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Grill corn directly on heat 6–8 min, turning. Some char = good</li>
+        <li>Cut kernels off cob. Toss with everything else. Eat warm</li>
+     </ol>
+   </div>
 
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Charred Corn Salad</h3>
-        <span class="recipe-num">S3</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">15 min</span>
-        <span class="tag diff-easy">Easy</span>
-        <span class="tag cost">~$3</span>
-     </div>
-      <p class="recipe-desc">Grilled corn + lime + feta + chilli. The summer BBQ side</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients</h4>
-          <ul class="ingredients">
-            <li>4 corn cobs <span class="cost">$1.50</span</li>
-            <li>½ cup feta, crumbled <span class="cost">$1</span</li>
-            <li>1 lime + 2 tbsp olive oil + 1 tsp chilli flakes + ½ tsp salt <span class="cost">$0.30</span</li>
-            <li>2 tbsp coriander <span class="cost">$0.10</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Grill corn 6–8 min, turning. Some char = good</li>
-            <li>Cut kernels off. Toss with everything else. Eat warm</li>
-         </ol>
-       </div>
-     </div>
-   </article>
-
-    <article class="recipe">
-      <div class="recipe-head">
-        <h3 class="recipe-name">Grilled Flatbread</h3>
-        <span class="recipe-num">S4</span>
-     </div>
-      <div class="recipe-meta">
-        <span class="tag time">20 min</span>
-        <span class="tag diff-med">Medium</span>
-        <span class="tag cost">~$1</span>
-     </div>
-      <p class="recipe-desc">Quick dough, char-grilled on a dry pan. Puffs up</p>
-      <div class="recipe-body">
-        <div>
-          <h4 class="ingredients-title">Ingredients — 4 breads</h4>
-          <ul class="ingredients">
-            <li>2 cups flour + ½ tsp salt + ½ tsp baking powder <span class="cost">$0.30</span</li>
-            <li>¾ cup yoghurt + 1 tbsp olive oil <span class="cost">$0.20</span</li>
-         </ul>
-       </div>
-        <div>
-          <h4 class="steps-title">Steps</h4>
-          <ol class="steps">
-            <li>Mix to soft dough. Rest 10 min. Divide into 4 balls. Roll thin</li>
-            <li>Dry pan HIGH. 90 sec per side. Puffs = right heat</li>
-            <li>Brush with oil + sprinkle salt. Stack under a tea towel</li>
-         </ol>
-       </div>
-     </div>
-   </article>
+    <div class="recipe-card">
+      <div class="rc-head"><div><h3>Grilled Flatbread</h3><div class="rc-meta"><span class="pill">20 min</span><span class="pill med">Medium</span><span class="pill cost">~$1</span</div</div><div class="rc-num">S4</div</div>
+      <p class="rc-desc">Quick dough, char-grilled on a dry pan. Puffs up. Soak up sauces, wrap kebabs</p>
+      <h4>Ingredients — 4 breads</h4>
+      <ul class="ingr">
+        <li>2 cups flour + ½ tsp salt + ½ tsp baking powder <span class="cost">$0.30</span</li>
+        <li>¾ cup yoghurt (or water) + 1 tbsp olive oil <span class="cost">$0.20</span</li>
+     </ul>
+      <h4>Steps</h4>
+      <ol class="steps">
+        <li>Mix to soft dough. Rest 10 min. Divide into 4 balls. Roll thin</li>
+        <li>Dry pan on HIGH. Lay bread. Puffs = right heat. 90 sec per side</li>
+        <li>Brush with oil + sprinkle salt. Stack under tea towel</li>
+     </ol>
+   </div>
  </section>
 
   <!-- TIPS -->
-  <section class="tips" id="tips">
-    <div class="tips-head">
-      <div class="section-num">Tips</div>
-      <h2 class="section-title">Grilling Notes</h2>
-   </div>
-    <div class="tips-grid">
-      <div class="tip">
-        <h4>Heat mastery</h4>
-        <ul>
+  <section class="card reveal" id="tips">
+    <p class="kicker">Tips</p>
+    <h2 class="sec">Grilling notes that <span class="acc">change everything</span</h2>
+
+    <div class="grid2">
+      <div class="mini">
+        <h3>Heat mastery</h3>
+        <ul class="facts">
           <li>Pan must be screaming hot for char — medium heat gives grey, sad meat</li>
           <li>Cast iron holds heat best, stainless second. Non-stick = no char</li>
           <li>Pat meat dry before grilling. Wet surface steams instead of searing</li>
           <li>Don't flip more than once for crosshatch marks</li>
        </ul>
      </div>
-      <div class="tip">
-        <h4>Marination</h4>
-        <ul>
+      <div class="mini">
+        <h3>Marination</h3>
+        <ul class="facts">
           <li>Yoghurt + acid (lemon or vinegar) tenderises faster than anything else</li>
           <li>One hour marinade = decent. Overnight = transcendent</li>
           <li>Salt thirty minutes before cooking, not just before — juicier meat</li>
           <li>Save a quarter of the marinade for brushing at the end</li>
        </ul>
      </div>
-      <div class="tip">
-        <h4>Charcoal setup</h4>
-        <ul>
+      <div class="mini">
+        <h3>Charcoal setup</h3>
+        <ul class="facts">
           <li>Chimney starter + newspaper = coals in fifteen minutes, no lighter fluid taste</li>
           <li>Coconut-shell charcoal burns hotter, cleaner, longer than briquettes</li>
           <li>Two-zone fire: hot side for searing, cool side for finishing thick cuts</li>
           <li>Wood chunks (not chips) for long cooks — chips burn out in twenty minutes</li>
        </ul>
      </div>
-      <div class="tip">
-        <h4>Halal sourcing</h4>
-        <ul>
+      <div class="mini">
+        <h3>Halal sourcing</h3>
+        <ul class="facts">
           <li>Build a relationship with one halal butcher — they'll cut to your thickness</li>
           <li>Halal mince freezes three months. Portion into 500g flat bags — thaws faster</li>
           <li>Whole chickens on Eid are forty percent cheaper per kg than pieces</li>
@@ -1041,10 +1032,9 @@ footer em{font-style:italic;color:var(--ember);font-weight:500}
    </div>
  </section>
 
-  <footer>
-    <p>Fire · Spice · <em>Embers never lie</em</p>
+  <footer class="foot reveal">
+    <p>Fire · Spice · <span class="g">Embers never lie</span</p>
  </footer>
-
 </main>
 </body>
 </html>
