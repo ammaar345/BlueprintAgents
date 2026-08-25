@@ -67,7 +67,7 @@
   --font: 'Quicksand', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-round: 'Fredoka', 'Quicksand', sans-serif;
 
-  --maxw: 920px;
+  --maxw: 720px;
 
   --bg-grad:
     radial-gradient(1200px 700px at 15% -10%, rgba(196, 181, 253, 0.18) 0%, transparent 55%),
@@ -230,8 +230,10 @@ h2.sec {
 .lede {
   color: var(--ink-2);
   font-weight: 600;
-  margin-bottom: 16px;
-  max-width: 64ch;
+  margin-bottom: 14px;
+  max-width: 52ch;
+  font-size: 0.96rem;
+  line-height: 1.55;
 }
 
 /* Pills */
@@ -323,7 +325,7 @@ th {
   white-space: nowrap;
 }
 tr:last-child td { border-bottom: none; }
-td { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+td { color: var(--ink-2); font-variant-numeric: tabular-nums; max-width: 320px; }
 .num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
 .opencell { color: var(--mint); font-weight: 700; }
 .lockcell { color: var(--coral); font-weight: 700; }
@@ -364,9 +366,9 @@ td { color: var(--ink-2); font-variant-numeric: tabular-nums; }
 
 /* Grids */
 .grid2 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 560px) { .grid2 { grid-template-columns: 1fr 1fr; } }
 .grid3 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 900px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
+@media (min-width: 720px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
 
 .mini {
   background: rgba(0, 0, 0, 0.22);
