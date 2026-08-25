@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Eldorado Under $2 Flip Guide</title>
+<meta name="description" content="Under-$2 Eldorado.gg items across Steal a Brainrot, MM2, Blox Fruits, Adopt Me, Plants vs Brainrots, Grow a Garden, and Fisch — plus Discord middleman servers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  /* Marshmallow palette */
+  --cream:#FFF8F3;--marshmallow:#FDF4E7;--cloud:#F8F4FF;
+  --soft-pink:#FFE6EC;--peach:#FFE4D9;--lavender:#ECE9FF;
+  --mint:#E6FFF8;--butter:#FFF4D6;
+  /* Brand - Brainrot & MM2 themed */
+  --coral:#FF5E7E;--coral-deep:#FF3B5C;--coral-soft:#FFB3C4;
+  --gold:#FFC24B;--gold-deep:#F0A92E;
+  --brainrot-purple:#BF7EF4;--brainrot-purple-deep:#9A5CE0;
+  --mm2-red:#FF4757;--mm2-red-deep:#D62B3A;
+  /* Text */
+  --ink:#4A3D57;--ink-2:#6B5B7F;--ink-3:#9086A3;
+  --ok:#1F8A70;--stop:#C42B4A;
+  --shadow-s:rgba(122, 90, 120,.10);--shadow-m:rgba(122, 90, 120,.16);--shadow-l:rgba(122, 90, 120,.24);
+  --radius-sm:16px;--radius-md:24px;--radius-lg:32px;--radius-pill:999px;
+  --font:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-round:'Fredoka','Nunito',sans-serif;
+  --maxw:860px;
+  --bg:
+    radial-gradient(1200px 700px at 15% -10%, var(--soft-pink) 0%, transparent 55%),
+    radial-gradient(1000px 600px at 100% 0%, var(--lavender) 0%, transparent 50%),
+    radial-gradient(900px 900px at 50% 120%, var(--butter) 0%, transparent 55%),
+    linear-gradient(160deg, var(--marshmallow) 0%, var(--cloud) 55%, var(--peach) 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:var(--font);color:var(--ink);line-height:1.6;
+  min-height:100dvh;overflow-x:hidden;
+  background:var(--bg);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:anywhere;
+}
+.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(6px);opacity:.55;
+  animation:drift 18s ease-in-out infinite;}
+.blob.b1{width:220px;height:220px;top:8%;left:-70px;background:radial-gradient(circle at 35% 30%,#fff,var(--coral-soft));}
+.blob.b2{width:170px;height:170px;top:62%;right:-50px;background:radial-gradient(circle at 35% 30%,#fff,var(--lavender));animation-delay:4s}
+.blob.b3{width:130px;height:130px;top:32%;right:12%;background:radial-gradient(circle at 35% 30%,#fff,var(--gold));opacity:.4;animation-delay:8s}
+.blob.b4{width:100px;height:100px;bottom:10%;left:12%;background:radial-gradient(circle at 35% 30%,#fff,var(--mint));animation-delay:2s}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(26px,-30px) scale(1.06)}
+  66%{transform:translate(-20px,22px) scale(.96)}
+}
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:28px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left));
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  min-width:0;
+}
+.reveal{opacity:0;transform:translateY(22px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+/* badge */
+.badge{
+  width:120px;height:120px;border-radius:var(--radius-pill);
+  background:linear-gradient(150deg,#fff,var(--cream));
+  border:3px solid var(--soft-pink);
+  box-shadow:0 12px 34px var(--shadow-m), inset 0 0 0 6px #fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;margin:0 auto 4px;position:relative}
+.badge::after{
+  content:"";position:absolute;inset:-3px;border-radius:inherit;
+  box-shadow:0 0 0 0 var(--coral-soft);animation:pulse 3.4s ease-out infinite;}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,94,126,.35);}
+  70%,100%{box-shadow:0 0 0 18px rgba(255,94,126,0)}}
+.badge .b-top{font-family:var(--font-round);font-weight:600;font-size:11px;letter-spacing:2px;color:var(--ink-2);}
+.badge .b-run{font-family:var(--font-round);font-weight:700;font-size:28px;line-height:.9;color:var(--coral-deep);}
+.badge .b-hq{font-family:var(--font-round);font-weight:700;font-size:10px;letter-spacing:2px;color:#fff;
+  background:var(--coral);padding:2px 8px;border-radius:var(--radius-pill);margin-top:3px}
+/* hero-copy */
+.hero-copy{text-align:center;}
+h1.wordmark{
+  font-family:var(--font-round);font-weight:700;
+  font-size:clamp(2rem,7vw,2.8rem);letter-spacing:1px;color:var(--ink);
+  text-wrap:balance;margin-bottom:8px;}
+h1.wordmark .run{color:var(--coral-deep);display:inline-block;transform:rotate(-3deg);}
+.tagline{
+  font-size:clamp(1rem,3.4vw,1.15rem);color:var(--ink-2);font-weight:600;
+  max-width:38ch;margin:0 auto 6px;}
+.tagline b{color:var(--coral-deep);}
+.asof{font-size:.78rem;font-weight:700;color:var(--ink-3);letter-spacing:.4px;}
+/* progress */
+.progress{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  justify-content:center;margin:6px 0 4px;}
+.progress .step{font-family:var(--font-round);font-weight:600;font-size:.82rem;letter-spacing:2px;color:var(--ink-3);}
+.progress .step.s2{color:var(--gold-deep);}
+.progress .step.s3{color:var(--coral);}
+.progress .step.s4{color:var(--coral-deep);font-weight:700;}
+.progress .dot{width:5px;height:5px;border-radius:50%;background:var(--coral-soft);}
+ /* toc */
+.toc{
+  position:sticky;top:max(8px, env(safe-area-inset-top));z-index:20;
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  padding:10px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);
+  border:2px solid #fff;border-radius:var(--radius-lg);
+  box-shadow:0 10px 28px var(--shadow-s);}
+.toc a{
+  font-family:var(--font-round);font-weight:600;font-size:.78rem;letter-spacing:.4px;
+  color:var(--ink);background:var(--cream);border:2px solid #fff;
+  padding:8px 12px;border-radius:var(--radius-pill);
+  min-height:36px;display:inline-flex;align-items:center;}
+.toc a:hover{background:var(--soft-pink);text-decoration:none;color:var(--coral-deep);}
+ /* card */
+.card{
+  width:100%;
+  min-width:0;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(8px);
+  border:2px solid #fff;
+  border-radius:var(--radius-lg);
+  box-shadow:0 14px 40px var(--shadow-s), inset 0 0 0 1px rgba(255,255,255,.6);
+  padding:26px 24px;}
+.hero-card{
+  background:linear-gradient(155deg,var(--coral) 0%,var(--coral-deep) 100%);
+  border:none;color:#fff;position:relative;overflow:hidden;}
+.hero-card::before{
+  content:"";position:absolute;top:-40px;right:-40px;width:150px;height:150px;
+  background:radial-gradient(circle,rgba(255,255,255,.28),transparent 70%);border-radius:50%;}
+.hero-card h2,.hero-card p,.hero-card a,.hero-card ol,.hero-card li{position:relative;}
+.hero-card h2{
+  font-family:var(--font-round);font-weight:700;
+  font-size:clamp(1.25rem,4vw,1.6rem);line-height:1.2;margin-bottom:8px;text-wrap:balance;}
+.hero-card .sub{font-size:.98rem;font-weight:600;opacity:.94;margin-bottom:16px;max-width:52ch;}
+.hero-card ol{display:flex;flex-direction:column;gap:8px;padding-left:1.2em;font-weight:600;}
+.hero-card a{color:#fff;text-decoration:underline;}
+.hero-card .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.btn{
+  border:none;cursor:pointer;font-family:var(--font-round);font-weight:600;
+  font-size:1rem;color:var(--coral-deep);background:#fff;
+  padding:14px 18px;border-radius:var(--radius-pill);
+  box-shadow:0 10px 24px rgba(74,61,87,.18);
+  min-height:48px;display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;flex:1 1 180px;}
+.btn:hover{transform:translateY(-3px);text-decoration:none;}
+.btn.ghost{background:rgba(255,255,255,.16);color:#fff;border:2px solid rgba(255,255,255,.55);box-shadow:none;}
+/* headings */
+h2.sec{
+  font-family:var(--font-round);font-weight:700;font-size:1.35rem;
+  color:var(--ink);margin-bottom:6px;text-wrap:balance;}
+.lede{color:var(--ink-2);font-weight:600;margin-bottom:16px;max-width:62ch;}
+.kicker{
+  font-family:var(--font-round);font-weight:700;font-size:.72rem;letter-spacing:1.6px;
+  color:var(--coral-deep);margin-bottom:6px;}
+ /* pills & lists */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;}
+.pill{
+  font-family:var(--font-round);font-weight:600;font-size:.72rem;letter-spacing:.6px;
+  padding:4px 10px;border-radius:var(--radius-pill);background:var(--butter);color:var(--gold-deep);}
+.pill.lock{background:var(--soft-pink);color:var(--coral-deep);}
+.pill.open{background:var(--mint);color:var(--ok);}
+.pill.later{background:var(--lavender);color:var(--ink-2);}
+ol.steps,ul.facts{display:flex;flex-direction:column;gap:8px;padding-left:1.15em;font-weight:600;}
+ol.steps li,ul.facts li{color:var(--ink);}
+.note{
+  margin-top:14px;background:var(--butter);border-radius:var(--radius-md);
+  padding:12px 14px;font-weight:700;color:var(--ink);font-size:.92rem;}
+.warnbox{
+  background:var(--soft-pink);border-radius:var(--radius-md);
+  padding:12px 14px;font-weight:700;color:var(--stop);font-size:.92rem;margin-top:12px;}
+/* tables */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px;border-radius:var(--radius-md);max-width:100%;}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.92rem;font-weight:600;}
+th,td{text-align:left;padding:10px 12px;vertical-align:top;}
+th{
+  font-family:var(--font-round);font-size:.75rem;letter-spacing:.8px;
+  color:var(--ink-2);background:var(--cloud);white-space:nowrap;}
+td{border-top:1px solid rgba(122,90,120,.12);font-variant-numeric:tabular-nums;}
+tr:first-child th:first-child{border-top-left-radius:14px;}
+tr:first-child th:last-child{border-top-right-radius:14px;}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.lockcell{color:var(--coral-deep);font-weight:800;}
+.opencell{color:var(--ok);font-weight:800;}
+/* grid & mini */
+.grid2{display:grid;grid-template-columns:1fr;gap:12px;min-width:0;}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr;}}
+.mini{
+  background:#fff;border-radius:var(--radius-md);padding:16px 16px 14px;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.9);}
+.mini h3{font-family:var(--font-round);font-size:1.05rem;margin-bottom:6px;}
+.mini p,.mini li{font-size:.92rem;font-weight:600;color:var(--ink-2);}
+.rank{font-family:var(--font-round);font-weight:700;color:var(--coral-deep);font-size:.78rem;letter-spacing:1px;}
+/* calc */
+.calc{
+  display:grid;grid-template-columns:1fr;gap:10px;}
+@media(min-width:640px){.calc{grid-template-columns:1fr 1fr 1fr;}}
+.field label{
+  display:block;font-family:var(--font-round);font-size:.75rem;letter-spacing:.6px;
+  color:var(--ink-2);font-weight:700;margin-bottom:6px;}
+.field input,.field select{
+  width:100%;padding:12px 14px;border:none;border-radius:var(--radius-pill);
+  font-family:var(--font);font-size:1rem;font-weight:700;color:var(--ink);
+  background:#fff;box-shadow:inset 0 2px 8px rgba(0,0,0,.06);}
+.payout{
+  margin-top:12px;background:var(--mint);border-radius:var(--radius-md);padding:14px 16px;}
+.payout .big{
+  font-family:var(--font-round);font-size:1.8rem;color:var(--ok);font-weight:700;
+  font-variant-numeric:tabular-nums;}
+.payout .tiny{font-size:.85rem;font-weight:700;color:var(--ink-2);}
+ /* sources & foot */
+.sources{display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;}
+.sources a{overflow-wrap:anywhere;word-break:break-word;}
+.foot{
+  text-align:center;margin-top:10px;
+  font-family:var(--font-round);font-weight:600;font-size:.8rem;letter-spacing:2px;color:var(--ink-3);}
+.foot .g{color:var(--coral-deep);font-weight:700;}
+/* responsive */
+@media(min-width:600px){
+  .wrap{padding-top:40px;}
+  .badge{width:132px;height:132px;}
+}
+@media(max-width:719px){
+  .wrap{padding:20px 12px 48px;gap:12px;}
+  .card{padding:18px 14px;border-radius:24px;}
+  .badge{width:96px;height:96px;}
+  .badge .b-run{font-size:20px;}
+  h1.wordmark{font-size:clamp(1.7rem,9vw,2.2rem);}
+  h2.sec{font-size:1.15rem;}
+  .lede,.note,.warnbox{font-size:.88rem;}
+  .progress{gap:6px;}
+  .progress .step{font-size:.68rem;letter-spacing:1px;}
+  .toc{gap:6px;padding:8px;top:6px;}
+  .toc a{font-size:.72rem;padding:6px 10px;}
+  .btn{width:100%;flex:1 1 100%;}
+  .blob.b1{width:140px;height:140px;}
+  .blob.b2{width:110px;height:110px;}
+  .blob.b3,.blob.b4{width:80px;height:80px;}
+  .foot{letter-spacing:1px;font-size:.72rem;}
+  /* stack the under-$2 table into cards */
+  .table-wrap{overflow:visible;}
+  .table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block;width:100%;}
+  .table-wrap thead{display:none;}
+  .table-wrap tr{
+    background:#fff;
+    border-radius:18px;
+    padding:14px 14px 12px;
+    margin-bottom:10px;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.9);
+  }
+  .table-wrap tr:last-child{margin-bottom:0;}
+  .table-wrap td{
+    border:none;
+    padding:4px 0 8px;
+    white-space:normal;
+  }
+  .table-wrap td:first-child{
+    font-family:var(--font-round);
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--ink);
+    padding-top:0;
+  }
+  .table-wrap td[data-label]::before{
+    content:attr(data-label);
+    display:block;
+    font-family:var(--font-round);
+    font-size:.7rem;
+    letter-spacing:.8px;
+    color:var(--ink-3);
+    font-weight:700;
+    margin-bottom:2px;
+  }
+  .table-wrap td:first-child::before{content:none;}
+}
+/* --- Secret Brainrot Max Section (light blue / yellow / cream) --- */
+#secret-brainrots{
+  background:linear-gradient(170deg,#EEF7FF 0%,#FDFBEE 40%,#FFF9E8 60%,#EEF7FF 100%) !important;
+  border:3px solid #B8DFFF !important;
+  position:relative;overflow:hidden;
+}
+#secret-brainrots .marsh-rain{
+  position:absolute;top:-60px;left:0;right:0;height:150%;
+  pointer-events:none;z-index:0;overflow:hidden;
+}
+.mm{
+  position:absolute;top:-30px;
+  background:rgba(255,255,255,.82);
+  border-radius:42% 42% 46% 46%;
+  box-shadow:0 2px 6px rgba(0,0,0,.07),inset 0 -2px 3px rgba(0,0,0,.04);
+  animation:mfall linear infinite;
+}
+@keyframes mfall{
+  0%{transform:translateY(0) rotate(0deg);opacity:0}
+  5%{opacity:.75}
+  88%{opacity:.55}
+  100%{transform:translateY(calc(100vh + 60px)) rotate(var(--mr,180deg));opacity:0}
+}
+#secret-brainrots .card-ct{position:relative;z-index:1}
+#secret-brainrots .badge-y{
+  display:inline-block;font-family:var(--font-round);font-weight:700;font-size:.75rem;
+  letter-spacing:1px;background:linear-gradient(135deg,#FFE77A,#FFD23F);
+  color:#7A5C00;padding:4px 14px;border-radius:var(--radius-pill);}
+#secret-brainrots .badge-b{
+  display:inline-block;font-family:var(--font-round);font-weight:700;font-size:.75rem;
+  letter-spacing:1px;background:linear-gradient(135deg,#BFE0FF,#85C8FF);
+  color:#004A7A;padding:4px 14px;border-radius:var(--radius-pill);}
+/* table color overrides for this section */
+#secret-brainrots th{background:#EEF7FF !important;color:#3A6EA5;}
+#secret-brainrots tr{background:rgba(255,255,255,.85);}
+#secret-brainrots .num{color:#2C5282;}
+#secret-brainrots .lockcell{color:#B7791F;}
+#secret-brainrots .opencell{color:#2F855A;}
+@media(prefers-reduced-motion:reduce){
+  *, *::before, *::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+<div class="blobs" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <span class="blob b3"></span><span class="blob b4"></span>
+</div>
+
+<main class="wrap">
+  <div class="badge reveal" aria-hidden="true">
+    <span class="b-top">TRADE</span>
+    <span class="b-run">BRAINROT</span>
+    <span class="b-hq">GUIDE</span>
+  </div>
+
+  <header class="hero-copy reveal">
+    <h1 class="wordmark">ELDORADO<span class="run">TRADE</span></h1>
+    <p class="tagline">Brainrot & MM2 Trading with Discord Middleman Services<br><b>Secure resale on Eldorado.gg</b></p>
+    <p class="asof">Research compiled 20 Aug 2026. Values change — recheck before trading.</p>
+  </header>
+
+  <div class="progress reveal" aria-hidden="true">
+    <span class="step s1">RESEARCH</span><span class="dot"></span>
+    <span class="step s2">JOIN DISCORDS</span><span class="dot"></span>
+    <span class="step s3">VERIFY TRADERS</span><span class="dot"></span>
+    <span class="step s4">TRADE SECURELY.</span>
+  </div>
+
+  <nav class="toc reveal" aria-label="Jump">
+    <a href="#under-2">Under $2</a>
+    <a href="#brainrot-market">Brainrot</a>
+    <a href="#discord-servers">Discords</a>
+    <a href="#mm2-trading">MM2</a>
+    <a href="#scaling-up">Scaling Up</a>
+    <a href="#secret-brainrots">Maximize Secret Brainrots</a>
+    <a href="#security-tips">Safety</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <section class="card reveal" id="under-2">
+    <p class="kicker">LIVE LISTINGS 20 AUG 2026</p>
+    <h2 class="sec">Items that actually list under $2</h2>
+    <p class="lede">Pulled from Eldorado shop floors, not value blogs. Blogs lag. Shops do not. Skip anything under $0.50 unless you can move volume — fees eat it.</p>
+    <div class="pills">
+      <span class="pill open">Floor $0.02–$0.50</span>
+      <span class="pill">Best flip band $0.50–$1.99</span>
+      <span class="pill lock">Skip sub-$0.50 unless bulk</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Floor</th>
+            <th>Under $2 that actually lists</th>
+            <th>Skip / trap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Steal a Brainrot</td>
+            <td class="num opencell" data-label="Floor">$0.50</td>
+            <td data-label="Under $2 listings">Bacuru and Egguru, Chill Puppy $0.50. Noo my Heart $0.99. Honey Honey Bear, Los Fruits, Los Candies, Ketupat Kepat, 1x1x1x1 $1.00. Gold Gold Gold $1.30. Chipso and Queso $1.70. Ventoliero Pavonero, Orcaledon, Los Planitos $1.99. Also Esok Sekolah, Capitano Gullini, Hippo Golazo, Glaciator, Flancito $0.50–$3.</td>
+            <td data-label="Skip / trap">Strawberry Elephant / 67 / Eviledon are not this band. Commons with 100M+ copies sit forever.</td>
+          </tr>
+          <tr>
+            <td>Murder Mystery 2</td>
+            <td class="num opencell" data-label="Floor">$0.35</td>
+            <td data-label="Under $2 listings">Godly Frostbird pet $0.35. Clockwork, Ghostblade $0.50. Fang $0.75. Nebula $0.88. Frostsaber $0.97. Gemstone $0.98. Heart pet $0.98. Shark $1.20. Iceflake $1.94. Chroma Deathshard $1.87. Chroma Cookiecane $1.90. Bones / Gingerbread / Ghost / Blood / America $0.50–$1.50. Bubbles, JD $1–$3.</td>
+            <td data-label="Skip / trap">Vintage OG knives are dead demand. Chroma Darkbringer / Lightbringer / Luger list $1–$4 because they are oversupplied — rarity is not demand.</td>
+          </tr>
+          <tr>
+            <td>Blox Fruits</td>
+            <td class="num opencell" data-label="Floor">$0.30</td>
+            <td data-label="Under $2 listings">Perm Rocket / Spin $0.30–$0.50. Perm Blade $0.50–$1. Perm Spring $0.80–$1.30. Perm Bomb $1.20–$1.50. Perm Smoke $1.30–$1.90. Physical Spin 75R $0.50. Gas $0.95. Yeti $1.15–$1.97. Tiger $1.99. 10k money 50R $0.50. 50k money $1.23.</td>
+            <td data-label="Skip / trap">Physical Kitsune starts ~$3. 2x Money pass ~$2.30. Perms under $2 are common stock — move them, do not sit on them.</td>
+          </tr>
+          <tr>
+            <td>Adopt Me</td>
+            <td class="num opencell" data-label="Floor">$0.05</td>
+            <td data-label="Under $2 listings">Diamond Mahi Mahi $0.05. Diamond Griffin $0.06. Sea Turtle, Golden Dragon $0.10. Unicorn $0.30. Quokka $0.65. Firefly (fly) $0.99. Glyptodon NR $1.20. Warthog NR $1.87. Dragonfly NF $1.90. Fly Potion ~$1.29.</td>
+            <td data-label="Skip / trap">No-potion legendaries at $0.05–$0.10 are junk volume. Neon + fly/ride is the only under-$2 lane worth listing.</td>
+          </tr>
+          <tr>
+            <td>Plants vs Brainrots</td>
+            <td class="num opencell" data-label="Floor">$0.10</td>
+            <td data-label="Under $2 listings">Starfruit $0.10. 50k+ DPS plants $0.25. Tomatrio 10x $0.50. Gattolini Owlini $0.50. Rebirth 1 material $0.50. Eggplant $0.75. Mango ~$1. Gatto Spione / Matteo ~$1.</td>
+            <td data-label="Skip / trap">High-volume sellers (Incubater, FourBloxID) already own the $0.10–$0.50 grid. Need a named plant, not raw DPS spam.</td>
+          </tr>
+          <tr>
+            <td>Grow a Garden 2</td>
+            <td class="num" data-label="Floor">$0.003</td>
+            <td data-label="Under $2 listings">Trowels $0.0029. Moon bloom seed $0.008. Mega/sun bloom $0.01. Unicorn $0.02. Dragonfly $0.06. Plum seed $0.30. Raccoon $0.60.</td>
+            <td data-label="Skip / trap">Sub-cent seeds are fee death. Only pets $0.50+ are worth a listing.</td>
+          </tr>
+          <tr>
+            <td>Fisch</td>
+            <td class="num" data-label="Floor">$0.02</td>
+            <td data-label="Under $2 listings">Cosmic Relic $0.02. Ruby / Lapis $0.10. Chaotic Relic $0.11. Ruby / Opal $0.17. Moonstone $0.19. Admin Relic $0.30.</td>
+            <td data-label="Skip / trap">Relics at $0.02–$0.11 need bulk. Single-unit listings lose to fees.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Best under-$2 resale lanes: Steal a Brainrot $0.50–$1.99 named units, MM2 cheap godlys $0.35–$1.20, Blox Fruits common perms $0.50–$1.90. Adopt Me / Grow a Garden / Fisch only if you already have the stock — do not farm them for $0.05 listings.</p>
+    <div class="grid2" style="margin-top:14px">
+      <div class="mini">
+        <p class="rank">DO NOW</p>
+        <h3>Buy / source these</h3>
+        <ul class="facts">
+          <li>SaB: Chill Puppy, Los Fruits, Gold Gold Gold, Chipso and Queso</li>
+          <li>MM2: Frostbird, Clockwork, Ghostblade, Fang, Nebula</li>
+          <li>Blox Fruits: perm Spin / Blade / Spring — or physical Gas / Yeti</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <p class="rank">SKIP</p>
+        <h3>Looks cheap, is not a flip</h3>
+        <ul class="facts">
+          <li>Grow a Garden trowels and $0.01 seeds</li>
+          <li>Adopt Me no-potion legendaries at $0.05</li>
+          <li>MM2 Vintage Ghost / Blood / America — no demand</li>
+          <li>SaB commons with 100M+ exist (Noobini Pizzanini pile)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card hero-card reveal" id="brainrot-market">
+    <h2>Steal a Brainrot Dominates Eldorado.gg</h2>
+    <p class="sub">The #1 brainrot marketplace with active summer 2026 updates and Trade Plaza features.</p>
+    <ol>
+      <li><a href="https://www.eldorado.gg/steal-a-brainrot-brainrots/i/259">Primary Shop</a> - Main brainrot listings</li>
+      <li><a href="https://www.eldorado.gg/blog/steal-a-brainrot-trading-values/">Current Values</a> - Weekly price updates</li>
+      <li><a href="https://www.eldorado.gg/blog/sell-roblox-brainrot-pets-real-money/">Selling Guide</a> - How to list for profit</li>
+      <li><a href="https://www.eldorado.gg/blog/steal-a-brainrot-summer-update-part-2/">Summer 2026 Update</a> - Trade Plaza & live features</li>
+    </ol>
+    <div class="btn-row">
+      <a class="btn" href="https://www.eldorado.gg/steal-a-brainrot-brainrots/i/259">View Brainrot Shop</a>
+      <a class="btn ghost" href="https://www.eldorado.gg/67-steal-a-brainrot/i/259">Check 67 Variant</a>
+    </div>
+    <p class="note">Eldorado homepage features Steal a Brainrot as #1 Roblox item marketplace (Aug 2026).</p>
+  </section>
+
+  <section class="card reveal" id="discord-servers">
+    <p class="kicker">SECURE TRADING COMMUNITIES</p>
+    <h2 class="sec">Discord Servers with Middleman/Escrow Services</h2>
+    <div class="pills">
+      <span class="pill lock">REQUIRED FOR TRADES >$50</span>
+      <span class="pill open">FREE MIDDLEMAN OPTIONS</span>
+      <span class="pill">BRAINROT & MM2 FOCUSED</span>
+    </div>
+    <div class="grid2">
+      <div class="mini">
+        <h3>Brainrot-Focused Servers</h3>
+        <ul class="facts">
+          <li><a href="https://discord.com/servers/steal-a-brainrot-trading-hub-1202742915995279430">Steal A Brainrot Trading Hub</a> - Verified middleman</li>
+          <li><a href="https://discord.com/invite/stealarot">Free Middleman Trading</a> - No-fee escrow</li>
+          <li><a href="https://top.gg/discord/servers/804422541614952448">Trading & Middleman Service</a> - Top.gg verified</li>
+          <li><a href="https://disboard.org/server/1461718234834407499">Brainrot Middleman Trading</a> - DISBOARD listed</li>
+          <li><a href="https://discord.com/invite/thebrainrot">Rick's Middleman Services</a> - Established provider</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>MM2 & Cross-Platform Servers</h3>
+        <ul class="facts">
+          <li><a href="https://discord.com/invite/murdermystery2trades">MM2 24/7 Trading Server</a> - Continuous trading</li>
+          <li><a href="https://discord.com/invite/murdermystery">MM2 Trading Core</a> - Godly item focus</li>
+          <li><a href="https://discadia.com/server/zenvix-middleman-services/">Market Discord Server</a> - Middleman services</li>
+          <li><a href="https://top.gg/discord/servers/tag/mm2-trading">MM2 Trading Servers List</a> - Top.gg directory</li>
+          <li><a href="https://disboard.org/servers/tag/mm2-trading">DISBOARD MM2-Trading Tag</a> - Community listing</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Blox Fruits</h3>
+        <ul class="facts">
+          <li><a href="https://discord.com/invite/bloxfruitstrading">Blox Fruits Trading Server</a></li>
+          <li><a href="https://discord.com/invite/bloxfruitrades">24/7 Stock Notifier</a></li>
+          <li><a href="https://discord.com/invite/bfts">BFTS</a></li>
+          <li><a href="https://discord.com/invite/bfcs">Community Server</a></li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Adopt Me</h3>
+        <ul class="facts">
+          <li><a href="https://discord.com/invite/adoptmetrade">Adopt Me Trade</a></li>
+          <li><a href="https://discord.com/invite/adopt-me">24/7 Trading &amp; Values</a></li>
+          <li><a href="https://disboard.org/servers/tag/adopt-me-trading">DISBOARD adopt-me-trading</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card reveal" id="mm2-trading">
+    <p class="kicker">MURDER MYSTERY 2 MARKET</p>
+    <h2 class="sec">Active MM2 Trading on Eldorado.gg</h2>
+    <div class="grid2">
+      <div class="mini">
+        <h3>Value Resources</h3>
+        <ul class="facts">
+          <li><a href="https://www.eldorado.gg/blog/mm2-values/">MM2 Values List</a> - Current item prices</li>
+          <li><a href="https://www.eldorado.gg/mm2-shop/i/204-2-0">MM2 Store</a> - Cheap Godlys & Weapons</li>
+          <li><a href="https://wflcalculator.com/mm2/values">WFL Trade Calculator</a> - Trade profit estimator</li>
+          <li><a href="https://mm2calculator.com/mm2-godly-values">MM2 Godly Values Calculator</a> - Tier-based pricing</li>
+          <li><a href="https://mm2values.app/values">Complete MM2 Value List</a> - All 1079 items</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Trading Guides</h3>
+        <ul class="facts">
+          <li><a href="https://bo3.gg/games/articles/mm2-trading-guide-2026">MM2 Trading Guide 2026</a> - How to trade & avoid scams</li>
+          <li><a href="https://gamevaluehub.com/mm2-trading-scams-guide/">Scams Guide</a> - Trust trade & fake overpay</li>
+          <li><a href="https://www.eldorado.gg/blog/sell-roblox-brainrot-pets-real-money/">Brainrot Selling Guide</a> - Cross-platform tips</li>
+          <li><a href="https://www.youtube.com/watch?v=ejwwntUJD-U">YouTube Tutorial</a> - How to sell brainrots</li>
+          <li><a href="https://www.youtube.com/watch?v=DGr8n0GteI8">Full Brainrot Guide</a> - 2026 Eldorado.gg tutorial</li>
+        </ul>
+      </div>
+    </div>
+    <p class="warnbox">MM2 godly items (125 variants) and chroma tiers command premium prices — always verify current values.</p>
+  </section>
+
+  <section class="card reveal" id="scaling-up">
+    <p class="kicker">FROM FLIPPER TO SCALED SELLER</p>
+    <h2 class="sec">How to Scale Up on Eldorado.gg</h2>
+    <p class="lede">Item flipping under $2 builds first-sale experience and feedback. Scaling means moving into higher-fee lanes with higher per-order value, or multiplying flip volume.</p>
+
+    <div class="pills" style="margin-bottom:16px">
+      <span class="pill">4 scaling paths</span>
+      <span class="pill lock">Accounts: 10-30% fee</span>
+      <span class="pill later">Boosting: 10-20% fee</span>
+      <span class="pill open">Roblox Items: 5% fee</span>
+    </div>
+
+    <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--ink)">Path 1 — Roblox Items (lowest fee, easiest scale)</h3>
+    <p class="lede">Roblox items carry a reduced base fee of <b>5%</b> (vs the standard 10% for items on other games). The item universe is large — import in bulk with CSV upload, use volume discount tiers, and maintain deep stock of the most-traded items.</p>
+    <div class="grid2" style="margin-bottom:14px">
+      <div class="mini">
+        <h3>Bulk tools built in</h3>
+        <ul class="facts">
+          <li>CSV import: upload hundreds of offers in seconds</li>
+          <li>Multiple Accounts feature: list identical items under one offer that stays live until all units sell</li>
+          <li>Volume discount levels: set tiered pricing to increase average order value</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Best items for volume</h3>
+        <ul class="facts">
+          <li>SaB named brainrots ($1–$5 band) — broad demand, many buyers</li>
+          <li>MM2 cheap godlys under $2 — repeatable stock</li>
+          <li>Blox Fruits common perms — always circulating</li>
+          <li>Fisch/Diamond/Pets at $0.50+ only — sub-cent listings are fee death</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--ink)">Path 2 — Game Accounts (highest fees, highest per-order value)</h3>
+    <p class="lede">Accounts pay <b>10–30%</b> depending on the game. Single sale of a ranked LoL account ($30–$150) or maxed Genshin ($100–$400) covers a month of low-fee item flips. The challenge is stock. The Reddit thread <a href="https://www.reddit.com/r/EldoradoGG/comments/1bmxreh/how_do_sellers_even_get_half_these_accounts_to/">"How do sellers even get half these accounts"</a> documents three primary sourcing methods:</p>
+    <ol class="steps" style="margin-bottom:12px">
+      <li><strong>Account recovery / restoration services</strong> — help account owners recover hacked accounts then negotiate sale rights. Dark sector but consistent supply of high-ELO accounts.</li>
+      <li><strong>Power-leveling and account building</strong> — start fresh accounts, grind ranks/levels, then sell completed accounts at 2–5x the build cost if the grind is worth money to buyers.</li>
+      <li><strong>Bulk purchase from creators</strong> — reach out to content creators who have accumulated accounts across classes/servers and buy their surplus at flat rate, then re-list individually.</li>
+    </ol>
+
+    <div class="mini" style="margin-bottom:14px;background:var(--butter)">
+      <h3 style="color:var(--gold-deep)">Account seller specifics</h3>
+      <ul class="facts">
+        <li>Only sell accounts with full access (email + password + recovery answers)</li>
+        <li>Use the <b>Multiple Accounts</b> feature for identical stock — one listing, 10 units, auto-sells through</li>
+        <li>Funds held for 5 days after buyer confirms delivery</li>
+        <li>Account titles must include key information — title sells, buyers scan titles fast</li>
+        <li>Marketplaces like Eldorado are natural arbitrage: a rank 1 LoL account may source at $8–15 in grind time and sell at $60–120</li>
+      </ul>
+    </div>
+
+    <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--ink)">Path 3 — Boosting (service margin, not just flip margin)</h3>
+    <p class="lede">Boosting is time-for-margin, not buy-low-sell-high. Fees are <b>10%</b> (most games) or <b>20%</b> (LoL, COD, OSRS). Profit comes from time arbitrage: your grind rate vs. buyer's willingness to pay.</p>
+    <div class="grid2" style="margin-bottom:14px">
+      <div class="mini">
+        <h3>Boosting do's</h3>
+        <ul class="facts">
+          <li>Pick one game, master it — specialists charge more</li>
+          <li>Set realistic delivery times; Eldorado tracks real delivery and buyers pick fast completers</li>
+          <li>Use screenshots as progress proof; respond within 12 hours on disputes</li>
+          <li>Do not oversell: accept only feasible orders. One late order costs more than one missed order</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Boosting don'ts</h3>
+        <ul class="facts">
+          <li>No cheats or bots — instant permaban</li>
+          <li>No off-platform payments</li>
+          <li>Do not use hacked credentials to boost</li>
+          <li>Avoid low-ball pricing: undercut sellers degrade the whole category pricing</li>
+          <li>Fraud or theft: 3-day Eldorado support decision, then permanent suspension</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--ink)">Path 4 — Currency & Top-Up (automation-friendly)</h3>
+    <p class="lede">Most in-game currencies carry <b>5%</b> fees (reduced to 1.5–3% for major MMOs). Top-up / gift cards are <b>0% fee</b>. This is the highest-margin lane if you have the stock pipeline. The challenge: most in-game currencies are farmed, not bought — scale requires automation or hired grinders.</p>
+
+    <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin:18px 0 10px;color:var(--ink)">Fee Arbitrage: the number to watch</h3>
+    <p class="lede">Every sale has a fee delta. Focus attention where the fee delta vs. item value is smallest:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Fee</th>
+            <th>Break-even on a $1 item</th>
+            <th>Scale lever</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Category">Roblox Items</td>
+            <td class="num opencell" data-label="Fee">5%</td>
+            <td class="num" data-label="Break-even on a $1 item">$0.95 after fees</td>
+            <td data-label="Scale lever">Bulk CSV upload + volume discounts</td>
+          </tr>
+          <tr>
+            <td data-label="Category">OSRS / RS3 Items</td>
+            <td class="num opencell" data-label="Fee">3%</td>
+            <td class="num" data-label="Break-even on a $1 item">$0.97 after fees</td>
+            <td data-label="Scale lever">High-stack gold bulk sales, real-time price tracking</td>
+          </tr>
+          <tr>
+            <td data-label="Category">MM2 Items (other)</td>
+            <td class="num" data-label="Fee">10%</td>
+            <td class="num" data-label="Break-even on a $1 item">$0.90 after fees</td>
+            <td data-label="Scale lever">Velocity: list fast, relist faster</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Most Game Accounts</td>
+            <td class="num" data-label="Fee">10–15%</td>
+            <td class="num" data-label="Break-even on a $1 item">$0.85–0.90 after fees</td>
+            <td data-label="Scale lever">Sourcing method + Multiple Accounts feature</td>
+          </tr>
+          <tr>
+            <td data-label="Category">GTA 5 Accounts</td>
+            <td class="num lockcell" data-label="Fee">30%</td>
+            <td class="num lockcell" data-label="Break-even on a $1 item">$0.70 after fees</td>
+            <td data-label="Scale lever">Only worth it at $50+ per account</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="warnbox">Keep all communication on Eldorado chat. Off-platform payments = permaban. One account only per person — sharing logins is allowed; multiple accounts is not.</p>
+  </section>
+
+  <section class="card reveal" id="secret-brainrots">
+    <div class="marsh-rain" id="marshRain" aria-hidden="true"></div>
+    <div class="card-ct">
+      <p class="kicker">HIGHEST VALUE BRAINROTS</p>
+      <h2 class="sec">Maximize Secret Brainrots — 50M/s and Beyond</h2>
+      <p class="lede">All earnings shown are the brainrot's raw per-second income before multiplier. Purples are 10x that value on Eldorado. Rank up fast: prioritize 50M/s+ tiers, then chain builds toward 100M/s+.</p>
+
+      <p class="note" style="background:#FFF9E8;border:2px solid #FFD23F;margin-bottom:14px"><span class="badge-y">ROADMAP</span> Meet these two prerequisites before anything else: <b>Rebirth</b> (raise your multiplier stack) + <b>normie + roboto base setup</b> (steady gold income before chasing secrets). Skip either and you will buy nothing.</p>
+
+      <div class="pills" style="margin-bottom:16px">
+        <span class="badge-b">M 50m/s</span>
+        <span class="badge-b">M 75m/s</span>
+        <span class="badge-b">M 100m/s</span>
+        <span class="badge-y">M 150m/s+</span>
+      </div>
+
+      <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--ink)">Prerequisites — reach these FIRST before chasing secrets</h3>
+      <ol class="steps">
+        <li><b>Stack Rebirths</b> — raise your cash multiplier at every eligibility check (see section 1 for exact rebirth tiers and brainrots needed per level).</li>
+        <li><b>Solid normie + roboto base</b> — stable gold income so you aren't broke between secret spawns.</li>
+        <li><b>Unlock the Fuse Machine</b> — many top Secrets are craft-only combos.</li>
+        <li><b>Join Admin Abuse events</b> — these are the hottest windows for exclusive secret brainrots (see section 3).</li>
+        <li><b>Clear enough inventory slots</b> before events begin so you never miss a spawn.</li>
+      </ol>
+
+      <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin:18px 0 8px;color:var(--ink)">All Secret Brainrots — Income + Obtain Method</h3>
+      <p class="lede">Complete ranked list from the 1M/s bottom up. "Method" means obtainable through gameplay only, no secret codes or admin abuse unless stated.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Brainrot</th>
+              <th>/sec earnings</th>
+              <th>Method to obtain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Brainrot">Jackorilla</td>
+              <td class="num opencell" data-label="/sec earnings">315K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Lucky Block (below-average income, benchmark for weakest Secret)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">La Vacca Saturno Saturnita</td>
+              <td class="num" data-label="/sec earnings">300K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Natural spawn, most common Secret (tens of millions exist)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Matteos</td>
+              <td class="num" data-label="/sec earnings">300K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Karkerkar Kurkur</td>
+              <td class="num" data-label="/sec earnings">300K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Steal from players</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Bisonte Giuppitere</td>
+              <td class="num" data-label="/sec earnings">300K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Dul Dul Dul</td>
+              <td class="num" data-label="/sec earnings">375K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Blackhole Goat</td>
+              <td class="num" data-label="/sec earnings">400K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Advent Calendar doors</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Trenostruzzo Turbo 4000</td>
+              <td class="num" data-label="/sec earnings">310K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Wheel spin secret outcome</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Sammyni Spyderini</td>
+              <td class="num" data-label="/sec earnings">325K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Steal from players + inventory slot management</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Torrtuginni Dragonfrutini</td>
+              <td class="num" data-label="/sec earnings">350K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Lucky Box (75% chance if you buy Robux Lucky Boxes)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Spaghetti Tualetti</td>
+              <td class="num" data-label="/sec earnings">60M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Lucky Box (1% chance — 2,399 Robux per box)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Agarrini la Palini</td>
+              <td class="num" data-label="/sec earnings">425K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Admin Abuse event exclusive</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Spyderinis</td>
+              <td class="num" data-label="/sec earnings">450K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Steal from players + Lucky Block</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Fragola la la la</td>
+              <td class="num" data-label="/sec earnings">450K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Advent Calendar doors</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Guerriro Digitale</td>
+              <td class="num" data-label="/sec earnings">550K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Admin Abuse event exclusive</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Tralaleritos</td>
+              <td class="num" data-label="/sec earnings">500K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Rebirth #16 requirement + natural spawn/steal</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Las Tralaleritas</td>
+              <td class="num" data-label="/sec earnings">650K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Ketchuru and Masturu</td>
+              <td class="num" data-label="/sec earnings">42.5M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Job Job Job Sahur</td>
+              <td class="num" data-label="/sec earnings">700K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Admin Abuse event exclusive; also required for Rebirth #17</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Garama and Madundung</td>
+              <td class="num" data-label="/sec earnings">50M <span class="badge-b" style="font-size:.68rem">TIER KEY 🎯</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Pot Hotspot</td>
+              <td class="num" data-label="/sec earnings">2.5M <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Lucky Box (19% chance — 2,399 Robux each)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Las Vaquitas Saturnitas</td>
+              <td class="num" data-label="/sec earnings">750K <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Steal from players</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Graipuss Medussi</td>
+              <td class="num" data-label="/sec earnings">1M <span class="badge-b" style="font-size:.68rem">BREAKPOINT</span></td>
+              <td data-label="Method">Admin Abuse event exclusive; required for Rebirth #18 (10Qa)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Noo My Hotspot</td>
+              <td class="num" data-label="/sec earnings">1.5M <span class="badge-b" style="font-size:.68rem">BREAKPOINT</span></td>
+              <td data-label="Method">Taco Tuesday Admin Abuse exclusive; can be purchased on conveyor</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Sahur Combinasion</td>
+              <td class="num" data-label="/sec earnings">2M <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Secret Fuse/Craft Machine recipe</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">La Grande Combinasion</td>
+              <td class="num" data-label="/sec earnings">10M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Fusion machine — requires multiple Secret-grade inputs</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Esok Sekolah</td>
+              <td class="num" data-label="/sec earnings">30M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Lucky Box (5% chance — 2,399 Robux each)</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Chicleteira Bicicleteira</td>
+              <td class="num" data-label="/sec earnings">3.5M <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Admin Abuse event exclusive; also required for Rebirth #17</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Nooo My Hotspotsitos</td>
+              <td class="num" data-label="/sec earnings">5M <span class="pill" style="font-size:.68rem">Normal</span></td>
+              <td data-label="Method">Fusion station creation</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Combinasionas</td>
+              <td class="num" data-label="/sec earnings">15M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Fusion machine recipe</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Nuclearo Dinossauro</td>
+              <td class="num" data-label="/sec earnings">15M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Admin Abuse or event-locked spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Karkerkar Combinasion</td>
+              <td class="num" data-label="/sec earnings">17.5M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Fusion machine recipe</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Los Hotspotsitos</td>
+              <td class="num" data-label="/sec earnings">20M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Fusion machine recipe</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Tralaledon</td>
+              <td class="num" data-label="/sec earnings">27.5M <span class="badge-b" style="font-size:.68rem">TIER KEY</span></td>
+              <td data-label="Method">Conveyor spawn</td>
+            </tr>
+            <tr>
+              <td data-label="Brainrot">Dragon Cannelloni</td>
+              <td class="num lockcell" data-label="/sec earnings">100M <span class="badge-y" style="font-size:.68rem">TOP TIER</span></td>
+              <td data-label="Method">Christmas Fuse event only (permanently unobtainable post-event)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note" style="background:#FFF9E8;border:2px solid #FFD23F;">
+        <b>Maximization strategy:</b> Target Garama and Madundung (50M/s, conveyor spawn) first — it is the easiest 50M/s seep to permanently get. Then fuse-train toward La Grande Combinasion (10M/s) and Tralaledon (27.5M/s) for quick compounding. Spaghetti Tualetti (60M/s) and Dragon Cannelloni (100M/s) are luck-dependent Lucky Box targets — only spend Robux if you have disposable income.
+      </p>
+
+      <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin:18px 0 8px;color:var(--ink)">All 18 Rebirth Levels — Requirements + Rewards</h3>
+      <p class="lede">Each rebirth raises your cash multiplier permanently. Farm each brainrot in the "Required brainrots" column before attempting the rebirth.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>RB Level</th>
+              <th>Gold required</th>
+              <th>Required brainrots</th>
+              <th>Rewards</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="RB Level">RB #1</td>
+              <td class="num opencell" data-label="Gold">$500K</td>
+              <td data-label="Required brainrots">Trippi Troppi, Gangster Footera</td>
+              <td data-label="Rewards">x0.5 mult, $5K, friend controller, iron slap, gravity coil, bee launcher</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #2</td>
+              <td class="num opencell" data-label="Gold">$1.5M</td>
+              <td data-label="Required brainrots">Boneca Ambalabu, Brr Brr Patapim</td>
+              <td data-label="Rewards">x1 mult, $10K, gold slap, coil combo, rage table, +1 slot & 2nd floor</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #3</td>
+              <td class="num opencell" data-label="Gold">$12.5M</td>
+              <td data-label="Required brainrots">Trulimero Trulicina, Chimpanzini Bananini</td>
+              <td data-label="Rewards">x2 mult, $25K, diamond slap, grapple hook, taser gun</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #4</td>
+              <td class="num opencell" data-label="Gold">$35M</td>
+              <td data-label="Required brainrots">Chef Crabracadabra, Glorbo Fruttodrillo</td>
+              <td data-label="Rewards">x3 mult, $50K, emerald slap, invisibility cloak, boogie bomb</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #5</td>
+              <td class="num opencell" data-label="Gold">$100M</td>
+              <td data-label="Required brainrots">Frigo Camelo, Orangutini Ananassini</td>
+              <td data-label="Rewards">x4 mult, $100K, ruby slap, medusa's head</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #6</td>
+              <td class="num" data-label="Gold">$350M</td>
+              <td data-label="Required brainrots">Bombardiro Crocodilo</td>
+              <td data-label="Rewards">x5 mult, $250K, dark matter slap, web slinger</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #7</td>
+              <td class="num" data-label="Gold">$1B</td>
+              <td data-label="Required brainrots">Bombombini Gusini</td>
+              <td data-label="Rewards">x6 mult, $500K, flame slap, quantum cloner, all seeing sentry</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #8</td>
+              <td class="num" data-label="Gold">$5B</td>
+              <td data-label="Required brainrots">Te Te Te Sahur</td>
+              <td data-label="Rewards">x7 mult, $1M, nuclear slap, rainbowrath sword</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #9</td>
+              <td class="num lockcell" data-label="Gold">$40B</td>
+              <td data-label="Required brainrots">Cocofanto Elefanto</td>
+              <td data-label="Rewards">x8 mult, $5M, galaxy slap, laser cape</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #10</td>
+              <td class="num lockcell" data-label="Gold">$125B</td>
+              <td data-label="Required brainrots">Girafa Celestre</td>
+              <td data-label="Rewards">x9 mult, $25M, glitched slap, body swap potion, +1 slot & 3rd floor</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #11</td>
+              <td class="num lockcell" data-label="Gold">$800B</td>
+              <td data-label="Required brainrots">Tralalero Tralala</td>
+              <td data-label="Rewards">x10 mult, $100M, splatter slap, paintball gun</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #12</td>
+              <td class="num lockcell" data-label="Gold">$3.5T</td>
+              <td data-label="Required brainrots">Odin Din Din Dun</td>
+              <td data-label="Rewards">x11 mult, $500M, heart balloon, magnet</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #13</td>
+              <td class="num lockcell" data-label="Gold">$14T</td>
+              <td data-label="Required brainrots">Trenostruzzo Turbo 3000</td>
+              <td data-label="Rewards">x12 mult, $1B, megaphone, beehive</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #14</td>
+              <td class="num lockcell" data-label="Gold">$40T</td>
+              <td data-label="Required brainrots">Trippi Troppi Troppa Trippa</td>
+              <td data-label="Rewards">x13 mult, $2.5T, gummy bear, subspace mine</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #15</td>
+              <td class="num lockcell" data-label="Gold">$100T</td>
+              <td data-label="Required brainrots">Pakrahmatmamat</td>
+              <td data-label="Rewards">x15 mult, $10T, +1 slot, heatseeker</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #16</td>
+              <td class="num lockcell" data-label="Gold">$1Qa (1 Quadrillion)</td>
+              <td data-label="Required brainrots">Los Tralaleritos</td>
+              <td data-label="Rewards">x16 mult, $25T, +1 slot, attack doge</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #17</td>
+              <td class="num lockcell" data-label="Gold">$2Qa</td>
+              <td data-label="Required brainrots">Job Job Job Sahur, Chicleteira Bicicleteira</td>
+              <td data-label="Rewards">x17 mult, $50T, +1 slot, giant potion</td>
+            </tr>
+            <tr>
+              <td data-label="RB Level">RB #18 (MAX)</td>
+              <td class="num lockcell" data-label="Gold">$10Qa</td>
+              <td data-label="Required brainrots">Graipuss Medussi</td>
+              <td data-label="Rewards">x18 mult, $100T, +1 slot, flash teleport</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-family:var(--font-round);font-weight:700;font-size:1.1rem;margin:18px 0 8px;color:var(--ink)">How to Rank Up Fast (50M/s minimum target)</h3>
+      <ol class="steps">
+        <li><b>Hit RB #4 immediately</b> — x3 multiplier on gold income. Cost: $35M + Chef Crabracadabra + Glorbo Fruttodrillo. These are both conveyor-available.</li>
+        <li><b>Prioritize conveyor buys over stealing</b> — conveyor brainrots are instant and guaranteed. Stealing is random and wastes time at scale.</li>
+        <li><b>Buy 100+ base slots early</b> (in-game cash). More slots = faster farm rate = faster rebirth unlocks.</li>
+        <li><b>Raise primary income sources FIRST</b> — park your best income brainrots on the highest-floor slot. Every stacked floor is +1x income.</li>
+        <li><b>Steal secrets in Admin Abuse</b> rather than Lucky Box — Admin Abuse costs 0 Robux and drops the rarest brains. Lucky Box is 2,399 Robux per pull with very low odds on the top prizes.</li>
+        <li><b>Never spend Robux on Lucky Box until you have RB #18 sorted</b> — invest all cash into base slots + primary income stacking first.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card reveal" id="security-tips">
+    <p class="kicker">PROTECT YOUR TRADES</p>
+    <h2 class="sec">Essential Security Practices</h2>
+    <div class="grid2">
+      <div class="mini">
+        <h3>Discord Safety</h3>
+        <ul class="facts">
+          <li>Never trade without middleman verification for high-value items</li>
+          <li>Check trader reputation through server-specific systems</li>
+          <li>Use official server middleman channels — avoid DMs for transactions</li>
+          <li>Verify middleman credentials before transferring items</li>
+          <li>Keep records of all trade agreements and communications</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Eldorado.gg Practices</h3>
+        <ul class="facts">
+          <li>Always complete transactions through the official platform</li>
+          <li>Use buyer protection systems for disputed trades</li>
+          <li>Check seller ratings and completion history</li>
+          <li>Withdraw funds regularly — don't leave large balances</li>
+          <li>Enable 2FA on your Eldorado.gg account</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Common scams: fake middlemen, off-platform payment requests, duplicate item listings.</div>
+  </section>
+
+  <section class="card reveal" id="workflow">
+    <p class="kicker">OPTIMAL TRADING WORKFLOW</p>
+    <h2 class="sec">From Research to Profit</h2>
+    <ol class="steps">
+      <li><strong>Research Phase:</strong> Check Eldorado.gg blogs for current brainrot and MM2 values; identify trending variants (67 Brainrot, Eviledon, Plants vs Brainrots; MM2 godly/chroma items)</li>
+      <li><strong>Community Join:</strong> Join 2-3 brainrot trading Discords + 1-2 MM2 trading servers with active middleman services</li>
+      <li><strong>Reputation Build:</strong> Complete 3-5 verified small-value trades (<$20) to establish trust in communities</li>
+      <li><strong>Source Acquisition:</strong> Obtain items through legitimate gameplay, trading, or verified purchases</li>
+      <li><strong>Listing Strategy:</strong> List during peak hours (weekend evenings); use clear titles with 2 keywords max; provide 3-5 quality screenshots</li>
+      <li><strong>Transaction Process:</strong> For trades >$50: use Discord middleman → complete on Eldorado.gg → verify receipt → release funds</li>
+      <li><strong>Profit Taking:</strong> Withdraw regularly via Payoneer/USDC; reinvest 30% profits into inventory; track ROI per item type</li>
+    </ol>
+    <div class="grid2" style="margin-top:14px">
+      <div class="mini">
+        <h3>High-Demand Targets</h3>
+        <ul class="facts">
+          <li>Steal a Brainrot 67 Variant</li>
+          <li>Steal a Brainrot Eviledon</li>
+          <li>Plants vs Brainrots Series</li>
+          <li>MM2 Godly Items (Top 10%)</li>
+          <li>MM2 Chroma Tier Items</li>
+          <li>Limited Edition Brainrots</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>Profit Optimization</h3>
+        <ul class="facts">
+          <li>Focus on 67 & Eviledon brainrot variants (highest demand)</li>
+          <li>Trade MM2 during US evening peak hours</li>
+          <li>Use summer 2026 Trade Plaza for faster transactions</li>
+          <li>Maintain 98%+ positive feedback for priority verification</li>
+          <li>Diversify across brainrot & MM2 for market stability</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card reveal" id="sources">
+    <p class="kicker">PRIMARY SOURCES</p>
+    <h2 class="sec">Sources (verified live 20 Aug 2026)</h2>
+    <div class="sources">
+      <a href="https://www.eldorado.gg/steal-a-brainrot-brainrots/i/259">Steal a Brainrot Shop</a>
+      <a href="https://www.eldorado.gg/blog/steal-a-brainrot-trading-values/">Brainrot Trading Values</a>
+      <a href="https://www.eldorado.gg/blog/mm2-values/">MM2 Values List</a>
+      <a href="https://discord.com/servers/steal-a-brainrot-trading-hub-1202742915995279430">Steal A Brainrot Trading Hub</a>
+      <a href="https://discord.com/invite/murdermystery2trades">MM2 24/7 Trading Server</a>
+      <a href="https://www.eldorado.gg/blog/sell-roblox-brainrot-pets-real-money/">Brainrot Selling Guide</a>
+      <a href="https://bo3.gg/games/articles/mm2-trading-guide-2026">MM2 Trading Guide 2026</a>
+      <a href="https://www.eldorado.gg/blog/steal-a-brainrot-summer-update-part-2/">Brainrot Summer Update</a>
+      <a href="https://www.eldorado.gg/blox-fruits-shop/i/202-2-0">Blox Fruits Shop</a>
+      <a href="https://www.eldorado.gg/blog/blox-fruits-values/">Blox Fruits Values 2026</a>
+      <a href="https://www.eldorado.gg/adopt-me-pets/i/201-2-0">Adopt Me Pets</a>
+      <a href="https://www.eldorado.gg/plants-vs-brainrots-items/i/285">Plants vs Brainrots Shop</a>
+      <a href="https://www.eldorado.gg/grow-a-garden-2-shop/i/430">Grow a Garden 2 Shop</a>
+      <a href="https://www.eldorado.gg/fisch-items/i/219">Fisch Items</a>
+      <a href="https://www.eldorado.gg/roblox-items/i/70-2-0">All Roblox Items</a>
+    </div>
+  </section>
+
+  <footer class="foot reveal">
+    <p>RESEARCH &middot; JOIN &middot; VERIFY &middot; <span class="g">TRADE SECURELY.</span></p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var tray=document.getElementById('marshRain');
+  if(!tray)return;
+  for(var i=0;i<28;i++){
+    var m=document.createElement('div');
+    m.className='mm';
+    var sz=16+Math.random()*22;
+    m.style.width=sz+'px';
+    m.style.height=(sz+Math.random()*8)+'px';
+    m.style.left=(Math.random()*98)+'%';
+    m.style.animationDuration=(6+Math.random()*9)+'s';
+    m.style.animationDelay=(Math.random()*10)+'s';
+    m.style.setProperty('--mr',(Math.random()*360)+'deg');
+    m.style.background=['rgba(255,255,255,.82)','rgba(255,251,230,.9)','rgba(238,247,255,.9)','rgba(255,246,189,.85)'][Math.floor(Math.random()*4)];
+    tray.appendChild(m);
+  }
+})();
+</script>
+</body>
+</html>
