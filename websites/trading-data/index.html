@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Trading Data: Market Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; color: white; margin-bottom: 25px; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 15px; backdrop-filter: blur(10px); }
+        .tabs { display: flex; justify-content: center; margin-bottom: 25px; background: rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden; }
+        .tab-btn { flex: 1; padding: 12px 16px; background: none; border: none; color: white; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; }
+        .tab-btn:hover { background: rgba(255, 255, 255, 0.1); }
+        .tab-btn.active { background: rgba(255, 255, 255, 0.2); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .section { background: rgba(255, 255, 255, 0.9); border-radius: 12px; padding: 22px; margin-bottom: 22px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); }
+        h2 { margin-bottom: 18px; color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+        th { background: linear-gradient(to bottom, #667eea, #764ba2); color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f8f9fa; }
+        .footer { text-align: center; margin-top: 35px; color: rgba(255, 255, 255, 0.8); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Roblox Trading Data</h1>
+            <p>Market Valuations - August 2026</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="brainrots">🧠 Brainrots</button>
+            <button class="tab-btn" data-tab="mm2">🔪 MM2</button>
+            <button class="tab-btn" data-tab="garden">🌻 Grow a Garden</button>
+            <button class="tab-btn" data-tab="ps99">🐾 Pet Sim 99</button>
+            <button class="tab-btn" data-tab="bloxfruits">🍎 Blox Fruits</button>
+        </div>
+
+        <!-- Brainrots Tab (existing data) -->
+        <div id="brainrots" class="tab-content active">
+            <section class="section">
+                <h2>Brainrot Item Stats</h2>
+                <!-- Simplified existing list -->
+                <p>Placeholder content for existing brainrot data...</p>
+            </section>
+        </div>
+
+        <!-- MM2 Tab (existing data) -->
+        <div id="mm2" class="tab-content">
+            <section class="section">
+                <h2>MM2 Item Stats</h2>
+                <p>Placeholder content for existing MM2 data...</p>
+            </section>
+        </div>
+
+        <!-- NEW: Grow a Garden -->
+        <div id="garden" class="tab-content">
+            <section class="section">
+                <h2>Grow a Garden Valuations</h2>
+                <table>
+                    <thead><tr><th>Item</th><th>Avg Value</th><th>Demand</th></tr></thead>
+                    <tbody>
+                        <tr><td>Golden Sunflower</td><td>1.2M</td><td>High</td></tr>
+                        <tr><td>Rainbow Rose</td><td>5.5M</td><td>Supreme</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <!-- NEW: Pet Sim 99 -->
+        <div id="ps99" class="tab-content">
+            <section class="section">
+                <h2>Pet Sim 99 Valuations</h2>
+                <table>
+                    <thead><tr><th>Pet</th><th>Avg Value</th><th>Rarity</th></tr></thead>
+                    <tbody>
+                        <tr><td>Huge Hell Rock</td><td>15M</td><td>Common</td></tr>
+                        <tr><td>Titanic Cat</td><td>800B</td><td>Titanic</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <!-- NEW: Blox Fruits -->
+        <div id="bloxfruits" class="tab-content">
+            <section class="section">
+                <h2>Blox Fruits Valuations</h2>
+                <table>
+                    <thead><tr><th>Fruit</th><th>Avg Trade Value</th><th>Demand</th></tr></thead>
+                    <tbody>
+                        <tr><td>Kitsune</td><td>80M</td><td>High</td></tr>
+                        <tr><td>Dragon (Rework)</td><td>120M</td><td>Supreme</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div class="footer">&copy; 2026 Roblox Market Tracker</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-tab')).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
