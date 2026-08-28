@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 Beer-Money Stack — The Free Audit Checklist</title>
+<meta name="description" content="MTurk is dead for new accounts. Here's the only 3 platforms paying $15+/hr in 2026 — and the apps to delete immediately. Free tracker + the $7 cheat-sheet." />
+
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="2026 Beer-Money Stack — Free Audit Checklist" />
+<meta property="og:description" content="MTurk is closed to new workers. Get the 3 platforms that still pay + the apps to delete today." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  /* Sky palette (light blues) */
+  --sky:#F2F8FF;
+  --cloud-blue:#EAF3FF;
+  --ice:#F0F6FF;
+  --powder:#DCEBFF;
+  --sky-mid:#BFDCFF;
+  --sky-deep:#A8C8F0;
+
+  /* Brand pop — soft red (NOT harsh crimson) */
+  --red:#FF5E5E;
+  --red-deep:#E0394A;
+  --red-soft:#FFB3B3;
+  --red-glow:#FF8585;
+
+  /* Brand accent — clean navy for text */
+  --navy:#1E3A5F;
+  --navy-2:#365579;
+  --navy-3:#5C7494;
+
+  --gold:#FFC24B;
+  --gold-deep:#F0A92E;
+
+  --shadow-s:rgba(30,58,95,.10);
+  --shadow-m:rgba(30,58,95,.16);
+  --shadow-l:rgba(30,58,95,.24);
+
+  --radius-sm:16px;
+  --radius-md:24px;
+  --radius-lg:32px;
+  --radius-xl:44px;
+  --radius-pill:999px;
+
+  --font:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-round:'Fredoka','Nunito',sans-serif;
+
+  --maxw:560px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--font);
+  color:var(--navy);
+  line-height:1.6;
+  min-height:100dvh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(1200px 700px at 15% -10%, var(--powder) 0%, transparent 55%),
+    radial-gradient(1000px 600px at 100% 0%, var(--sky-mid) 0%, transparent 50%),
+    radial-gradient(900px 900px at 50% 120%, var(--cloud-blue) 0%, transparent 55%),
+    linear-gradient(160deg, var(--sky) 0%, var(--ice) 55%, var(--cloud-blue) 100%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- floating sky blobs ---------- */
+.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(6px);opacity:.55;
+  animation:drift 18s ease-in-out infinite;will-change:transform}
+.blob.b1{width:220px;height:220px;top:8%;left:-70px;background:radial-gradient(circle at 35% 30%,#fff,var(--sky-mid));animation-delay:0s}
+.blob.b2{width:170px;height:170px;top:62%;right:-50px;left:auto;background:radial-gradient(circle at 35% 30%,#fff,var(--powder));animation-delay:4s}
+.blob.b3{width:130px;height:130px;top:32%;right:12%;left:auto;background:radial-gradient(circle at 35% 30%,#fff,var(--red-soft));opacity:.4;animation-delay:8s}
+.blob.b4{width:100px;height:100px;bottom:10%;left:12%;background:radial-gradient(circle at 35% 30%,#fff,var(--gold));animation-delay:2s}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(26px,-30px) scale(1.06)}
+  66%{transform:translate(-20px,22px) scale(.96)}
+}
+
+/* ---------- page shell ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 40px;
+  display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.reveal{opacity:0;transform:translateY(22px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- logo badge ---------- */
+.badge{
+  width:120px;height:120px;border-radius:var(--radius-pill);
+  background:linear-gradient(150deg,#fff,var(--sky));
+  border:3px solid var(--powder);
+  box-shadow:0 12px 34px var(--shadow-m), inset 0 0 0 6px #fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;margin-bottom:22px;animation-delay:.02s;position:relative
+}
+.badge::after{content:"";position:absolute;inset:-3px;border-radius:inherit;
+  box-shadow:0 0 0 0 var(--red-glow);animation:pulse 3.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,94,94,.35)}70%,100%{box-shadow:0 0 0 18px rgba(255,94,94,0)}}
+.badge .b-top{font-family:var(--font-round);font-weight:600;font-size:11px;letter-spacing:2px;color:var(--navy-2)}
+.badge .b-stack{font-family:var(--font-round);font-weight:700;font-size:26px;line-height:.9;color:var(--red-deep)}
+.badge .b-2026{font-family:var(--font-round);font-weight:700;font-size:10px;letter-spacing:2px;color:#fff;
+  background:var(--red);padding:2px 8px;border-radius:var(--radius-pill);margin-top:3px}
+
+/* ---------- wordmark + tagline ---------- */
+h1.wordmark{font-family:var(--font-round);font-weight:700;font-size:clamp(2.1rem,9vw,3rem);
+  letter-spacing:1px;color:var(--navy);margin-bottom:10px;animation-delay:.08s}
+h1.wordmark .cash{color:var(--red-deep);display:inline-block;transform:rotate(-3deg)}
+.tagline{font-size:clamp(1rem,4.4vw,1.18rem);color:var(--navy-2);max-width:30ch;
+  margin-bottom:8px;font-weight:600;animation-delay:.14s}
+.subtagline{font-size:.95rem;color:var(--navy-3);margin-bottom:24px;animation-delay:.18s}
+
+/* ---------- hero card ---------- */
+.hero{
+  width:100%;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);
+  border:1px solid var(--powder);border-radius:var(--radius-lg);
+  padding:26px 22px;box-shadow:0 14px 40px var(--shadow-s);margin-bottom:28px;
+  animation-delay:.22s
+}
+.hero p{margin-bottom:14px}
+.hero strong{color:var(--navy)}
+
+/* ---------- primary CTA ---------- */
+.cta-wrap{width:100%;margin:6px 0 14px;animation-delay:.32s}
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px 22px;border-radius:var(--radius-pill);
+  background:linear-gradient(180deg,var(--red) 0%,var(--red-deep) 100%);
+  color:#fff;font-family:var(--font-round);font-weight:700;font-size:1.15rem;
+  text-decoration:none;box-shadow:0 12px 28px rgba(224,57,74,.32);
+  transition:transform .15s ease, box-shadow .15s ease;border:none;cursor:pointer
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(224,57,74,.42)}
+.cta:active{transform:translateY(0)}
+.cta-arrow{transition:transform .2s ease}
+.cta:hover .cta-arrow{transform:translateX(4px)}
+
+.cta-fineprint{font-size:.82rem;color:var(--navy-3);margin-top:10px}
+
+/* ---------- free checklist CTA ---------- */
+.free-cta{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:14px 20px;border-radius:var(--radius-pill);
+  background:#fff;color:var(--navy);font-family:var(--font-round);font-weight:600;font-size:1rem;
+  text-decoration:none;border:2px solid var(--sky-mid);box-shadow:0 6px 14px var(--shadow-s);
+  margin-top:14px;transition:transform .15s ease, background .15s ease
+}
+.free-cta:hover{background:var(--sky);transform:translateY(-1px)}
+
+/* ---------- verified list (kept cards) ---------- */
+.section{margin:32px 0 6px;width:100%}
+.section-title{font-family:var(--font-round);font-weight:700;font-size:1.4rem;color:var(--navy);margin-bottom:14px;text-align:left}
+.section-sub{color:var(--navy-2);font-size:.9rem;margin-bottom:18px;text-align:left}
+
+.card{
+  background:rgba(255,255,255,.85);backdrop-filter:blur(6px);
+  border:1px solid var(--powder);border-radius:var(--radius-md);
+  padding:18px 20px;margin-bottom:12px;text-align:left;
+  box-shadow:0 6px 18px var(--shadow-s);transition:transform .2s ease
+}
+.card:hover{transform:translateY(-2px)}
+.card .card-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.card .pill{
+  display:inline-block;padding:3px 10px;border-radius:var(--radius-pill);
+  font-family:var(--font-round);font-weight:700;font-size:.72rem;letter-spacing:1px;text-transform:uppercase
+}
+.pill-green{background:#E6FFF4;color:#0F8E5C}
+.pill-blue{background:var(--sky-mid);color:var(--navy)}
+.pill-red{background:#FFE6E6;color:var(--red-deep)}
+.pill-gray{background:#F0F0F4;color:var(--navy-3)}
+.card h3{font-family:var(--font-round);font-weight:700;font-size:1.05rem;color:var(--navy);margin:0}
+.card p{font-size:.92rem;color:var(--navy-2);margin-top:4px}
+.card .rate{font-family:var(--font-round);font-weight:700;color:var(--red-deep);font-size:.95rem;margin-top:8px;display:inline-block}
+
+/* ---------- deleted list (warning cards) ---------- */
+.deleted-card{
+  background:rgba(255,230,230,.45);border:1px solid var(--red-soft);
+  border-radius:var(--radius-md);padding:14px 18px;margin-bottom:10px;text-align:left;
+  display:flex;align-items:flex-start;gap:10px
+}
+.deleted-card .x{
+  flex-shrink:0;width:24px;height:24px;border-radius:var(--radius-pill);
+  background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.85rem;margin-top:2px
+}
+.deleted-card p{font-size:.92rem;color:var(--navy-2)}
+.deleted-card strong{color:var(--navy);font-weight:700}
+
+/* ---------- founder note ---------- */
+.note{
+  width:100%;background:rgba(255,255,255,.6);backdrop-filter:blur(6px);
+  border:1px dashed var(--sky-mid);border-radius:var(--radius-md);
+  padding:18px 20px;margin-top:30px;text-align:left
+}
+.note-label{font-family:var(--font-round);font-weight:700;font-size:.78rem;color:var(--navy-2);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:block}
+.note p{font-size:.92rem;color:var(--navy-2);margin-bottom:8px}
+.note em{color:var(--red-deep);font-style:normal;font-weight:700}
+
+/* ---------- footer ---------- */
+footer{width:100%;text-align:center;padding:30px 0 10px;color:var(--navy-3);font-size:.82rem}
+footer a{color:var(--navy-2);text-decoration:none}
+footer a:hover{color:var(--red-deep)}
+
+/* ---------- responsive ---------- */
+@media(max-width:380px){
+  .badge{width:104px;height:104px}
+  .hero{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="blobs" aria-hidden="true">
+  <div class="blob b1</div>
+  <div class="blob b2</div>
+  <div class="blob b3</div>
+  <div class="blob b4</div>
+</div>
+
+<div class="wrap">
+
+  <!-- Badge -->
+  <div class="badge reveal" aria-hidden="true">
+    <div class="b-top">2026</div>
+    <div class="b-stack">STACK</div>
+    <div class="b-2026">FREE</div>
+ </div>
+
+  <!-- Headline -->
+  <h1 class="wordmark reveal">the <span class="cash">cash</span> audit</h1>
+  <p class="tagline reveal">MTurk is dead. The apps you have installed are paying $2/hr. Here's the only 3 platforms that still pay in 2026</p>
+  <p class="subtagline reveal">No hype. No scams. Free tracker + $7 cheat-sheet</p>
+
+  <!-- Hero card -->
+  <div class="hero reveal">
+    <p><strong>The fact</strong> Amazon stopped accepting new MTurk workers on <strong>30 July 2026</strong>. The platform is in maintenance mode</p>
+    <p><strong>The replacement</strong> 3 platforms still pay $15–$25/hr for simple tasks. One is gated by an unpaid assessment most people fail. The others have empty queues most weeks</p>
+    <p><strong>The catch</strong> VPNs and iCloud Private Relay silently kill your Prolific invites. Most "side hustle apps" pay $2–$5/hr after disqualifications</p>
+ </div>
+
+  <!-- Primary CTA: free checklist -->
+  <div class="cta-wrap reveal">
+    <a href="#free-checklist" class="cta">
+      <span>Get the Free Audit Checklist</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+   </a>
+    <p class="cta-fineprint">No email required. PDF + Google Sheets tracker</p>
+ </div>
+
+  <!-- Verified (Kept) cards -->
+  <section class="section reveal" id="free-checklist">
+    <h2 class="section-title">Keep these 3</h2>
+    <p class="section-sub">The platforms that actually pay in 2026. Honest hourly rates from Mar–Aug 2026 sources</p>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>1. Prolific</h3>
+        <span class="pill pill-green">Top pick</span>
+     </div>
+      <p>Academic studies, not surveys. US/UK/CA/EU/AU residents get $50–$150/mo at 30–60 min/day</p>
+      <span class="rate">$10–$18/hr</span>
+   </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>2. DataAnnotation.tech</h3>
+        <span class="pill pill-blue">$20/hr</span>
+     </div>
+      <p>AI training work. Unpaid starter assessment — silent reject if you fail. Pass and you earn $15–$25/hr new, up to $50+ for coding/STEM</p>
+      <span class="rate">$15–$25/hr</span>
+   </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>3. Outlier.ai</h3>
+        <span class="pill pill-blue">Scale AI</span>
+     </div>
+      <p>Backup AI queue. Empty queue is normal (3 weeks on / 2 weeks off). VPN = permanent ban</p>
+      <span class="rate">$15–$22/hr</span>
+   </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>4. UserTesting</h3>
+        <span class="pill pill-gray">Lower volume</span>
+     </div>
+      <p>Realistic now: $20–$100/mo (was $100–$300 before private-equity buyout). Do screeners while at the desk</p>
+      <span class="rate">$20–$100/mo</span>
+   </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>5. Freecash</h3>
+        <span class="pill pill-gray">Offer walls</span>
+     </div>
+      <p>Skip the surveys. Chase app-trial offers. Drop anything under $5/hr</p>
+      <span class="rate">$50–$200/mo</span>
+   </div>
+ </section>
+
+  <!-- Deleted cards -->
+  <section class="section reveal">
+    <h2 class="section-title">Delete these today</h2>
+    <p class="section-sub">Apps that look like opportunities but pay less than minimum wage</p>
+
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Swagbucks / InboxDollars / Survey Junkie</strong> — surveys pay $2–$5/hr after disqualifications</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Phone "crypto miners</strong> — you're selling ad views and data for $0. Not real mining</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Alignerr unpaid assessments</strong> — weeks of waiting, possible data-farming. Waitlist only</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>New MTurk account</strong> — door closed to new workers on 30 July 2026</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Remotasks as a primary</strong> — $3–$7/hr in most regions. Empty after Scale/Meta drama</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Ad-watching apps</strong> — $0.001/clip. $0.50/hour at best</p>
+   </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Anything that charges to join</strong> — by definition not free. Skip it</p>
+   </div>
+ </section>
+
+  <!-- Founder note -->
+  <div class="note reveal">
+    <span class="note-label">Honest 48-hour plan</span>
+    <p>Grind Prolific + Freecash offers + UserTesting screeners for 8 hours. Realistic take: <em>$40–$80</em</p>
+    <p>Not $500. Anyone saying otherwise is showing you a promo outlier, not an average</p>
+ </div>
+
+  <!-- Secondary CTA: paid cheat-sheet -->
+  <div class="cta-wrap reveal">
+    <a href="YOUR_GUMROAD_LINK_HERE" class="cta">
+      <span>Get the Full Cheat-Sheet — $7</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+   </a>
+    <p class="cta-fineprint">PDF + hourly tracker template + MTurk migration map + banned-app audit. One-time $7, yours forever</p>
+ </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made by someone who actually tests the platforms. Not affiliated with any app listed</p>
+    <p style="margin-top:6px">v2026.08 — prices change; pay bands updated monthly</p>
+ </footer>
+
+</div>
+
+</body>
+</html>
