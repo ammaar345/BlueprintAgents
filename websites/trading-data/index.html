@@ -3,187 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Trading Data: Market Hub</title>
+    <title>Roblox Trading Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-start: #667eea;
-            --bg-end: #764ba2;
-            --card-bg: rgba(255, 255, 255, 0.78);
-            --card-bg-dark: rgba(255, 255, 255, 0.82);
-            --text: #2c3e50;
-            --text-muted: #7f8c8d;
-            --accent: #667eea;
-            --th-start: #667eea;
-            --th-end: #764ba2;
-            --hover: #f8f9fa;
-            --border: #eee;
-            --badge-high: #27ae60;
-            --badge-very-high: #e67e22;
-            --badge-medium: #f39c12;
-            --badge-low: #e74c3c;
-            --badge-very-low: #95a5a6;
-            --badge-stable: #3498db;
-            --badge-rising: #27ae60;
-            --badge-falling: #e74c3c;
-            --search-bg: #fff;
-            --search-border: #ddd;
-            --search-focus: #667eea;
+            --bg: #0f1117;
+            --bg-surface: #161923;
+            --bg-card: #1c2030;
+            --bg-card-hover: #22263a;
+            --bg-table-head: #1a1d2e;
+            --border: rgba(255,255,255,0.06);
+            --border-strong: rgba(255,255,255,0.1);
+            --text: #e2e4ea;
+            --text-secondary: #8b90a0;
+            --text-muted: #5c6070;
+            --accent: #4f8cff;
+            --accent-dim: rgba(79,140,255,0.12);
+            --green: #34d399;
+            --green-dim: rgba(52,211,153,0.12);
+            --amber: #fbbf24;
+            --amber-dim: rgba(251,191,36,0.12);
+            --red: #f87171;
+            --red-dim: rgba(248,113,113,0.12);
+            --purple: #a78bfa;
+            --purple-dim: rgba(167,139,250,0.12);
+            --cyan: #22d3ee;
+            --cyan-dim: rgba(34,211,238,0.12);
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --font-mono: 'Space Mono', monospace;
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --card-bg: rgba(88, 66, 140, 0.55);
-                --text: #ecf0f1;
-                --text-muted: #b0bec5;
-                --border: rgba(255,255,255,0.12);
-                --hover: rgba(102, 126, 234, 0.2);
-                --search-bg: rgba(255,255,255,0.08);
-                --search-border: rgba(255,255,255,0.18);
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+                --bg: #f4f5f7;
+                --bg-surface: #fff;
+                --bg-card: #fff;
+                --bg-card-hover: #f8f9fb;
+                --bg-table-head: #f0f1f4;
+                --border: rgba(0,0,0,0.06);
+                --border-strong: rgba(0,0,0,0.1);
+                --text: #1a1d2e;
+                --text-secondary: #5c6070;
+                --text-muted: #9ca0b0;
             }
         }
-        [data-theme="dark"] {
-            --card-bg: rgba(88, 66, 140, 0.55);
-            --text: #ecf0f1;
-            --text-muted: #b0bec5;
-            --border: rgba(255,255,255,0.12);
-            --hover: rgba(102, 126, 234, 0.2);
-            --search-bg: rgba(255,255,255,0.08);
-            --search-border: rgba(255,255,255,0.18);
-        }
+        [data-theme="dark"] { /* dark is default, this is for explicit toggle */ }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            font-family: var(--font-body);
+            background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.5;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
+        .container { max-width: 1280px; margin: 0 auto; padding: 32px 24px; }
+
+        /* ── Header ── */
         header {
-            text-align: center; color: white; margin-bottom: 25px;
-            padding: 28px 20px; background: rgba(0,0,0,0.25);
-            border-radius: 15px; backdrop-filter: blur(10px);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
         }
-        header h1 { font-size: 1.8rem; margin-bottom: 4px; }
-        header p { opacity: 0.85; font-size: 0.95rem; }
+        header h1 {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        header h1 span { color: var(--accent); }
+        header p {
+            margin-top: 6px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+        }
 
-        /* Tabs */
+        /* ── Tabs ── */
         .tabs {
-            display: flex; justify-content: center; gap: 4px;
-            margin-bottom: 25px; background: rgba(0,0,0,0.15);
-            border-radius: 10px; padding: 4px; overflow-x: auto;
+            display: flex;
+            gap: 2px;
+            margin-bottom: 28px;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
         .tab-btn {
-            flex: 0 0 auto; padding: 10px 18px; background: none; border: none;
-            color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600;
-            cursor: pointer; transition: all 0.25s ease; border-radius: 8px;
+            flex: 0 0 auto;
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 6px;
             white-space: nowrap;
         }
-        .tab-btn:hover { color: white; background: rgba(255,255,255,0.1); }
-        .tab-btn.active { color: white; background: rgba(255,255,255,0.2); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .tab-btn:hover { color: var(--text-secondary); }
+        .tab-btn.active {
+            color: var(--text);
+            background: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
 
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content.active { display: block; }
 
+        /* ── Section ── */
         .section {
-            background: var(--card-bg); border-radius: 12px; padding: 22px;
-            margin-bottom: 22px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0;
+            overflow: hidden;
         }
         .section-header {
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 12px; margin-bottom: 8px;
+            padding: 20px 24px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        h2 { color: var(--text); font-size: 1.25rem; }
-        .item-count { color: var(--text-muted); font-size: 0.85rem; }
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .item-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
-        /* Search */
-        .search-box {
-            width: 100%; padding: 10px 14px; border: 2px solid var(--search-border);
-            border-radius: 8px; font-size: 0.9rem; background: var(--search-bg);
-            color: var(--text); margin-bottom: 15px; transition: border-color 0.2s;
-            outline: none;
+        /* ── Search ── */
+        .search-wrap {
+            padding: 0 24px 16px;
         }
-        .search-box:focus { border-color: var(--search-focus); }
+        .search-box {
+            width: 100%;
+            max-width: 360px;
+            padding: 9px 14px 9px 36px;
+            border: 1px solid var(--border-strong);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            background: var(--bg-surface);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%235c6070' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cline x1='11' y1='11' x2='14' y2='14'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 12px center;
+        }
+        .search-box:focus { border-color: var(--accent); }
         .search-box::placeholder { color: var(--text-muted); }
 
-        /* Table */
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        @media (prefers-color-scheme: dark) { table { background: rgba(0,0,0,0.3); } }
-        [data-theme="dark"] table { background: rgba(0,0,0,0.3); }
+        /* ── Table ── */
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
         th {
-            background: linear-gradient(to bottom, var(--th-start), var(--th-end));
-            color: white; padding: 12px 14px; text-align: left;
-            font-weight: 600; font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 0.5px; cursor: pointer; user-select: none;
-            position: relative; white-space: nowrap;
+            background: var(--bg-table-head);
+            color: var(--text-secondary);
+            padding: 10px 20px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
         }
-        th:hover { filter: brightness(1.1); }
-        th .sort-arrow { margin-left: 4px; opacity: 0.5; font-size: 0.7rem; }
-        th.sorted .sort-arrow { opacity: 1; }
-        td { padding: 11px 14px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        tr:hover { background: var(--hover); }
+        th:hover { color: var(--text); }
+        th .sort-arrow { opacity: 0.3; margin-left: 3px; font-size: 0.65rem; }
+        th.sorted .sort-arrow { opacity: 1; color: var(--accent); }
+        td {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
         tr:last-child td { border-bottom: none; }
-        .rank { font-weight: 700; color: var(--accent); width: 40px; }
-        .value { font-weight: 700; white-space: nowrap; }
+        tr:hover td { background: var(--bg-card-hover); }
+        .rank {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            width: 36px;
+        }
+        .name-cell { font-weight: 500; }
+        .value {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.88rem;
+            white-space: nowrap;
+        }
+        .value-high { color: var(--green); }
+        .value-mid { color: var(--amber); }
+        .value-low { color: var(--text-secondary); }
 
-        /* Badges */
+        /* ── Badges ── */
         .badge {
-            display: inline-block; padding: 3px 10px; border-radius: 20px;
-            font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
         }
-        .badge-high { background: #d5f5e3; color: #1e8449; }
-        .badge-very-high { background: #fdebd0; color: #ca6f1e; }
-        .badge-medium { background: #fef9e7; color: #b7950b; }
-        .badge-low { background: #fadbd8; color: #c0392b; }
-        .badge-very-low { background: #eaecee; color: #7f8c8d; }
-        .badge-stable { background: #d6eaf8; color: #2471a3; }
-        .badge-rising { background: #d5f5e3; color: #1e8449; }
-        .badge-falling { background: #fadbd8; color: #c0392b; }
-        .badge-titanic { background: #e8daef; color: #7d3c98; }
-        .badge-gargantuan { background: #f9e79f; color: #7d6608; }
-        .badge-huge { background: #d4efdf; color: #1e8449; }
-        .badge-chroma { background: #d5f5e3; color: #0e6655; }
-        .badge-ancient { background: #fdebd0; color: #935116; }
-        .badge-godly { background: #d6eaf8; color: #2471a3; }
-        .badge-og { background: #fadbd8; color: #922b21; }
-        .badge-secret { background: #e8daef; color: #7d3c98; }
-        .badge-legendary { background: #fdebd0; color: #b9770e; }
-        .badge-mythic { background: #d6eaf8; color: #1a5276; }
+        /* demand */
+        .b-highest { background: var(--green-dim); color: var(--green); }
+        .b-very-high { background: var(--amber-dim); color: var(--amber); }
+        .b-high { background: var(--accent-dim); color: var(--accent); }
+        .b-medium { background: var(--purple-dim); color: var(--purple); }
+        .b-low { background: var(--red-dim); color: var(--red); }
+        .b-very-low { background: rgba(255,255,255,0.04); color: var(--text-muted); }
+        /* trend */
+        .b-stable { background: var(--accent-dim); color: var(--accent); }
+        .b-rising { background: var(--green-dim); color: var(--green); }
+        .b-falling { background: var(--red-dim); color: var(--red); }
+        /* tiers */
+        .b-chroma { background: var(--cyan-dim); color: var(--cyan); }
+        .b-ancient { background: var(--amber-dim); color: var(--amber); }
+        .b-godly { background: var(--accent-dim); color: var(--accent); }
+        .b-divine { background: var(--purple-dim); color: var(--purple); }
+        .b-mythical { background: var(--cyan-dim); color: var(--cyan); }
+        .b-legendary { background: var(--amber-dim); color: var(--amber); }
+        .b-prismatic { background: var(--green-dim); color: var(--green); }
+        .b-titanic { background: var(--purple-dim); color: var(--purple); }
+        .b-gargantuan { background: var(--amber-dim); color: var(--amber); }
+        .b-huge { background: var(--green-dim); color: var(--green); }
+        .b-og { background: var(--red-dim); color: var(--red); }
+        .b-secret { background: var(--purple-dim); color: var(--purple); }
+        .b-mythic { background: var(--cyan-dim); color: var(--cyan); }
+        .b-brainrot-god { background: var(--amber-dim); color: var(--amber); }
+        .b-rare { background: var(--accent-dim); color: var(--accent); }
 
-        .no-results { text-align: center; padding: 30px; color: var(--text-muted); font-style: italic; display: none; }
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: none;
+        }
 
+        /* ── Footer ── */
         .footer {
-            text-align: center; margin-top: 35px; padding: 20px;
-            color: rgba(255,255,255,0.7); font-size: 0.85rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
         }
-        .footer a { color: rgba(255,255,255,0.9); }
 
-        /* Responsive */
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            .container { padding: 12px; }
-            header h1 { font-size: 1.3rem; }
-            .tab-btn { padding: 8px 12px; font-size: 0.8rem; }
-            .section { padding: 16px; }
-            table { font-size: 0.82rem; }
-            th, td { padding: 8px 10px; }
-            .section-header { flex-direction: column; align-items: flex-start; }
-        }
-        @media (max-width: 480px) {
-            .tabs { gap: 2px; padding: 3px; }
-            .tab-btn { padding: 7px 10px; font-size: 0.75rem; }
+            .container { padding: 20px 16px; }
+            header h1 { font-size: 1.2rem; }
+            .section-header { padding: 16px 16px 12px; }
+            .search-wrap { padding: 0 16px 12px; }
+            th, td { padding: 9px 14px; font-size: 0.82rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Roblox Trading Data</h1>
-            <p>Market Valuations &mdash; September 2026</p>
+            <h1><span>//</span> Roblox Trading Hub</h1>
+            <p>market data &mdash; sep 2026</p>
         </header>
 
         <div class="tabs" role="tablist">
@@ -194,369 +302,358 @@
             <button class="tab-btn" data-tab="bloxfruits" role="tab">Blox Fruits</button>
         </div>
 
-        <!-- ═══════════════════════ STEAL A BRAINROT ═══════════════════════ -->
+        <!-- BRAINROTS -->
         <div id="brainrots" class="tab-content active">
             <section class="section">
                 <div class="section-header">
-                    <h2>Steal a Brainrot &mdash; Top Items</h2>
+                    <h2>Steal a Brainrot</h2>
                     <span class="item-count" id="brainrots-count"></span>
                 </div>
-                <input type="text" class="search-box" id="brainrots-search" placeholder="Search brainrots...">
-                <div style="overflow-x:auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-col="rank"># <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="name">Brainrot <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="rarity">Rarity <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="value">Value <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="demand">Demand <span class="sort-arrow">&#9650;</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="brainrots-body"></tbody>
-                </table>
+                <div class="search-wrap">
+                    <input type="text" class="search-box" id="brainrots-search" placeholder="Search brainrots...">
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th data-col="rank">#<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="name">Brainrot<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="rarity">Rarity<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="value">Value<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="demand">Demand<span class="sort-arrow">&#9650;</span></th>
+                        </tr></thead>
+                        <tbody id="brainrots-body"></tbody>
+                    </table>
                 </div>
                 <div class="no-results" id="brainrots-no-results">No brainrots match your search.</div>
             </section>
         </div>
 
-        <!-- ═══════════════════════ MURDER MYSTERY 2 ═══════════════════════ -->
+        <!-- MM2 -->
         <div id="mm2" class="tab-content">
             <section class="section">
                 <div class="section-header">
-                    <h2>Murder Mystery 2 &mdash; Top Items</h2>
+                    <h2>Murder Mystery 2</h2>
                     <span class="item-count" id="mm2-count"></span>
                 </div>
-                <input type="text" class="search-box" id="mm2-search" placeholder="Search knives, guns, pets...">
-                <div style="overflow-x:auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-col="rank"># <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="name">Item <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="type">Type <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="tier">Tier <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="value">Value Range <span class="sort-arrow">&#9650;</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="mm2-body"></tbody>
-                </table>
+                <div class="search-wrap">
+                    <input type="text" class="search-box" id="mm2-search" placeholder="Search knives, guns...">
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th data-col="rank">#<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="name">Item<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="type">Type<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="tier">Tier<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="value">Value (USD)<span class="sort-arrow">&#9650;</span></th>
+                        </tr></thead>
+                        <tbody id="mm2-body"></tbody>
+                    </table>
                 </div>
                 <div class="no-results" id="mm2-no-results">No items match your search.</div>
             </section>
         </div>
 
-        <!-- ═══════════════════════ GROW A GARDEN ═══════════════════════ -->
+        <!-- GROW A GARDEN -->
         <div id="garden" class="tab-content">
             <section class="section">
                 <div class="section-header">
-                    <h2>Grow a Garden &mdash; Pet Values</h2>
+                    <h2>Grow a Garden</h2>
                     <span class="item-count" id="garden-count"></span>
                 </div>
-                <input type="text" class="search-box" id="garden-search" placeholder="Search pets...">
-                <div style="overflow-x:auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-col="rank"># <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="name">Pet <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="tier">Tier <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="value">Value (Tokens) <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="demand">Demand <span class="sort-arrow">&#9650;</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="garden-body"></tbody>
-                </table>
+                <div class="search-wrap">
+                    <input type="text" class="search-box" id="garden-search" placeholder="Search pets...">
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th data-col="rank">#<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="name">Pet<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="tier">Tier<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="value">Tokens<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="demand">Demand<span class="sort-arrow">&#9650;</span></th>
+                        </tr></thead>
+                        <tbody id="garden-body"></tbody>
+                    </table>
                 </div>
                 <div class="no-results" id="garden-no-results">No pets match your search.</div>
             </section>
         </div>
 
-        <!-- ═══════════════════════ PET SIMULATOR 99 ═══════════════════════ -->
+        <!-- PS99 -->
         <div id="ps99" class="tab-content">
             <section class="section">
                 <div class="section-header">
-                    <h2>Pet Simulator 99 &mdash; Top Pets</h2>
+                    <h2>Pet Simulator 99</h2>
                     <span class="item-count" id="ps99-count"></span>
                 </div>
-                <input type="text" class="search-box" id="ps99-search" placeholder="Search pets...">
-                <div style="overflow-x:auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-col="rank"># <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="name">Pet <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="tier">Rarity <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="value">Value (Gems) <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="demand">Demand <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="trend">Trend <span class="sort-arrow">&#9650;</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="ps99-body"></tbody>
-                </table>
+                <div class="search-wrap">
+                    <input type="text" class="search-box" id="ps99-search" placeholder="Search pets...">
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th data-col="rank">#<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="name">Pet<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="tier">Rarity<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="value">Gems<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="demand">Demand<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="trend">Trend<span class="sort-arrow">&#9650;</span></th>
+                        </tr></thead>
+                        <tbody id="ps99-body"></tbody>
+                    </table>
                 </div>
                 <div class="no-results" id="ps99-no-results">No pets match your search.</div>
             </section>
         </div>
 
-        <!-- ═══════════════════════ BLOX FRUITS ═══════════════════════ -->
+        <!-- BLOX FRUITS -->
         <div id="bloxfruits" class="tab-content">
             <section class="section">
                 <div class="section-header">
-                    <h2>Blox Fruits &mdash; Trade Values</h2>
+                    <h2>Blox Fruits</h2>
                     <span class="item-count" id="bloxfruits-count"></span>
                 </div>
-                <input type="text" class="search-box" id="bloxfruits-search" placeholder="Search fruits, items...">
-                <div style="overflow-x:auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-col="rank"># <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="name">Item <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="value">Trade Value <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="demand">Demand <span class="sort-arrow">&#9650;</span></th>
-                            <th data-col="trend">Trend <span class="sort-arrow">&#9650;</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="bloxfruits-body"></tbody>
-                </table>
+                <div class="search-wrap">
+                    <input type="text" class="search-box" id="bloxfruits-search" placeholder="Search fruits, items...">
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th data-col="rank">#<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="name">Item<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="value">Trade Value<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="demand">Demand<span class="sort-arrow">&#9650;</span></th>
+                            <th data-col="trend">Trend<span class="sort-arrow">&#9650;</span></th>
+                        </tr></thead>
+                        <tbody id="bloxfruits-body"></tbody>
+                    </table>
                 </div>
                 <div class="no-results" id="bloxfruits-no-results">No items match your search.</div>
             </section>
         </div>
 
         <div class="footer">
-            &copy; 2026 Roblox Market Tracker &mdash; Data sourced from community trading consensus<br>
-            Values shift frequently. Always verify before trading.
+            Data sourced from community trading consensus. Values shift frequently &mdash; verify before trading.
         </div>
     </div>
 
-    <script>
-    // ═══════════════════════ DATA ═══════════════════════
-    const DATA = {
-        brainrots: [
-            { name:"Strawberry Elephant", rarity:"OG", value:"4.55M", valueNum:4550000, demand:"Very High" },
-            { name:"Griffin", rarity:"Secret", value:"4.40M", valueNum:4400000, demand:"Very Low" },
-            { name:"Skibidi Toilet", rarity:"OG", value:"4.05M", valueNum:4050000, demand:"Very Low" },
-            { name:"Cerberus", rarity:"Secret", value:"1.65M", valueNum:1650000, demand:"Very Low" },
-            { name:"Headless Horseman", rarity:"OG", value:"875K", valueNum:875000, demand:"High" },
-            { name:"Signore Carapace", rarity:"Legendary", value:"207.5K", valueNum:207500, demand:"Medium" },
-            { name:"Elefanto Frigo", rarity:"Mythic", value:"112.5K", valueNum:112500, demand:"Very High" },
-            { name:"Meowl", rarity:"OG", value:"75K", valueNum:75000, demand:"Very Low" },
-            { name:"Antonio", rarity:"Brainrot God", value:"70K", valueNum:70000, demand:"High" },
-            { name:"Dragon Gingerini", rarity:"Secret", value:"40K", valueNum:40000, demand:"High" },
-            { name:"Hydra Bunny", rarity:"Rare", value:"15.5K", valueNum:15500, demand:"High" },
-            { name:"Fishino Clownino", rarity:"Secret", value:"15K", valueNum:15000, demand:"High" },
-            { name:"Tirilikalika Tirilikalako", rarity:"Legendary", value:"11K", valueNum:11000, demand:"Low" },
-            { name:"Hydra Dragon Cannelloni", rarity:"Secret", value:"7.5K", valueNum:7500, demand:"Very Low" },
-            { name:"Dragon Cannelloni", rarity:"Secret", value:"3.4K", valueNum:3400, demand:"Very High" },
-        ],
-        mm2: [
-            { name:"Chroma Traveler's Gun", type:"Gun", tier:"Chroma", value:"$1,500-$3,000+", valueNum:3000 },
-            { name:"Chroma Evergun", type:"Gun", tier:"Chroma", value:"$1,100-$1,500+", valueNum:1500 },
-            { name:"Chroma Evergreen", type:"Gun", tier:"Chroma", value:"$900-$2,000", valueNum:2000 },
-            { name:"Chroma Vampire's Gun", type:"Gun", tier:"Chroma", value:"$570-$800", valueNum:800 },
-            { name:"Chroma Bauble", type:"Gun", tier:"Chroma", value:"$550-$1,000", valueNum:1000 },
-            { name:"Chroma Constellation", type:"Gun", tier:"Chroma", value:"$460-$700", valueNum:700 },
-            { name:"Chroma Alienbeam", type:"Gun", tier:"Chroma", value:"$440-$700", valueNum:700 },
-            { name:"Gingerscope", type:"Gun", tier:"Ancient", value:"$210-$500", valueNum:500 },
-            { name:"Chroma Raygun", type:"Gun", tier:"Chroma", value:"$200-$400", valueNum:400 },
-            { name:"Chroma Sunrise", type:"Gun", tier:"Chroma", value:"$160-$300", valueNum:300 },
-            { name:"Chroma Icecream", type:"Gun", tier:"Chroma", value:"$200-$300", valueNum:300 },
-            { name:"Chroma Sands", type:"Knife", tier:"Chroma", value:"$170-$200", valueNum:200 },
-            { name:"Chroma Beachy", type:"Knife", tier:"Chroma", value:"$170-$200", valueNum:200 },
-            { name:"Chroma Blizzard", type:"Knife", tier:"Chroma", value:"$130-$280", valueNum:280 },
-            { name:"Chroma Snowcannon", type:"Gun", tier:"Chroma", value:"$130-$180", valueNum:180 },
-            { name:"Traveler's Axe", type:"Knife", tier:"Ancient", value:"$110-$200", valueNum:200 },
-            { name:"Chroma Heartwand", type:"Knife", tier:"Chroma", value:"$96-$150", valueNum:150 },
-            { name:"Chroma Treat", type:"Knife", tier:"Chroma", value:"$90-$200", valueNum:200 },
-            { name:"Chroma Sweet", type:"Knife", tier:"Chroma", value:"$75-$140", valueNum:140 },
-            { name:"Traveler's Gun", type:"Gun", tier:"Godly", value:"$70-$100", valueNum:100 },
-        ],
-        garden: [
-            { name:"Water Buffalo", tier:"Divine", value:"6.19M", valueNum:6190000, demand:"Highest" },
-            { name:"Blue Lobster Thermidor", tier:"Mythical", value:"377K", valueNum:377000, demand:"High" },
-            { name:"Black Swan", tier:"Mythical", value:"318K", valueNum:318000, demand:"High" },
-            { name:"Rainbow Elephant", tier:"Divine", value:"243K", valueNum:243000, demand:"High" },
-            { name:"Calico", tier:"Legendary", value:"189K", valueNum:189000, demand:"High" },
-            { name:"Albino Peacock", tier:"Mythical", value:"87.8K", valueNum:87800, demand:"High" },
-            { name:"Rainbow Griffin", tier:"Divine", value:"63.8K", valueNum:63800, demand:"High" },
-            { name:"Rainbow Chinchilla", tier:"Divine", value:"58.8K", valueNum:58800, demand:"High" },
-            { name:"Ghostly Mummy", tier:"Divine", value:"51.3K", valueNum:51300, demand:"High" },
-            { name:"Rainbow Phoenix", tier:"Divine", value:"47.5K", valueNum:47500, demand:"High" },
-            { name:"Rainbow Krampus", tier:"Divine", value:"47.3K", valueNum:47300, demand:"Medium" },
-            { name:"Rainbow Spinosaurus", tier:"Divine", value:"42K", valueNum:42000, demand:"Medium" },
-            { name:"Rainbow New Years Dragon", tier:"Prismatic", value:"42K", valueNum:42000, demand:"High" },
-            { name:"Giant Scorpion", tier:"Prismatic", value:"38.3K", valueNum:38300, demand:"Medium" },
-            { name:"Rainbow Bearded Dragon", tier:"Divine", value:"36.8K", valueNum:36800, demand:"Medium" },
-            { name:"Wind Wyvern", tier:"Divine", value:"36.5K", valueNum:36500, demand:"Medium" },
-            { name:"Galah Cockatoo", tier:"Mythical", value:"35K", valueNum:35000, demand:"Medium" },
-        ],
-        ps99: [
-            { name:"Huge Empyrean Axolotl", tier:"Huge", value:"915B", valueNum:915186172797, demand:"Very High", trend:"Stable" },
-            { name:"Huge Owl", tier:"Huge", value:"914B", valueNum:913915839667, demand:"Very High", trend:"Stable" },
-            { name:"Monkey Bro", tier:"Huge", value:"789B", valueNum:789489848320, demand:"Very High", trend:"Stable" },
-            { name:"Titanic Hippomelon", tier:"Titanic", value:"662B", valueNum:662127258835, demand:"Very High", trend:"Rising" },
-            { name:"Gargantuan Hypnotic Kitsune", tier:"Gargantuan", value:"471B", valueNum:470884157338, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Kaiju King", tier:"Gargantuan", value:"422B", valueNum:421998720000, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Starfall Dragon", tier:"Gargantuan", value:"408B", valueNum:407840960000, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Dot Matrix Pegasus", tier:"Gargantuan", value:"335B", valueNum:335140226560, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Hellish Axolotl", tier:"Gargantuan", value:"335B", valueNum:334625025763, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Exquisite Parrot", tier:"Gargantuan", value:"296B", valueNum:296427988480, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Patchwork Agony", tier:"Gargantuan", value:"296B", valueNum:295780491608, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Jurassic Dragon", tier:"Gargantuan", value:"292B", valueNum:291871701513, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Googly Agony", tier:"Gargantuan", value:"265B", valueNum:264965797375, demand:"High", trend:"Stable" },
-            { name:"Titanic Pink Balloon", tier:"Titanic", value:"265B", valueNum:264713004561, demand:"High", trend:"Stable" },
-            { name:"Gargantuan Lucki Chest Mimic", tier:"Gargantuan", value:"263B", valueNum:262691740674, demand:"High", trend:"Stable" },
-        ],
-        bloxfruits: [
-            { name:"Eclipse Chromatic", value:"56.50B", valueNum:56500000000, demand:"Very High", trend:"Stable" },
-            { name:"Galaxy Kitsune", value:"9.68B", valueNum:9680000000, demand:"Very High", trend:"Stable" },
-            { name:"Rabid Skin", value:"8.50B", valueNum:8500000000, demand:"Very High", trend:"Rising" },
-            { name:"DogHouse Frame Break", value:"7.01B", valueNum:7010000000, demand:"Very High", trend:"Stable" },
-            { name:"Crimson Kitsune", value:"7B", valueNum:7000000000, demand:"Very High", trend:"Stable" },
-            { name:"Ember Dragon", value:"5.64B", valueNum:5640000000, demand:"Very High", trend:"Stable" },
-            { name:"Meme Fruit", value:"4.55B", valueNum:4550000000, demand:"High", trend:"Stable" },
-            { name:"Purple Lightning", value:"4.24B", valueNum:4240000000, demand:"High", trend:"Stable" },
-            { name:"Fruit Notifier (Gamepass)", value:"4.23B", valueNum:4230000000, demand:"Very High", trend:"Stable" },
-            { name:"West Dragon", value:"3.53B", valueNum:3530000000, demand:"High", trend:"Stable" },
-            { name:"East Dragon", value:"3.08B", valueNum:3080000000, demand:"High", trend:"Stable" },
-            { name:"Super Spirit Pain", value:"2.57B", valueNum:2570000000, demand:"High", trend:"Stable" },
-            { name:"Red Lightning", value:"2.27B", valueNum:2270000000, demand:"High", trend:"Stable" },
-            { name:"Yellow Lightning", value:"1.50B", valueNum:1500000000, demand:"Very High", trend:"Stable" },
-            { name:"Divine Portal", value:"1.34B", valueNum:1340000000, demand:"Very High", trend:"Stable" },
-            { name:"Dark Blade (Gamepass)", value:"1.11B", valueNum:1110000000, demand:"Very High", trend:"Stable" },
-            { name:"Werewolf", value:"1.02B", valueNum:1020000000, demand:"Very High", trend:"Stable" },
-            { name:"Fiend Yeti", value:"942.5M", valueNum:942500000, demand:"Very High", trend:"Stable" },
-            { name:"Dog Blade", value:"810M", valueNum:810000000, demand:"Very High", trend:"Rising" },
-        ],
-    };
+<script>
+const DATA = {
+    brainrots: [
+        { name:"Strawberry Elephant", rarity:"OG", value:"4.55M", valueNum:4550000, demand:"Very High" },
+        { name:"Griffin", rarity:"Secret", value:"4.40M", valueNum:4400000, demand:"Very Low" },
+        { name:"Skibidi Toilet", rarity:"OG", value:"4.05M", valueNum:4050000, demand:"Very Low" },
+        { name:"Cerberus", rarity:"Secret", value:"1.65M", valueNum:1650000, demand:"Very Low" },
+        { name:"Headless Horseman", rarity:"OG", value:"875K", valueNum:875000, demand:"High" },
+        { name:"Signore Carapace", rarity:"Legendary", value:"207.5K", valueNum:207500, demand:"Medium" },
+        { name:"Elefanto Frigo", rarity:"Mythic", value:"112.5K", valueNum:112500, demand:"Very High" },
+        { name:"Meowl", rarity:"OG", value:"75K", valueNum:75000, demand:"Very Low" },
+        { name:"Antonio", rarity:"Brainrot God", value:"70K", valueNum:70000, demand:"High" },
+        { name:"Dragon Gingerini", rarity:"Secret", value:"40K", valueNum:40000, demand:"High" },
+        { name:"Hydra Bunny", rarity:"Rare", value:"15.5K", valueNum:15500, demand:"High" },
+        { name:"Fishino Clownino", rarity:"Secret", value:"15K", valueNum:15000, demand:"High" },
+        { name:"Tirilikalika Tirilikalako", rarity:"Legendary", value:"11K", valueNum:11000, demand:"Low" },
+        { name:"Hydra Dragon Cannelloni", rarity:"Secret", value:"7.5K", valueNum:7500, demand:"Very Low" },
+        { name:"Dragon Cannelloni", rarity:"Secret", value:"3.4K", valueNum:3400, demand:"Very High" },
+    ],
+    mm2: [
+        { name:"Chroma Traveler's Gun", type:"Gun", tier:"Chroma", value:"$1,500-$3,000+", valueNum:3000 },
+        { name:"Chroma Evergun", type:"Gun", tier:"Chroma", value:"$1,100-$1,500+", valueNum:1500 },
+        { name:"Chroma Evergreen", type:"Gun", tier:"Chroma", value:"$900-$2,000", valueNum:2000 },
+        { name:"Chroma Vampire's Gun", type:"Gun", tier:"Chroma", value:"$570-$800", valueNum:800 },
+        { name:"Chroma Bauble", type:"Gun", tier:"Chroma", value:"$550-$1,000", valueNum:1000 },
+        { name:"Chroma Constellation", type:"Gun", tier:"Chroma", value:"$460-$700", valueNum:700 },
+        { name:"Chroma Alienbeam", type:"Gun", tier:"Chroma", value:"$440-$700", valueNum:700 },
+        { name:"Gingerscope", type:"Gun", tier:"Ancient", value:"$210-$500", valueNum:500 },
+        { name:"Chroma Raygun", type:"Gun", tier:"Chroma", value:"$200-$400", valueNum:400 },
+        { name:"Chroma Sunrise", type:"Gun", tier:"Chroma", value:"$160-$300", valueNum:300 },
+        { name:"Chroma Icecream", type:"Gun", tier:"Chroma", value:"$200-$300", valueNum:300 },
+        { name:"Chroma Sands", type:"Knife", tier:"Chroma", value:"$170-$200", valueNum:200 },
+        { name:"Chroma Beachy", type:"Knife", tier:"Chroma", value:"$170-$200", valueNum:200 },
+        { name:"Chroma Blizzard", type:"Knife", tier:"Chroma", value:"$130-$280", valueNum:280 },
+        { name:"Chroma Snowcannon", type:"Gun", tier:"Chroma", value:"$130-$180", valueNum:180 },
+        { name:"Traveler's Axe", type:"Knife", tier:"Ancient", value:"$110-$200", valueNum:200 },
+        { name:"Chroma Heartwand", type:"Knife", tier:"Chroma", value:"$96-$150", valueNum:150 },
+        { name:"Chroma Treat", type:"Knife", tier:"Chroma", value:"$90-$200", valueNum:200 },
+        { name:"Chroma Sweet", type:"Knife", tier:"Chroma", value:"$75-$140", valueNum:140 },
+        { name:"Traveler's Gun", type:"Gun", tier:"Godly", value:"$70-$100", valueNum:100 },
+    ],
+    garden: [
+        { name:"Water Buffalo", tier:"Divine", value:"6.19M", valueNum:6190000, demand:"Highest" },
+        { name:"Blue Lobster Thermidor", tier:"Mythical", value:"377K", valueNum:377000, demand:"High" },
+        { name:"Black Swan", tier:"Mythical", value:"318K", valueNum:318000, demand:"High" },
+        { name:"Rainbow Elephant", tier:"Divine", value:"243K", valueNum:243000, demand:"High" },
+        { name:"Calico", tier:"Legendary", value:"189K", valueNum:189000, demand:"High" },
+        { name:"Albino Peacock", tier:"Mythical", value:"87.8K", valueNum:87800, demand:"High" },
+        { name:"Rainbow Griffin", tier:"Divine", value:"63.8K", valueNum:63800, demand:"High" },
+        { name:"Rainbow Chinchilla", tier:"Divine", value:"58.8K", valueNum:58800, demand:"High" },
+        { name:"Ghostly Mummy", tier:"Divine", value:"51.3K", valueNum:51300, demand:"High" },
+        { name:"Rainbow Phoenix", tier:"Divine", value:"47.5K", valueNum:47500, demand:"High" },
+        { name:"Rainbow Krampus", tier:"Divine", value:"47.3K", valueNum:47300, demand:"Medium" },
+        { name:"Rainbow Spinosaurus", tier:"Divine", value:"42K", valueNum:42000, demand:"Medium" },
+        { name:"Rainbow New Years Dragon", tier:"Prismatic", value:"42K", valueNum:42000, demand:"High" },
+        { name:"Giant Scorpion", tier:"Prismatic", value:"38.3K", valueNum:38300, demand:"Medium" },
+        { name:"Rainbow Bearded Dragon", tier:"Divine", value:"36.8K", valueNum:36800, demand:"Medium" },
+        { name:"Wind Wyvern", tier:"Divine", value:"36.5K", valueNum:36500, demand:"Medium" },
+        { name:"Galah Cockatoo", tier:"Mythical", value:"35K", valueNum:35000, demand:"Medium" },
+    ],
+    ps99: [
+        { name:"Huge Empyrean Axolotl", tier:"Huge", value:"915B", valueNum:915186172797, demand:"Very High", trend:"Stable" },
+        { name:"Huge Owl", tier:"Huge", value:"914B", valueNum:913915839667, demand:"Very High", trend:"Stable" },
+        { name:"Monkey Bro", tier:"Huge", value:"789B", valueNum:789489848320, demand:"Very High", trend:"Stable" },
+        { name:"Titanic Hippomelon", tier:"Titanic", value:"662B", valueNum:662127258835, demand:"Very High", trend:"Rising" },
+        { name:"Gargantuan Hypnotic Kitsune", tier:"Gargantuan", value:"471B", valueNum:470884157338, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Kaiju King", tier:"Gargantuan", value:"422B", valueNum:421998720000, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Starfall Dragon", tier:"Gargantuan", value:"408B", valueNum:407840960000, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Dot Matrix Pegasus", tier:"Gargantuan", value:"335B", valueNum:335140226560, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Hellish Axolotl", tier:"Gargantuan", value:"335B", valueNum:334625025763, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Exquisite Parrot", tier:"Gargantuan", value:"296B", valueNum:296427988480, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Patchwork Agony", tier:"Gargantuan", value:"296B", valueNum:295780491608, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Jurassic Dragon", tier:"Gargantuan", value:"292B", valueNum:291871701513, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Googly Agony", tier:"Gargantuan", value:"265B", valueNum:264965797375, demand:"High", trend:"Stable" },
+        { name:"Titanic Pink Balloon", tier:"Titanic", value:"265B", valueNum:264713004561, demand:"High", trend:"Stable" },
+        { name:"Gargantuan Lucki Chest Mimic", tier:"Gargantuan", value:"263B", valueNum:262691740674, demand:"High", trend:"Stable" },
+    ],
+    bloxfruits: [
+        { name:"Eclipse Chromatic", value:"56.50B", valueNum:56500000000, demand:"Very High", trend:"Stable" },
+        { name:"Galaxy Kitsune", value:"9.68B", valueNum:9680000000, demand:"Very High", trend:"Stable" },
+        { name:"Rabid Skin", value:"8.50B", valueNum:8500000000, demand:"Very High", trend:"Rising" },
+        { name:"DogHouse Frame Break", value:"7.01B", valueNum:7010000000, demand:"Very High", trend:"Stable" },
+        { name:"Crimson Kitsune", value:"7B", valueNum:7000000000, demand:"Very High", trend:"Stable" },
+        { name:"Ember Dragon", value:"5.64B", valueNum:5640000000, demand:"Very High", trend:"Stable" },
+        { name:"Meme Fruit", value:"4.55B", valueNum:4550000000, demand:"High", trend:"Stable" },
+        { name:"Purple Lightning", value:"4.24B", valueNum:4240000000, demand:"High", trend:"Stable" },
+        { name:"Fruit Notifier (Gamepass)", value:"4.23B", valueNum:4230000000, demand:"Very High", trend:"Stable" },
+        { name:"West Dragon", value:"3.53B", valueNum:3530000000, demand:"High", trend:"Stable" },
+        { name:"East Dragon", value:"3.08B", valueNum:3080000000, demand:"High", trend:"Stable" },
+        { name:"Super Spirit Pain", value:"2.57B", valueNum:2570000000, demand:"High", trend:"Stable" },
+        { name:"Red Lightning", value:"2.27B", valueNum:2270000000, demand:"High", trend:"Stable" },
+        { name:"Yellow Lightning", value:"1.50B", valueNum:1500000000, demand:"Very High", trend:"Stable" },
+        { name:"Divine Portal", value:"1.34B", valueNum:1340000000, demand:"Very High", trend:"Stable" },
+        { name:"Dark Blade (Gamepass)", value:"1.11B", valueNum:1110000000, demand:"Very High", trend:"Stable" },
+        { name:"Werewolf", value:"1.02B", valueNum:1020000000, demand:"Very High", trend:"Stable" },
+        { name:"Fiend Yeti", value:"942.5M", valueNum:942500000, demand:"Very High", trend:"Stable" },
+        { name:"Dog Blade", value:"810M", valueNum:810000000, demand:"Very High", trend:"Rising" },
+    ],
+};
 
-    // ═══════════════════════ HELPERS ═══════════════════════
-    function demandBadge(d) {
-        const cls = d.toLowerCase().replace(/\s+/g, '-');
-        return `<span class="badge badge-${cls}">${d}</span>`;
-    }
-    function trendBadge(t) {
-        if (!t) return '';
-        const cls = t.toLowerCase();
-        return `<span class="badge badge-${cls}">${t}</span>`;
-    }
-    function tierBadge(t) {
-        const cls = t.toLowerCase().replace(/\s+/g, '-');
-        return `<span class="badge badge-${cls}">${t}</span>`;
-    }
+// ── Helpers ──
+function badge(d, prefix) {
+    const cls = d.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    return `<span class="badge b-${cls}">${d}</span>`;
+}
 
-    function renderRows(data, config) {
-        const tbody = document.getElementById(config.tbodyId);
-        const countEl = document.getElementById(config.countId);
-        const noResults = document.getElementById(config.noId);
-        const searchInput = document.getElementById(config.searchId);
+function renderRows(data, cfg) {
+    const tbody = document.getElementById(cfg.tbodyId);
+    const countEl = document.getElementById(cfg.countId);
+    const noResults = document.getElementById(cfg.noId);
+    const searchInput = document.getElementById(cfg.searchId);
 
-        function render(items) {
-            if (items.length === 0) {
-                tbody.innerHTML = '';
-                noResults.style.display = 'block';
-                countEl.textContent = '0 items';
-                return;
-            }
-            noResults.style.display = 'none';
-            countEl.textContent = items.length + ' items';
-            tbody.innerHTML = items.map((item, i) => {
-                let cols = `<td class="rank">${i + 1}</td><td>${item.name}</td>`;
-                cols += config.extraCols(item);
-                return `<tr>${cols}</tr>`;
-            }).join('');
+    function render(items) {
+        if (!items.length) {
+            tbody.innerHTML = '';
+            noResults.style.display = 'block';
+            countEl.textContent = '0 items';
+            return;
         }
+        noResults.style.display = 'none';
+        countEl.textContent = items.length + ' items';
+        tbody.innerHTML = items.map((item, i) => {
+            let row = `<td class="rank">${i + 1}</td><td class="name-cell">${item.name}</td>`;
+            row += cfg.extraCols(item);
+            return `<tr>${row}</tr>`;
+        }).join('');
+    }
 
-        let filtered = [...data];
-        searchInput.addEventListener('input', function() {
-            const q = this.value.toLowerCase();
-            filtered = data.filter(item => item.name.toLowerCase().includes(q) || (item.rarity && item.rarity.toLowerCase().includes(q)) || (item.tier && item.tier.toLowerCase().includes(q)) || (item.type && item.type.toLowerCase().includes(q)));
+    let filtered = [...data];
+    searchInput.addEventListener('input', function() {
+        const q = this.value.toLowerCase();
+        filtered = data.filter(item =>
+            item.name.toLowerCase().includes(q) ||
+            (item.rarity && item.rarity.toLowerCase().includes(q)) ||
+            (item.tier && item.tier.toLowerCase().includes(q)) ||
+            (item.type && item.type.toLowerCase().includes(q))
+        );
+        render(filtered);
+    });
+
+    // Sort
+    const table = searchInput.closest('.section').querySelector('table');
+    const headers = table.querySelectorAll('th');
+    headers.forEach((th, colIdx) => {
+        let asc = true;
+        th.addEventListener('click', () => {
+            headers.forEach(h => h.classList.remove('sorted'));
+            th.classList.add('sorted');
+            const key = cfg.sortKeys[colIdx];
+            if (!key) return;
+            filtered.sort((a, b) => {
+                let va = key === 'value' ? a.valueNum : (a[key] || '');
+                let vb = key === 'value' ? b.valueNum : (b[key] || '');
+                if (typeof va === 'string') va = va.toLowerCase();
+                if (typeof vb === 'string') vb = vb.toLowerCase();
+                return asc ? (va < vb ? -1 : va > vb ? 1 : 0) : (va > vb ? -1 : va < vb ? 1 : 0);
+            });
+            asc = !asc;
             render(filtered);
         });
+    });
 
-        // Sorting
-        const table = searchInput.closest('.section').querySelector('table');
-        const headers = table.querySelectorAll('th');
-        headers.forEach((th, colIdx) => {
-            let asc = true;
-            th.addEventListener('click', () => {
-                headers.forEach(h => h.classList.remove('sorted'));
-                th.classList.add('sorted');
-                const key = config.sortKeys[colIdx];
-                if (!key) return;
-                filtered.sort((a, b) => {
-                    let va = key === 'value' ? a.valueNum : (a[key] || '');
-                    let vb = key === 'value' ? b.valueNum : (b[key] || '');
-                    if (typeof va === 'string') va = va.toLowerCase();
-                    if (typeof vb === 'string') vb = vb.toLowerCase();
-                    if (va < vb) return asc ? -1 : 1;
-                    if (va > vb) return asc ? 1 : -1;
-                    return 0;
-                });
-                asc = !asc;
-                render(filtered);
-            });
-        });
+    render(filtered);
+}
 
-        render(filtered);
-    }
-
-    // ═══════════════════════ RENDER ALL TABS ═══════════════════════
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tabs
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                button.classList.add('active');
-                document.getElementById(button.getAttribute('data-tab')).classList.add('active');
-            });
-        });
-
-        // Brainrots
-        renderRows(DATA.brainrots, {
-            tbodyId: 'brainrots-body', countId: 'brainrots-count',
-            noId: 'brainrots-no-results', searchId: 'brainrots-search',
-            sortKeys: ['rank', 'name', 'rarity', 'value', 'demand'],
-            extraCols: item => `<td>${tierBadge(item.rarity)}</td><td class="value">${item.value}</td><td>${demandBadge(item.demand)}</td>`
-        });
-
-        // MM2
-        renderRows(DATA.mm2, {
-            tbodyId: 'mm2-body', countId: 'mm2-count',
-            noId: 'mm2-no-results', searchId: 'mm2-search',
-            sortKeys: ['rank', 'name', 'type', 'tier', 'value'],
-            extraCols: item => `<td>${item.type}</td><td>${tierBadge(item.tier)}</td><td class="value">${item.value}</td>`
-        });
-
-        // Grow a Garden
-        renderRows(DATA.garden, {
-            tbodyId: 'garden-body', countId: 'garden-count',
-            noId: 'garden-no-results', searchId: 'garden-search',
-            sortKeys: ['rank', 'name', 'tier', 'value', 'demand'],
-            extraCols: item => `<td>${tierBadge(item.tier)}</td><td class="value">${item.value}</td><td>${demandBadge(item.demand)}</td>`
-        });
-
-        // PS99
-        renderRows(DATA.ps99, {
-            tbodyId: 'ps99-body', countId: 'ps99-count',
-            noId: 'ps99-no-results', searchId: 'ps99-search',
-            sortKeys: ['rank', 'name', 'tier', 'value', 'demand', 'trend'],
-            extraCols: item => `<td>${tierBadge(item.tier)}</td><td class="value">${item.value}</td><td>${demandBadge(item.demand)}</td><td>${trendBadge(item.trend)}</td>`
-        });
-
-        // Blox Fruits
-        renderRows(DATA.bloxfruits, {
-            tbodyId: 'bloxfruits-body', countId: 'bloxfruits-count',
-            noId: 'bloxfruits-no-results', searchId: 'bloxfruits-search',
-            sortKeys: ['rank', 'name', 'value', 'demand', 'trend'],
-            extraCols: item => `<td class="value">${item.value}</td><td>${demandBadge(item.demand)}</td><td>${trendBadge(item.trend)}</td>`
+document.addEventListener('DOMContentLoaded', function() {
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
         });
     });
-    </script>
+
+    // Brainrots
+    renderRows(DATA.brainrots, {
+        tbodyId:'brainrots-body', countId:'brainrots-count',
+        noId:'brainrots-no-results', searchId:'brainrots-search',
+        sortKeys:['rank','name','rarity','value','demand'],
+        extraCols: item => `<td>${badge(item.rarity)}</td><td class="value">${item.value}</td><td>${badge(item.demand)}</td>`
+    });
+
+    // MM2
+    renderRows(DATA.mm2, {
+        tbodyId:'mm2-body', countId:'mm2-count',
+        noId:'mm2-no-results', searchId:'mm2-search',
+        sortKeys:['rank','name','type','tier','value'],
+        extraCols: item => `<td>${item.type}</td><td>${badge(item.tier)}</td><td class="value">${item.value}</td>`
+    });
+
+    // Garden
+    renderRows(DATA.garden, {
+        tbodyId:'garden-body', countId:'garden-count',
+        noId:'garden-no-results', searchId:'garden-search',
+        sortKeys:['rank','name','tier','value','demand'],
+        extraCols: item => `<td>${badge(item.tier)}</td><td class="value">${item.value}</td><td>${badge(item.demand)}</td>`
+    });
+
+    // PS99
+    renderRows(DATA.ps99, {
+        tbodyId:'ps99-body', countId:'ps99-count',
+        noId:'ps99-no-results', searchId:'ps99-search',
+        sortKeys:['rank','name','tier','value','demand','trend'],
+        extraCols: item => `<td>${badge(item.tier)}</td><td class="value">${item.value}</td><td>${badge(item.demand)}</td><td>${badge(item.trend)}</td>`
+    });
+
+    // Blox Fruits
+    renderRows(DATA.bloxfruits, {
+        tbodyId:'bloxfruits-body', countId:'bloxfruits-count',
+        noId:'bloxfruits-no-results', searchId:'bloxfruits-search',
+        sortKeys:['rank','name','value','demand','trend'],
+        extraCols: item => `<td class="value">${item.value}</td><td>${badge(item.demand)}</td><td>${badge(item.trend)}</td>`
+    });
+});
+</script>
 </body>
 </html>
