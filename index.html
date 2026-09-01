@@ -3,711 +3,555 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Digital Products Sales Guide 2026</title>
-<meta name="description" content="A comprehensive guide to selling digital products online - platforms, fees, what sells, risks, and income benchmarks for 2025-2026." />
+<title>2026 Beer-Money Stack — The Free Audit Checklist</title>
+<meta name="description" content="MTurk is dead for new accounts. Here are the only platforms paying $15+/hr in 2026 — and the apps to delete immediately." />
+<meta property="og:title" content="2026 Beer-Money Stack — Free Audit Checklist" />
+<meta property="og:description" content="MTurk is closed to new workers. Get the 3 platforms that still pay + the apps to delete today." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
+/* ── Marshmallow palette ── */
 :root {
-  /* Dark gentle palette */
-  --bg-deep: #1a1530;
-  --bg-mid: #221c3d;
-  --bg-soft: #2b244a;
-  --bg-card: rgba(45, 37, 70, 0.72);
-  --bg-card-solid: #2d2546;
-  --bg-pill: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  --sky: #F4F9FF;
+  --cloud: #EBF4FF;
+  --ice: #F0F7FF;
+  --powder: #E0ECFF;
+  --sky-mid: #C4DBFF;
+  --sky-deep: #A8C8F0;
+  --marshmallow: #FFFFFF;
+  --marshmallow-t: rgba(255,255,255,.92);
+  --marshmallow-50: rgba(255,255,255,.50);
 
-  /* Soft pastels adapted for dark */
-  --rose: #f4a8c0;
-  --rose-deep: #e887a6;
-  --rose-soft: rgba(244, 168, 192, 0.18);
-  --lavender: #c4b5fd;
-  --lavender-deep: #a78bfa;
-  --lavender-soft: rgba(196, 181, 253, 0.18);
-  --mint: #a7f3d0;
-  --mint-deep: #6ee7b7;
-  --mint-soft: rgba(167, 243, 208, 0.16);
-  --peach: #fdba74;
-  --peach-deep: #fb923c;
-  --peach-soft: rgba(253, 186, 116, 0.16);
-  --butter: #fde68a;
-  --butter-deep: #fcd34d;
-  --butter-soft: rgba(253, 230, 138, 0.14);
-  --coral: #fb7185;
-  --coral-deep: #f43f5e;
-  --coral-soft: rgba(251, 113, 133, 0.18);
-  --gold: #fcd34d;
-  --gold-deep: #f59e0b;
-  --sky: #93c5fd;
-  --sky-deep: #60a5fa;
+  --mint: #D4F5E9;
+  --mint-deep: #6EE7B7;
+  --lavender: #E8DEFF;
+  --lavender-deep: #A78BFA;
+  --peach: #FFE5D0;
+  --peach-deep: #FB923C;
 
-  /* Text */
-  --ink: #e8e4f3;
-  --ink-2: #c4bdd9;
-  --ink-3: #948ba8;
-  --ink-4: #6e6582;
+  --red: #FF6B6B;
+  --red-deep: #E0394A;
+  --red-soft: #FFCECE;
 
-  --ok: #6ee7b7;
-  --warn: #fcd34d;
-  --stop: #fb7185;
+  --navy: #1E3A5F;
+  --navy-2: #3A5F80;
+  --navy-3: #6B8DAA;
+  --navy-4: #9DB5CC;
 
-  --shadow-s: 0 4px 12px rgba(0, 0, 0, 0.18);
-  --shadow-m: 0 10px 30px rgba(0, 0, 0, 0.28);
-  --shadow-l: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --gold: #FFD166;
+  --gold-deep: #F0A92E;
 
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
+  --shadow-s: 0 4px 16px rgba(30,58,95,.07);
+  --shadow-m: 0 8px 32px rgba(30,58,95,.10);
+  --shadow-l: 0 16px 48px rgba(30,58,95,.14);
+  --shadow-glow: 0 0 40px rgba(164,200,240,.35);
+
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 44px;
   --radius-pill: 999px;
 
-  --font: 'Quicksand', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-round: 'Fredoka', 'Quicksand', sans-serif;
-
-  --maxw: 920px;
-
-  --bg-grad:
-    radial-gradient(1200px 700px at 15% -10%, rgba(196, 181, 253, 0.18) 0%, transparent 55%),
-    radial-gradient(1000px 600px at 100% 0%, rgba(244, 168, 192, 0.16) 0%, transparent 50%),
-    radial-gradient(900px 900px at 50% 120%, rgba(167, 243, 208, 0.10) 0%, transparent 55%),
-    linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-mid) 55%, var(--bg-soft) 100%);
+  --font: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-round: 'Fredoka', 'Nunito', sans-serif;
+  --maxw: 680px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--navy);
   line-height: 1.65;
   min-height: 100dvh;
   overflow-x: hidden;
-  background: var(--bg-grad);
+  background:
+    radial-gradient(1400px 800px at 10% -15%, var(--powder) 0%, transparent 55%),
+    radial-gradient(1100px 700px at 100% 0%, var(--sky-mid) 0%, transparent 50%),
+    radial-gradient(1000px 1000px at 50% 120%, var(--cloud) 0%, transparent 55%),
+    radial-gradient(600px 600px at 70% 50%, var(--lavender) 0%, transparent 45%),
+    linear-gradient(160deg, var(--sky) 0%, var(--ice) 40%, var(--cloud) 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
-  overflow-wrap: anywhere;
-  font-weight: 500;
 }
 
-a { color: var(--rose); font-weight: 600; text-decoration: none; transition: color 0.2s ease; }
-a:hover { color: var(--rose-deep); text-decoration: underline; text-underline-offset: 3px; }
-
-/* Floating ambient blobs */
+/* ── Floating blobs (marshmallow clouds) ── */
 .blobs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: drift 22s ease-in-out infinite; }
-.blob.b1 { width: 280px; height: 280px; top: 8%; left: -80px; background: var(--rose-soft); }
-.blob.b2 { width: 220px; height: 220px; top: 62%; right: -60px; background: var(--lavender-soft); animation-delay: 5s; }
-.blob.b3 { width: 180px; height: 180px; top: 32%; right: 12%; background: rgba(253, 230, 138, 0.14); opacity: 0.3; animation-delay: 9s; }
-.blob.b4 { width: 140px; height: 140px; bottom: 8%; left: 14%; background: var(--mint-soft); animation-delay: 3s; }
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(50px); opacity: 0.5;
+  animation: drift 20s ease-in-out infinite;
+  will-change: transform;
+}
+.blob.b1 { width: 260px; height: 260px; top: 5%; left: -80px; background: radial-gradient(circle, #fff, var(--sky-mid)); }
+.blob.b2 { width: 200px; height: 200px; top: 55%; right: -60px; background: radial-gradient(circle, #fff, var(--lavender)); animation-delay: 5s; }
+.blob.b3 { width: 160px; height: 160px; top: 28%; right: 10%; background: radial-gradient(circle, #fff, var(--mint)); opacity: 0.4; animation-delay: 9s; }
+.blob.b4 { width: 140px; height: 140px; bottom: 8%; left: 15%; background: radial-gradient(circle, #fff, var(--peach)); animation-delay: 3s; }
+.blob.b5 { width: 100px; height: 100px; top: 80%; left: 60%; background: radial-gradient(circle, #fff, var(--powder)); opacity: 0.35; animation-delay: 12s; }
+
 @keyframes drift {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(26px, -30px) scale(1.06); }
-  66% { transform: translate(-20px, 22px) scale(0.96); }
+  25% { transform: translate(30px, -35px) scale(1.08); }
+  50% { transform: translate(-15px, 20px) scale(0.95); }
+  75% { transform: translate(20px, 10px) scale(1.03); }
 }
 
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── Page shell ── */
 .wrap {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 28px max(16px, env(safe-area-inset-right)) 80px max(16px, env(safe-area-inset-left));
-  display: flex;
-  flex-column;
-  gap: 22px;
-  min-width: 0;
+  padding: 40px 20px 60px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
 
-.reveal { opacity: 0; transform: translateY(22px); animation: rise .7s cubic-bezier(.22, 1, .36, 1) forwards; }
-@keyframes rise { to { opacity: 1; transform: none; } }
-
-/* Header / Hero */
-.hero { text-align: center; padding: 28px 0 12px; }
-.hero h1 {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: clamp(1.9rem, 6.5vw, 2.7rem);
-  color: var(--ink);
-  text-wrap: balance;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
-.hero h1 .accent { color: var(--rose); display: inline-block; transform: rotate(-2deg); }
-.hero .tagline {
-  font-size: clamp(0.98rem, 3.2vw, 1.12rem);
-  color: var(--ink-2);
-  font-weight: 600;
-  max-width: 44ch;
-  margin: 0 auto 6px;
-}
-.hero .asof { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.4px; }
-
-/* Tabs */
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  padding: 10px;
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-s);
-  position: sticky;
-  top: 12px;
-  z-index: 30;
-}
-.tab {
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.4px;
-  color: var(--ink-2);
-  background: var(--bg-pill);
-  border: 1px solid var(--border);
-  padding: 10px 14px;
-  border-radius: var(--radius-pill);
-  min-height: 38px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.tab:hover { background: var(--rose-soft); color: var(--rose); border-color: var(--rose); transform: translateY(-2px); }
-.tab.active {
-  background: linear-gradient(135deg, var(--rose), var(--lavender));
-  color: #1a1530;
-  border-color: transparent;
-  box-shadow: 0 6px 20px rgba(244, 168, 192, 0.32);
-}
-
-/* Tab panels */
-.panel { display: none; }
-.panel.active { display: flex; flex-direction: column; gap: 22px; animation: fadeIn 0.5s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-
-/* Card */
-.card {
-  width: 100%;
-  min-width: 0;
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-m);
-  padding: 28px 26px;
-}
-.card.hero-card {
-  background: linear-gradient(155deg, rgba(244, 168, 192, 0.18), rgba(196, 181, 253, 0.18));
-  border-color: var(--rose);
-  position: relative;
-  overflow: hidden;
-}
-.card.hero-card::before {
-  content: "";
-  position: absolute; top: -40px; right: -40px; width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
-  border-radius: 50%;
-}
-
-h2.sec {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--ink);
-  margin-bottom: 8px;
-  text-wrap: balance;
-}
-.kicker {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 1.6px;
-  color: var(--rose);
-  margin-bottom: 6px;
-}
-.lede {
-  color: var(--ink-2);
-  font-weight: 600;
-  margin-bottom: 16px;
-  max-width: 64ch;
-}
-
-/* Pills */
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
-.pill {
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.6px;
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
-  background: var(--butter-soft);
-  color: var(--butter);
-  border: 1px solid rgba(253, 230, 138, 0.3);
-}
-.pill.lock { background: var(--rose-soft); color: var(--rose); border-color: rgba(244, 168, 192, 0.3); }
-.pill.open { background: var(--mint-soft); color: var(--mint); border-color: rgba(167, 243, 208, 0.3); }
-.pill.latter { background: var(--lavender-soft); color: var(--lavender); border-color: rgba(196, 181, 253, 0.3); }
-
-/* Lists */
-ol.steps, ul.facts {
-  display: flex; flex-direction: column; gap: 9px; padding-left: 1.2em; font-weight: 600;
-}
-ol.steps li, ul.facts li { color: var(--ink); }
-ol.steps li::marker { color: var(--rose); font-weight: 700; }
-
-/* Notes / callouts */
-.note {
-  margin-top: 14px;
-  background: var(--butter-soft);
-  border: 1px solid rgba(253, 230, 138, 0.25);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.94rem;
-}
-.warnbox {
-  background: var(--rose-soft);
-  border: 1px solid rgba(244, 168, 192, 0.3);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--rose);
-  font-size: 0.94rem;
-  margin-top: 12px;
-}
-.infobox {
-  background: var(--lavender-soft);
-  border: 1px solid rgba(196, 181, 253, 0.3);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.94rem;
-  margin-top: 12px;
-}
-
-/* Tables */
-.table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 8px 0 4px;
-  border-radius: var(--radius-md);
-  max-width: 100%;
-  border: 1px solid var(--border);
-}
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--ink);
-  background: var(--bg-card-solid);
-}
-th, td {
-  text-align: left;
-  padding: 10px 12px;
-  vertical-align: top;
-  border-bottom: 1px solid var(--border);
-}
-th {
-  font-family: var(--font-round);
-  font-size: 0.75rem;
-  letter-spacing: 0.8px;
-  color: var(--ink-2);
-  background: rgba(255, 255, 255, 0.04);
-  white-space: nowrap;
-}
-tr:last-child td { border-bottom: none; }
-td { color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
-.opencell { color: var(--mint); font-weight: 700; }
-.lockcell { color: var(--coral); font-weight: 700; }
-.rose-cell { color: var(--rose); font-weight: 700; }
-
-/* Mobile stacked cards */
-@media (max-width: 719px) {
-  .table-wrap { overflow: visible; }
-  .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
-  .table-wrap thead { display: none; }
-  .table-wrap tr {
-    background: var(--bg-card-solid);
-    border-radius: 16px;
-    padding: 14px 14px 10px;
-    margin-bottom: 10px;
-    box-shadow: inset 0 0 0 1px var(--border);
-  }
-  .table-wrap td { border: none; padding: 4px 0 6px; white-space: normal; }
-  .table-wrap td:first-child {
-    font-family: var(--font-round);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--ink);
-    padding-top: 0;
-    padding-bottom: 8px;
-  }
-  .table-wrap td[data-label]::before {
-    content: attr(data-label);
-    display: block;
-    font-family: var(--font-round);
-    font-size: 0.7rem;
-    letter-spacing: 0.8px;
-    color: var(--ink-3);
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-}
-
-/* Grids */
-.grid2 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
-.grid3 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 900px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
-
-.mini {
-  background: rgba(0, 0, 0, 0.22);
-  border-radius: var(--radius-md);
-  padding: 18px 18px 14px;
-  box-shadow: inset 0 0 0 1px var(--border);
-}
-.mini h3 {
-  font-family: var(--font-round);
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-  color: var(--ink);
-}
-.mini p, .mini li { font-size: 0.92rem; font-weight: 600; color: var(--ink-2); }
-
-/* Index cards */
-.index-card {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 22px 22px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-s);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
-  color: inherit;
-}
-.index-card:hover {
-  transform: translateY(-3px);
-}
-.index-card .icon {
-  width: 56px; height: 56px;
-  border-radius: var(--radius-md);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-.icon.brainrot { background: linear-gradient(135deg, var(--rose-soft), var(--lavender-soft)); border: 1px solid var(--rose); }
-.icon.mm2 { background: linear-gradient(135deg, rgba(251, 113, 133, 0.18), rgba(196, 181, 253, 0.18)); border: 1px solid var(--coral); }
-.icon.seller { background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft)); border: 1px solid var(--gold); }
-.icon.fees { background: linear-gradient(135deg, var(--mint-soft), var(--lavender-soft)); border: 1px solid var(--mint); }
-.icon.stores { background: linear-gradient(135deg, rgba(147, 197, 253, 0.18), var(--lavender-soft)); border: 1px solid var(--sky); }
-.icon.rebirth { background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft)); border: 1px solid var(--gold); }
-
-.index-card h3 {
-  font-family: var(--font-round);
-  font-size: 1.15rem;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.index-card p { color: var(--ink-2); font-size: 0.94rem; font-weight: 600; }
-.index-card .arrow { color: var(--rose); margin-left: auto; font-family: var(--font-round); }
-
-/* Hero sub-section list inside cards */
-ol.bulleted { display: flex; flex-direction: column; gap: 10px; padding-left: 1.2em; font-weight: 600; }
-ol.bulleted li { color: var(--ink); }
-ol.bulleted li a { color: var(--lavender); }
-
-/* Buttons */
-.btn {
-  border: none; cursor: pointer;
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--bg-deep);
-  background: linear-gradient(135deg, var(--rose), var(--lavender));
-  padding: 14px 18px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 10px 24px rgba(244, 168, 192, 0.28);
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center; justify-content: center;
-  text-decoration: none;
-  flex: 1 1 180px;
-  transition: transform 0.2s ease;
-}
-.btn:hover { transform: translateY(-3px); text-decoration: none; color: var(--bg-deep); }
-.btn.ghost { background: rgba(255, 255, 255, 0.06); color: var(--ink); border: 1px solid var(--border-strong); box-shadow: none; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-
-/* Badges (the round emblem style) */
-.badge-circle {
-  width: 110px; height: 110px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), var(--bg-soft));
-  border: 2px solid var(--rose);
-  box-shadow: 0 12px 34px rgba(244, 168, 192, 0.22), inset 0 0 0 6px rgba(0, 0, 0, 0.18);
+/* ── Badge ── */
+.badge {
+  width: 120px; height: 120px; border-radius: var(--radius-pill);
+  background: linear-gradient(145deg, #fff, var(--cloud));
+  border: 3px solid var(--powder);
+  box-shadow: var(--shadow-m), inset 0 0 0 6px #fff;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2px; margin: 0 auto 8px;
-  position: relative;
+  gap: 2px; margin-bottom: 24px; position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.badge-circle::after {
+.badge:hover { transform: scale(1.06) rotate(-2deg); box-shadow: var(--shadow-l), var(--shadow-glow); }
+.badge::after {
   content: ""; position: absolute; inset: -3px; border-radius: inherit;
-  box-shadow: 0 0 0 0 var(--rose-soft); animation: pulse 3.4s ease-out infinite;
+  box-shadow: 0 0 0 0 rgba(255,107,107,.3); animation: pulse 3.4s ease-out infinite;
 }
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(244, 168, 192, 0.35); }
-  70%, 100% { box-shadow: 0 0 0 22px rgba(244, 168, 192, 0); }
-}
-.badge-circle .b-top { font-family: var(--font-round); font-weight: 600; font-size: 10px; letter-spacing: 2px; color: var(--ink-2); }
-.badge-circle .b-run { font-family: var(--font-round); font-weight: 700; font-size: 22px; line-height: 0.9; color: var(--rose); }
-.badge-circle .b-hq { font-family: var(--font-round); font-weight: 700; font-size: 9px; letter-spacing: 1.5px; color: var(--bg-deep); background: var(--rose); padding: 2px 8px; border-radius: var(--radius-pill); margin-top: 3px; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,107,.3); } 70%, 100% { box-shadow: 0 0 0 20px rgba(255,107,107,0); } }
+.badge .b-top { font-family: var(--font-round); font-weight: 600; font-size: 11px; letter-spacing: 2px; color: var(--navy-2); }
+.badge .b-stack { font-family: var(--font-round); font-weight: 700; font-size: 26px; line-height: .9; color: var(--red-deep); }
+.badge .b-year { font-family: var(--font-round); font-weight: 700; font-size: 10px; letter-spacing: 2px; color: #fff; background: var(--red); padding: 2px 8px; border-radius: var(--radius-pill); margin-top: 3px; }
 
-/* Footer */
-.foot {
-  text-align: center;
-  margin-top: 18px;
-  padding: 24px 12px;
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 1.4px;
-  color: var(--ink-3);
+/* ── Wordmark ── */
+h1.wordmark {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  letter-spacing: 1px; color: var(--navy); margin-bottom: 10px;
 }
-.foot .g { color: var(--rose); }
+h1 .highlight { color: var(--red-deep); display: inline-block; transform: rotate(-2deg); }
+.tagline {
+  font-size: clamp(1rem, 4vw, 1.15rem); color: var(--navy-2);
+  max-width: 34ch; margin-bottom: 8px; font-weight: 600;
+}
+.subtagline { font-size: .95rem; color: var(--navy-3); margin-bottom: 28px; }
 
-/* Comparison highlight bar */
-.badge-row {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 14px;
-  background: rgba(0, 0, 0, 0.18);
-  border-radius: var(--radius-pill);
-  margin: 6px 0;
-  font-family: var(--font-round);
-  font-size: 0.78rem;
-  letter-spacing: 1.5px;
-  font-weight: 600;
+/* ── Hero card ── */
+.hero {
+  width: 100%; background: var(--marshmallow-t);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--powder); border-radius: var(--radius-lg);
+  padding: 28px 24px; box-shadow: var(--shadow-m); margin-bottom: 28px;
+  text-align: left; position: relative; overflow: hidden;
 }
-.badge-row .step { color: var(--ink-3); }
-.badge-row .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+.hero::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--sky-mid), var(--lavender), var(--mint));
+}
+.hero p { margin-bottom: 14px; font-size: .95rem; }
+.hero p:last-child { margin-bottom: 0; }
+.hero strong { color: var(--navy); }
+.hero .emoji { font-size: 1.1em; }
 
-/* Pro/con lists */
-.procon {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 8px;
+/* ── CTA buttons ── */
+.cta-wrap { width: 100%; margin: 6px 0 14px; }
+.cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 16px 24px; border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-deep) 100%);
+  color: #fff; font-family: var(--font-round); font-weight: 700; font-size: 1.1rem;
+  text-decoration: none; box-shadow: 0 10px 28px rgba(224,57,74,.28);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: none; cursor: pointer; position: relative; overflow: hidden;
 }
-@media (min-width: 720px) { .procon { grid-template-columns: 1fr 1fr; } }
-.procon .pcard {
-  padding: 18px;
-  border-radius: var(--radius-md);
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid var(--border);
+.cta::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 50%);
+  opacity: 0; transition: opacity .2s;
 }
-.procon .pcard h4 {
-  font-family: var(--font-round);
-  font-size: 1rem;
-  margin-bottom: 8px;
-}
-.procon .pcard ul { padding-left: 18px; }
-.procon .pcard li { font-size: 0.92rem; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
-.procon .pcard.pros { border-color: rgba(167, 243, 208, 0.3); }
-.procon .pcard.pros h4 { color: var(--mint); }
-.procon .pcard.cons { border-color: rgba(251, 113, 133, 0.3); }
-.procon .pcard.cons h4 { color: var(--coral); }
+.cta:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(224,57,74,.38); }
+.cta:hover::after { opacity: 1; }
+.cta:active { transform: translateY(-1px); }
+.cta-arrow { transition: transform .2s ease; display: inline-block; }
+.cta:hover .cta-arrow { transform: translateX(5px); }
 
-/* Two accent variants */
-.accent-a { color: var(--rose); }
-.accent-b { color: var(--lavender); }
-.accent-c { color: var(--mint); }
-.accent-d { color: var(--butter); }
-
-/* Source chips */
-.sources { display: flex; flex-wrap: wrap; gap: 8px; }
-.sources a {
-  font-family: var(--font-round);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: var(--ink-2);
-  background: var(--bg-pill);
-  border: 1px solid var(--border-strong);
-  padding: 7px 13px;
-  border-radius: var(--radius-pill);
-  transition: all 0.2s ease;
+.cta-secondary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 14px 22px; border-radius: var(--radius-pill);
+  background: var(--marshmallow); color: var(--navy);
+  font-family: var(--font-round); font-weight: 600; font-size: 1rem;
+  text-decoration: none; border: 2px solid var(--sky-mid);
+  box-shadow: var(--shadow-s); margin-top: 14px;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
-.sources a:hover {
-  background: var(--rose-soft);
-  color: var(--rose);
-  border-color: var(--rose);
-  transform: translateY(-2px);
-  text-decoration: none;
+.cta-secondary:hover { background: var(--cloud); transform: translateY(-2px); box-shadow: var(--shadow-m); }
+
+.cta-fineprint { font-size: .82rem; color: var(--navy-3); margin-top: 10px; }
+
+/* ── Section ── */
+.section { margin: 36px 0 8px; width: 100%; text-align: left; }
+.section-title {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: 1.35rem; color: var(--navy); margin-bottom: 6px;
+}
+.section-sub { color: var(--navy-2); font-size: .9rem; margin-bottom: 18px; }
+
+/* ── Platform cards ── */
+.card {
+  background: var(--marshmallow-t);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--powder); border-radius: var(--radius-md);
+  padding: 20px 22px; margin-bottom: 12px; text-align: left;
+  box-shadow: var(--shadow-s);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative; overflow: hidden;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-m); }
+.card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+.card:nth-child(1)::before { background: var(--mint-deep); }
+.card:nth-child(2)::before { background: var(--sky-deep); }
+.card:nth-child(3)::before { background: var(--lavender-deep); }
+.card:nth-child(4)::before { background: var(--gold); }
+.card:nth-child(5)::before { background: var(--peach-deep); }
+
+.card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.card h3 { font-family: var(--font-round); font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0; }
+.pill {
+  display: inline-block; padding: 3px 10px; border-radius: var(--radius-pill);
+  font-family: var(--font-round); font-weight: 700; font-size: .72rem;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.pill-green { background: var(--mint); color: #0F8E5C; }
+.pill-blue { background: var(--sky-mid); color: var(--navy); }
+.pill-red { background: var(--red-soft); color: var(--red-deep); }
+.pill-gray { background: #F0F0F4; color: var(--navy-3); }
+.pill-lavender { background: var(--lavender); color: #6D28D9; }
+
+.card p { font-size: .92rem; color: var(--navy-2); margin-top: 4px; }
+.card .rate {
+  font-family: var(--font-round); font-weight: 700; color: var(--red-deep);
+  font-size: .95rem; margin-top: 10px; display: inline-block;
+  background: var(--red-soft); padding: 3px 12px; border-radius: var(--radius-pill);
 }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+/* ── Deleted cards ── */
+.deleted-card {
+  background: rgba(255,230,230,.5); border: 1px solid var(--red-soft);
+  border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 10px;
+  text-align: left; display: flex; align-items: flex-start; gap: 10px;
+  transition: transform .2s ease;
+}
+.deleted-card:hover { transform: translateX(4px); }
+.deleted-card .x {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: var(--radius-pill);
+  background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .9rem; margin-top: 1px;
+}
+.deleted-card p { font-size: .92rem; color: var(--navy-2); }
+.deleted-card strong { color: var(--navy); font-weight: 700; }
+
+/* ── 48-hour plan card ── */
+.plan-card {
+  width: 100%; background: var(--marshmallow-t);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--powder); border-radius: var(--radius-lg);
+  padding: 24px 22px; box-shadow: var(--shadow-m);
+  text-align: left; margin: 36px 0 8px; position: relative; overflow: hidden;
+}
+.plan-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--peach-deep), var(--red));
+}
+.plan-label {
+  font-family: var(--font-round); font-weight: 700; font-size: .78rem;
+  color: var(--navy-2); letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 10px; display: block;
+}
+.plan-card p { font-size: .95rem; color: var(--navy-2); margin-bottom: 10px; }
+.plan-card p:last-child { margin-bottom: 0; }
+.plan-card em { color: var(--red-deep); font-style: normal; font-weight: 700; }
+
+/* ── Stat tiles ── */
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  width: 100%; margin: 28px 0 8px;
+}
+.stat {
+  background: var(--marshmallow-t); backdrop-filter: blur(6px);
+  border: 1px solid var(--powder); border-radius: var(--radius-md);
+  padding: 18px 12px; text-align: center;
+  box-shadow: var(--shadow-s); transition: transform .2s ease;
+}
+.stat:hover { transform: translateY(-2px); }
+.stat-num {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: 1.6rem; color: var(--red-deep); line-height: 1.1;
+}
+.stat-label { font-size: .78rem; color: var(--navy-3); margin-top: 4px; font-weight: 600; }
+
+/* ── Footer ── */
+footer { width: 100%; text-align: center; padding: 36px 0 10px; color: var(--navy-3); font-size: .82rem; }
+footer a { color: var(--navy-2); text-decoration: none; }
+footer a:hover { color: var(--red-deep); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  :root { --maxw: 100%; }
+  .wrap { padding: 28px 16px 48px; }
+  .badge { width: 100px; height: 100px; }
+  .badge .b-stack { font-size: 22px; }
+  .hero { padding: 22px 18px; }
+  .card { padding: 16px 16px; }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { padding: 14px 8px; }
+  .stat-num { font-size: 1.3rem; }
+  .blob { filter: blur(40px); }
+  .blob.b1 { width: 180px; height: 180px; }
+  .blob.b2 { width: 140px; height: 140px; }
+  .blob.b3 { width: 100px; height: 100px; }
+  .blob.b4 { display: none; }
+  .blob.b5 { display: none; }
+}
+@media (max-width: 380px) {
+  .badge { width: 88px; height: 88px; }
+  .badge .b-stack { font-size: 18px; }
+  .badge .b-top { font-size: 9px; }
+  .stats { grid-template-columns: 1fr; }
+  h1.wordmark { font-size: 1.8rem; }
+}
+@media (min-width: 1200px) {
+  :root { --maxw: 740px; }
 }
 
-/* Scrollbar polish */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: var(--bg-soft); border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: var(--lavender-deep); }
+/* ── Shimmer on cards ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.card:hover::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+  background-size: 200% 100%; animation: shimmer 0.8s ease; pointer-events: none;
+}
 </style>
 </head>
 <body>
 
 <div class="blobs" aria-hidden="true">
-  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+  <div class="blob b5"></div>
 </div>
 
-<main class="wrap">
+<div class="wrap">
 
-  <!-- HERO -->
-  <header class="hero reveal">
-    <div class="badge-circle">
-      <span class="b-top">DIGITAL</span>
-      <span class="b-run" style="color: var(--rose);">SALES</span>
-      <span class="b-hq">GUIDE</span>
+  <!-- Badge -->
+  <div class="badge reveal" aria-hidden="true">
+    <div class="b-top">2026</div>
+    <div class="b-stack">STACK</div>
+    <div class="b-year">FREE</div>
+  </div>
+
+  <!-- Headline -->
+  <h1 class="wordmark reveal">the <span class="highlight">cash</span> audit</h1>
+  <p class="tagline reveal">MTurk is dead. The apps you have installed are paying $2/hr. Here's what still works.</p>
+  <p class="subtagline reveal">No hype. No scams. Just verified hourly rates.</p>
+
+  <!-- Stats -->
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-num" data-count="3">0</div>
+      <div class="stat-label">Platforms that pay</div>
     </div>
-    <h1>The <span class="accent">Digital Products</span> Sales Guide</h1>
-    <p class="tagline">Platforms, fees, what sells, risks, and income benchmarks for 2025-2026</p>
-    <p class="asof">Compiled August 2026 · Dark & gentle · 7 tabs, pick what you need</p>
-  </header>
-
-  <!-- TABS -->
-  <nav class="tabs reveal" id="tabs" aria-label="Topic navigation">
-    <button class="tab active" data-tab="home" type="button">Home</button>
-    <button class="tab" data-tab="creators" type="button">Creator Products</button>
-    <button class="tab" data-tab="gaming" type="button">Gaming Items</button>
-    <button class="tab" data-tab="accounts" type="button">Game Accounts</button>
-    <button class="tab" data-tab="risks" type="button">Risks & Rules</button>
-    <button class="tab" data-tab="income" type="button">Income Reality</button>
-    <button class="tab" data-tab="action" type="button">Action Plan</button>
-  </nav>
-
-  <!-- ============ HOME ============ -->
-  <section class="panel active" id="panel-home">
-    <div class="card hero-card reveal">
-      <p class="kicker">START HERE</p>
-      <h2 class="sec">Seven guides. One gentle place</h2>
-      <p class="lede">Every tab here compiles real research on selling digital products in 2025-2026. Pick the topic you need; everything else stays out of your way</p>
-      <ol class="bulleted">
-        <li><a href="#" data-tab-link="creators">Creator Digital Products</a> — Notion templates, ebooks, presets, code, fonts — platforms, fees, what sells</li>
-        <li><a href="#" data-tab-link="gaming">In-Game Items & Currency</a> — Roblox items, OSRS gold, game currencies — Eldorado.gg, G2G.com, middleman fees</li>
-        <li><a href="#" data-tab-link="accounts">Game Account Selling</a> — Valorant, Fortnite OG, LoL accounts — prices, risks, reclaim scams</li>
-        <li><a href="#" data-tab-link="risks">Risks & Rules</a> — Chargebacks, ToS violations, VAT taxes, payment processing fees</li>
-        <li><a href="#" data-tab-link="income">Income Reality Check</a> — Median vs top seller earnings on Gumroad, Etsy, Patreon, Whop</li>
-        <li><a href="#" data-tab-link="action">3-Week Action Plan</a> — From zero to first sale: creator products or gaming items</li>
-      </ol>
+    <div class="stat">
+      <div class="stat-num">$18</div>
+      <div class="stat-label">Top $/hr rate</div>
     </div>
+    <div class="stat">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">To first cash</div>
+    </div>
+  </div>
 
-    <div class="grid2 reveal" style="margin-top:6px">
-      <a class="index-card" href="#" data-tab-link="creators">
-        <div class="icon seller">📊</div>
-        <div>
-          <h3>Creator Digital Products</h3>
-          <p>Notion templates, ebooks, presets, codes, fonts — platform fees, what sells, pricing strategies</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+  <!-- Hero card -->
+  <div class="hero reveal">
+    <p><span class="emoji">⚡</span> <strong>The fact:</strong> Amazon stopped accepting new MTurk workers on <strong>30 July 2026</strong>. The platform is in maintenance mode.</p>
+    <p><span class="emoji">✅</span> <strong>The replacement:</strong> 3 platforms still pay $15–$25/hr for simple tasks. One is gated by an unpaid assessment most people fail.</p>
+    <p><span class="emoji">⚠️</span> <strong>The catch:</strong> VPNs and iCloud Private Relay silently kill your Prolific invites. Most "side hustle apps" pay $2–$5/hr.</p>
+  </div>
 
-      <a class="index-card" href="#" data-tab-link="gaming">
-        <div class="icon mm2">🎮</div>
-        <div>
-          <h3>In-Game Items & Currency</h3>
-          <p>Roblox items, OSRS gold, game currencies — Eldorado vs G2G fees, cashout methods, liquid markets</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+  <!-- Primary CTA -->
+  <div class="cta-wrap reveal">
+    <a href="#free-checklist" class="cta">
+      <span>Get the Free Audit Checklist</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+    <p class="cta-fineprint">No email required. Just scroll down.</p>
+  </div>
 
-      <a class="index-card" href="#" data-tab-link="accounts">
-        <div class="icon" style="background: linear-gradient(135deg, rgba(251,113,133,0.18), rgba(196,181,253,0.18)); border: 1px solid var(--coral);">🔐</div>
-        <div>
-          <h3>Game Account Selling</h3>
-          <p>Which accounts sell best, price ranges, ban risks, original-owner reclaim scam mitigation</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+  <!-- Verified cards -->
+  <section class="section reveal" id="free-checklist">
+    <h2 class="section-title">Keep these 5</h2>
+    <p class="section-sub">Platforms that actually pay in 2026. Real rates from Mar–Aug 2026 sources.</p>
 
-      <a class="index-card" href="#" data-tab-link="risks">
-        <div class="icon" style="background: linear-gradient(135deg, rgba(252,211,77,0.18), rgba(253,186,116,0.18)); border: 1px solid var(--gold);">⚠️</div>
-        <div>
-          <h3>Risks & Rules</h3>
-          <p>Chargeback risks, ToS compliance, VAT/sales tax obligations, payment processing stacks</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="index-card" href="#" data-tab-link="income">
-        <div class="icon" style="background: linear-gradient(135deg, rgba(147,197,253,0.18), var(--lavender-soft)); border: 1px solid var(--sky);">💰</div>
-        <div>
-          <h3>Income Reality Check</h3>
-          <p>Median earnings vs top 1% on Gumroad, Etsy, Patreon, Whop — the power law of digital sales</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="index-card" href="#" data-tab-link="action">
-        <div class="icon" style="background: linear-gradient(135deg, var(--rose-soft), var(--lavender-soft)); border: 1px solid var(--rose);">🚀</div>
-        <div>
-          <h3>3-Week Action Plan</h3>
-          <p>Concrete steps to create and sell your first digital product — creator or gaming focus</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <div class="index-card" style="background: rgba(196, 181, 253, 0.08); cursor: default;">
-        <div class="icon" style="background: rgba(196, 181, 253, 0.15); border: 1px solid var(--lavender);">💡</div>
-        <div>
-          <h3>How to use this</h3>
-          <p>Click any tab above to jump to a topic. Use back/forward in your browser to move between them — each is its own page-sized section</p>
-        </div>
+    <div class="card">
+      <div class="card-head">
+        <h3>1. Prolific</h3>
+        <span class="pill pill-green">Top pick</span>
       </div>
+      <p>Academic studies, not surveys. US/UK/CA/EU/AU residents get $50–$150/mo at 30–60 min/day. Fill your About You profile completely — that's the #1 reason people get nothing.</p>
+      <span class="rate">$10–$18/hr</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>2. DataAnnotation.tech</h3>
+        <span class="pill pill-blue">$20/hr</span>
+      </div>
+      <p>AI training work — label text, code, or evaluate outputs. Unpaid starter assessment; silent reject if you fail. Pass and earn $15–$25/hr new, up to $50+ for coding/STEM/law.</p>
+      <span class="rate">$15–$50+/hr</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>3. Outlier.ai</h3>
+        <span class="pill pill-lavender">Scale AI</span>
+      </div>
+      <p>Backup AI training queue. Empty queue is normal — 3 weeks on, 2 weeks off. Strict ID/biometric via Persona. VPN = permanent ban, no exceptions.</p>
+      <span class="rate">$15–$60/hr</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>4. UserTesting</h3>
+        <span class="pill pill-gray">Lower volume</span>
+      </div>
+      <p>Screen-record yourself using a website and narrate your thoughts. Realistic now: $20–$100/mo (was $100–$300 pre-PE buyout). Do screeners while already at your desk.</p>
+      <span class="rate">$20–$100/mo</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>5. Freecash</h3>
+        <span class="pill pill-gray">Offer walls</span>
+      </div>
+      <p>CPA-style offers — app trials, game installs, signups. Skip the surveys ($2–5/hr). Chase offers, track your hourly rate, drop anything under $5/hr.</p>
+      <span class="rate">$50–$200/mo</span>
     </div>
   </section>
 
-  <!-- ============ CREATOR DIGITAL PRODUCTS ============ -->
-  <section class="panel" id="panel-creators">
-    <div class="badge-row reveal">
-      <span class="step">PLATFORMS</span><span class="dot"></span>
-      <span class="step">WHAT SELLS</span><span class="dot"></span>
-      <span class="step">PRICING</span><span class="dot"></span>
-      <span class="step" style="color: var(--rose);">ACTION</span>
-    </div>
+  <!-- Deleted apps -->
+  <section class="section reveal">
+    <h2 class="section-title">Delete these today</h2>
+    <p class="section-sub">Apps that look like opportunities but pay less than minimum wage.</p>
 
-    <section class="card reveal" id="creators-platforms">
-      <p class="kicker">BEST PLATFORMS FOR CREATORS</p>
-      <h2 class="sec">Where to sell your digital creations</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Platform</th><th>Best For</th><th>Fee Structure</th><th>Key Benefits</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Gumroad</td>
-              <td>Notion templates, ebooks, presets, codes, fonts</td>
-              <td><span class="fee">10% + $0.50/sale</span> (no monthly fee)<br>30% via Discover marketplace</td>
-              <td>No monthly fees, built-in audience, handles sales tax since Jan 2025, email collection</td>
-            </tr>
-            <tr>
-              <td>Payhip</td>
-              <td>Scaling creator businesses</td>
-              <td>Free: 5% + Stripe/PayPal processing<br>Plus $29/mo: 2%<br>Pro $99/mo: 0%</td>
-              <td>Instant payouts, EU/UK VAT auto-handled, no feature gating between tiers</td>
-            </tr>
-            <tr>
-              <td>itch.io</td>
-              <td>Games, plugins, indie tools, scripts</td>
-              <td><span class="fee">You choose (0-90%)</span> — seller sets revenue split</td
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Swagbucks / InboxDollars / Survey Junkie</strong> — surveys pay $2–$5/hr after disqualifications</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Phone "crypto miners"</strong> — you're selling ad views and data for $0. Not real mining</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Alignerr unpaid assessments</strong> — weeks of waiting, possible data-farming. Waitlist only</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>New MTurk account</strong> — door closed to new workers on 30 July 2026</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Remotasks as primary</strong> — $3–$7/hr in most regions. Empty after Scale/Meta drama</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Ad-watching apps</strong> — $0.001/clip. $0.50/hour at best</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Anything that charges to join</strong> — by definition not free. Skip it</p>
+    </div>
+  </section>
+
+  <!-- 48-hour plan -->
+  <div class="plan-card reveal">
+    <span class="plan-label">The honest 48-hour plan</span>
+    <p>If you need $50 this week, not a 6-month funnel:</p>
+    <p><strong>Day 1 (1.5 hrs):</strong> Sign up for Prolific, DataAnnotation, Outlier, UserTesting, Freecash. Fill every profile. VPN off.</p>
+    <p><strong>Day 2–3:</strong> Prolific studies at US peak + Freecash offers (one at a time, track $/hr) + UserTesting screeners.</p>
+    <p><strong>Day 4–7:</strong> Same rhythm. Add Outlier if a project lands.</p>
+    <p>Realistic 48-hour total: <em>$40–$80</em> if you grind. Not $500. Anyone saying otherwise is showing you a promo outlier.</p>
+  </div>
+
+  <!-- Secondary CTA -->
+  <div class="cta-wrap reveal">
+    <a href="#free-checklist" class="cta-secondary">
+      <span>Back to the checklist ↑</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="reveal">
+    <p>Made by someone who actually tests the platforms. Not affiliated with any app listed.</p>
+    <p style="margin-top:6px">v2026.08 — prices change; pay bands updated monthly</p>
+  </footer>
+
+</div>
+
+<script>
+/* ── Scroll reveal (IntersectionObserver) ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ── Stat counter animation ── */
+const counterIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count, 10);
+    if (!target) { counterIo.unobserve(el); return; }
+    let current = 0;
+    const step = Math.ceil(target / 20);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = current;
+    }, 40);
+    counterIo.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterIo.observe(el));
+
+/* ── Smooth scroll for anchor links ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+
+</body>
+</html>
