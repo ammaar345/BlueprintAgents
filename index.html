@@ -3,1250 +3,554 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Gentle Stack — Steal a Brainrot, Roblox & Online Stores</title>
-<meta name="description" content="A gentle, dark-themed guide combining all the research on Steal a Brainrot, Murder Mystery 2, Eldorado.gg, G2G.com, and online store selling for digital products." />
+<title>2026 Beer-Money Stack — The Free Audit Checklist</title>
+<meta name="description" content="MTurk is dead for new accounts. Here are the only platforms paying $15+/hr in 2026 — and the apps to delete immediately." />
+<meta property="og:title" content="2026 Beer-Money Stack — Free Audit Checklist" />
+<meta property="og:description" content="MTurk is closed to new workers. Get the 3 platforms that still pay + the apps to delete today." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
+/* ── Marshmallow palette ── */
 :root {
-  /* Dark gentle palette */
-  --bg-deep: #1a1530;
-  --bg-mid: #221c3d;
-  --bg-soft: #2b244a;
-  --bg-card: rgba(45, 37, 70, 0.72);
-  --bg-card-solid: #2d2546;
-  --bg-pill: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  --sky: #F4F9FF;
+  --cloud: #EBF4FF;
+  --ice: #F0F7FF;
+  --powder: #E0ECFF;
+  --sky-mid: #C4DBFF;
+  --sky-deep: #A8C8F0;
+  --marshmallow: #FFFFFF;
+  --marshmallow-t: rgba(255,255,255,.92);
+  --marshmallow-50: rgba(255,255,255,.50);
 
-  /* Soft pastels adapted for dark */
-  --rose: #f4a8c0;
-  --rose-deep: #e887a6;
-  --rose-soft: rgba(244, 168, 192, 0.18);
-  --lavender: #c4b5fd;
-  --lavender-deep: #a78bfa;
-  --lavender-soft: rgba(196, 181, 253, 0.18);
-  --mint: #a7f3d0;
-  --mint-deep: #6ee7b7;
-  --mint-soft: rgba(167, 243, 208, 0.16);
-  --peach: #fdba74;
-  --peach-deep: #fb923c;
-  --peach-soft: rgba(253, 186, 116, 0.16);
-  --butter: #fde68a;
-  --butter-deep: #fcd34d;
-  --butter-soft: rgba(253, 230, 138, 0.14);
-  --coral: #fb7185;
-  --coral-deep: #f43f5e;
-  --coral-soft: rgba(251, 113, 133, 0.18);
-  --gold: #fcd34d;
-  --gold-deep: #f59e0b;
-  --sky: #93c5fd;
-  --sky-deep: #60a5fa;
+  --mint: #D4F5E9;
+  --mint-deep: #6EE7B7;
+  --lavender: #E8DEFF;
+  --lavender-deep: #A78BFA;
+  --peach: #FFE5D0;
+  --peach-deep: #FB923C;
 
-  /* Text */
-  --ink: #e8e4f3;
-  --ink-2: #c4bdd9;
-  --ink-3: #948ba8;
-  --ink-4: #6e6582;
+  --red: #FF6B6B;
+  --red-deep: #E0394A;
+  --red-soft: #FFCECE;
 
-  --ok: #6ee7b7;
-  --warn: #fcd34d;
-  --stop: #fb7185;
+  --navy: #1E3A5F;
+  --navy-2: #3A5F80;
+  --navy-3: #6B8DAA;
+  --navy-4: #9DB5CC;
 
-  --shadow-s: 0 4px 12px rgba(0, 0, 0, 0.18);
-  --shadow-m: 0 10px 30px rgba(0, 0, 0, 0.28);
-  --shadow-l: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --gold: #FFD166;
+  --gold-deep: #F0A92E;
 
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
+  --shadow-s: 0 4px 16px rgba(30,58,95,.07);
+  --shadow-m: 0 8px 32px rgba(30,58,95,.10);
+  --shadow-l: 0 16px 48px rgba(30,58,95,.14);
+  --shadow-glow: 0 0 40px rgba(164,200,240,.35);
+
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 44px;
   --radius-pill: 999px;
 
-  --font: 'Quicksand', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-round: 'Fredoka', 'Quicksand', sans-serif;
-
-  --maxw: 720px;
-
-  --bg-grad:
-    radial-gradient(1200px 700px at 15% -10%, rgba(196, 181, 253, 0.18) 0%, transparent 55%),
-    radial-gradient(1000px 600px at 100% 0%, rgba(244, 168, 192, 0.16) 0%, transparent 50%),
-    radial-gradient(900px 900px at 50% 120%, rgba(167, 243, 208, 0.10) 0%, transparent 55%),
-    linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-mid) 55%, var(--bg-soft) 100%);
+  --font: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-round: 'Fredoka', 'Nunito', sans-serif;
+  --maxw: 680px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--navy);
   line-height: 1.65;
   min-height: 100dvh;
   overflow-x: hidden;
-  background: var(--bg-grad);
+  background:
+    radial-gradient(1400px 800px at 10% -15%, var(--powder) 0%, transparent 55%),
+    radial-gradient(1100px 700px at 100% 0%, var(--sky-mid) 0%, transparent 50%),
+    radial-gradient(1000px 1000px at 50% 120%, var(--cloud) 0%, transparent 55%),
+    radial-gradient(600px 600px at 70% 50%, var(--lavender) 0%, transparent 45%),
+    linear-gradient(160deg, var(--sky) 0%, var(--ice) 40%, var(--cloud) 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
-  overflow-wrap: anywhere;
-  font-weight: 500;
 }
 
-a { color: var(--rose); font-weight: 600; text-decoration: none; transition: color 0.2s ease; }
-a:hover { color: var(--rose-deep); text-decoration: underline; text-underline-offset: 3px; }
-
-/* Floating ambient blobs */
+/* ── Floating blobs (marshmallow clouds) ── */
 .blobs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: drift 22s ease-in-out infinite; }
-.blob.b1 { width: 280px; height: 280px; top: 8%; left: -80px; background: var(--rose-soft); }
-.blob.b2 { width: 220px; height: 220px; top: 62%; right: -60px; background: var(--lavender-soft); animation-delay: 5s; }
-.blob.b3 { width: 180px; height: 180px; top: 32%; right: 12%; background: rgba(253, 230, 138, 0.14); opacity: 0.3; animation-delay: 9s; }
-.blob.b4 { width: 140px; height: 140px; bottom: 8%; left: 14%; background: var(--mint-soft); animation-delay: 3s; }
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(50px); opacity: 0.5;
+  animation: drift 20s ease-in-out infinite;
+  will-change: transform;
+}
+.blob.b1 { width: 260px; height: 260px; top: 5%; left: -80px; background: radial-gradient(circle, #fff, var(--sky-mid)); }
+.blob.b2 { width: 200px; height: 200px; top: 55%; right: -60px; background: radial-gradient(circle, #fff, var(--lavender)); animation-delay: 5s; }
+.blob.b3 { width: 160px; height: 160px; top: 28%; right: 10%; background: radial-gradient(circle, #fff, var(--mint)); opacity: 0.4; animation-delay: 9s; }
+.blob.b4 { width: 140px; height: 140px; bottom: 8%; left: 15%; background: radial-gradient(circle, #fff, var(--peach)); animation-delay: 3s; }
+.blob.b5 { width: 100px; height: 100px; top: 80%; left: 60%; background: radial-gradient(circle, #fff, var(--powder)); opacity: 0.35; animation-delay: 12s; }
+
 @keyframes drift {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(26px, -30px) scale(1.06); }
-  66% { transform: translate(-20px, 22px) scale(0.96); }
+  25% { transform: translate(30px, -35px) scale(1.08); }
+  50% { transform: translate(-15px, 20px) scale(0.95); }
+  75% { transform: translate(20px, 10px) scale(1.03); }
 }
 
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── Page shell ── */
 .wrap {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 28px max(16px, env(safe-area-inset-right)) 80px max(16px, env(safe-area-inset-left));
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  min-width: 0;
+  padding: 40px 20px 60px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
 
-.reveal { opacity: 0; transform: translateY(22px); animation: rise .7s cubic-bezier(.22, 1, .36, 1) forwards; }
-@keyframes rise { to { opacity: 1; transform: none; } }
-
-/* Header / Hero */
-.hero { text-align: center; padding: 28px 0 12px; }
-.hero h1 {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: clamp(1.9rem, 6.5vw, 2.7rem);
-  color: var(--ink);
-  text-wrap: balance;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
-.hero h1 .accent { color: var(--rose); display: inline-block; transform: rotate(-2deg); }
-.hero .tagline {
-  font-size: clamp(0.98rem, 3.2vw, 1.12rem);
-  color: var(--ink-2);
-  font-weight: 600;
-  max-width: 44ch;
-  margin: 0 auto 6px;
-}
-.hero .asof { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.4px; }
-
-/* Tabs */
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  padding: 10px;
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-s);
-  position: sticky;
-  top: 12px;
-  z-index: 30;
-}
-.tab {
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.4px;
-  color: var(--ink-2);
-  background: var(--bg-pill);
-  border: 1px solid var(--border);
-  padding: 10px 14px;
-  border-radius: var(--radius-pill);
-  min-height: 38px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.tab:hover { background: var(--rose-soft); color: var(--rose); border-color: var(--rose); transform: translateY(-2px); }
-.tab.active {
-  background: linear-gradient(135deg, var(--rose), var(--lavender));
-  color: #1a1530;
-  border-color: transparent;
-  box-shadow: 0 6px 20px rgba(244, 168, 192, 0.32);
-}
-
-/* Tab panels */
-.panel { display: none; }
-.panel.active { display: flex; flex-direction: column; gap: 22px; animation: fadeIn 0.5s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-
-/* Card */
-.card {
-  width: 100%;
-  min-width: 0;
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-m);
-  padding: 28px 26px;
-}
-.card.hero-card {
-  background: linear-gradient(155deg, rgba(244, 168, 192, 0.18), rgba(196, 181, 253, 0.18));
-  border-color: var(--rose);
-  position: relative;
-  overflow: hidden;
-}
-.card.hero-card::before {
-  content: "";
-  position: absolute; top: -40px; right: -40px; width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
-  border-radius: 50%;
-}
-
-h2.sec {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--ink);
-  margin-bottom: 8px;
-  text-wrap: balance;
-}
-.kicker {
-  font-family: var(--font-round);
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 1.6px;
-  color: var(--rose);
-  margin-bottom: 6px;
-}
-.lede {
-  color: var(--ink-2);
-  font-weight: 600;
-  margin-bottom: 14px;
-  max-width: 52ch;
-  font-size: 0.96rem;
-  line-height: 1.55;
-}
-
-/* Pills */
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
-.pill {
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.6px;
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
-  background: var(--butter-soft);
-  color: var(--butter);
-  border: 1px solid rgba(253, 230, 138, 0.3);
-}
-.pill.lock { background: var(--rose-soft); color: var(--rose); border-color: rgba(244, 168, 192, 0.3); }
-.pill.open { background: var(--mint-soft); color: var(--mint); border-color: rgba(167, 243, 208, 0.3); }
-.pill.later { background: var(--lavender-soft); color: var(--lavender); border-color: rgba(196, 181, 253, 0.3); }
-
-/* Lists */
-ol.steps, ul.facts {
-  display: flex; flex-direction: column; gap: 9px; padding-left: 1.2em; font-weight: 600;
-}
-ol.steps li, ul.facts li { color: var(--ink); }
-ol.steps li::marker { color: var(--rose); font-weight: 700; }
-
-/* Notes / callouts */
-.note {
-  margin-top: 14px;
-  background: var(--butter-soft);
-  border: 1px solid rgba(253, 230, 138, 0.25);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.94rem;
-}
-.warnbox {
-  background: var(--rose-soft);
-  border: 1px solid rgba(244, 168, 192, 0.3);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--rose);
-  font-size: 0.94rem;
-  margin-top: 12px;
-}
-.infobox {
-  background: var(--lavender-soft);
-  border: 1px solid rgba(196, 181, 253, 0.3);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.94rem;
-  margin-top: 12px;
-}
-
-/* Tables */
-.table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 8px 0 4px;
-  border-radius: var(--radius-md);
-  max-width: 100%;
-  border: 1px solid var(--border);
-}
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--ink);
-  background: var(--bg-card-solid);
-}
-th, td {
-  text-align: left;
-  padding: 10px 12px;
-  vertical-align: top;
-  border-bottom: 1px solid var(--border);
-}
-th {
-  font-family: var(--font-round);
-  font-size: 0.75rem;
-  letter-spacing: 0.8px;
-  color: var(--ink-2);
-  background: rgba(255, 255, 255, 0.04);
-  white-space: nowrap;
-}
-tr:last-child td { border-bottom: none; }
-td { color: var(--ink-2); font-variant-numeric: tabular-nums; max-width: 320px; }
-.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
-.opencell { color: var(--mint); font-weight: 700; }
-.lockcell { color: var(--coral); font-weight: 700; }
-.rose-cell { color: var(--rose); font-weight: 700; }
-
-/* Mobile stacked cards */
-@media (max-width: 719px) {
-  .table-wrap { overflow: visible; }
-  .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
-  .table-wrap thead { display: none; }
-  .table-wrap tr {
-    background: var(--bg-card-solid);
-    border-radius: 16px;
-    padding: 14px 14px 10px;
-    margin-bottom: 10px;
-    box-shadow: inset 0 0 0 1px var(--border);
-  }
-  .table-wrap td { border: none; padding: 4px 0 6px; white-space: normal; }
-  .table-wrap td:first-child {
-    font-family: var(--font-round);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--ink);
-    padding-top: 0;
-    padding-bottom: 8px;
-  }
-  .table-wrap td[data-label]::before {
-    content: attr(data-label);
-    display: block;
-    font-family: var(--font-round);
-    font-size: 0.7rem;
-    letter-spacing: 0.8px;
-    color: var(--ink-3);
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-}
-
-/* Grids */
-.grid2 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 560px) { .grid2 { grid-template-columns: 1fr 1fr; } }
-.grid3 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
-@media (min-width: 720px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
-
-.mini {
-  background: rgba(0, 0, 0, 0.22);
-  border-radius: var(--radius-md);
-  padding: 18px 18px 14px;
-  box-shadow: inset 0 0 0 1px var(--border);
-}
-.mini h3 {
-  font-family: var(--font-round);
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-  color: var(--ink);
-}
-.mini p, .mini li { font-size: 0.92rem; font-weight: 600; color: var(--ink-2); }
-
-/* Index cards */
-.index-card {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 22px 22px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-s);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
-  color: inherit;
-}
-.index-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--rose);
-  background: rgba(244, 168, 192, 0.08);
-  text-decoration: none;
-}
-.index-card .icon {
-  width: 56px; height: 56px;
-  border-radius: var(--radius-md);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-.icon.brainrot { background: linear-gradient(135deg, var(--rose-soft), var(--lavender-soft)); border: 1px solid var(--rose); }
-.icon.mm2 { background: linear-gradient(135deg, rgba(251, 113, 133, 0.18), rgba(196, 181, 253, 0.18)); border: 1px solid var(--coral); }
-.icon.seller { background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft)); border: 1px solid var(--gold); }
-.icon.fees { background: linear-gradient(135deg, var(--mint-soft), var(--lavender-soft)); border: 1px solid var(--mint); }
-.icon.stores { background: linear-gradient(135deg, rgba(147, 197, 253, 0.18), var(--lavender-soft)); border: 1px solid var(--sky); }
-.icon.rebirth { background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft)); border: 1px solid var(--gold); }
-
-.index-card h3 {
-  font-family: var(--font-round);
-  font-size: 1.15rem;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.index-card p { color: var(--ink-2); font-size: 0.94rem; font-weight: 600; }
-.index-card .arrow { color: var(--rose); margin-left: auto; font-family: var(--font-round); }
-
-/* Hero sub-section list inside cards */
-ol.bulleted { display: flex; flex-direction: column; gap: 10px; padding-left: 1.2em; font-weight: 600; }
-ol.bulleted li { color: var(--ink); }
-ol.bulleted li a { color: var(--lavender); }
-
-/* Buttons */
-.btn {
-  border: none; cursor: pointer;
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--bg-deep);
-  background: linear-gradient(135deg, var(--rose), var(--lavender));
-  padding: 14px 18px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 10px 24px rgba(244, 168, 192, 0.28);
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center; justify-content: center;
-  text-decoration: none;
-  flex: 1 1 180px;
-  transition: transform 0.2s ease;
-}
-.btn:hover { transform: translateY(-3px); text-decoration: none; color: var(--bg-deep); }
-.btn.ghost { background: rgba(255, 255, 255, 0.06); color: var(--ink); border: 1px solid var(--border-strong); box-shadow: none; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-
-/* Badges (the round emblem style) */
-.badge-circle {
-  width: 110px; height: 110px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), var(--bg-soft));
-  border: 2px solid var(--rose);
-  box-shadow: 0 12px 34px rgba(244, 168, 192, 0.22), inset 0 0 0 6px rgba(0, 0, 0, 0.18);
+/* ── Badge ── */
+.badge {
+  width: 120px; height: 120px; border-radius: var(--radius-pill);
+  background: linear-gradient(145deg, #fff, var(--cloud));
+  border: 3px solid var(--powder);
+  box-shadow: var(--shadow-m), inset 0 0 0 6px #fff;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2px; margin: 0 auto 8px;
-  position: relative;
+  gap: 2px; margin-bottom: 24px; position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.badge-circle::after {
+.badge:hover { transform: scale(1.06) rotate(-2deg); box-shadow: var(--shadow-l), var(--shadow-glow); }
+.badge::after {
   content: ""; position: absolute; inset: -3px; border-radius: inherit;
-  box-shadow: 0 0 0 0 var(--rose-soft); animation: pulse 3.4s ease-out infinite;
+  box-shadow: 0 0 0 0 rgba(255,107,107,.3); animation: pulse 3.4s ease-out infinite;
 }
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(244, 168, 192, 0.35); }
-  70%, 100% { box-shadow: 0 0 0 22px rgba(244, 168, 192, 0); }
-}
-.badge-circle .b-top { font-family: var(--font-round); font-weight: 600; font-size: 10px; letter-spacing: 2px; color: var(--ink-2); }
-.badge-circle .b-run { font-family: var(--font-round); font-weight: 700; font-size: 22px; line-height: 0.9; color: var(--rose); }
-.badge-circle .b-hq { font-family: var(--font-round); font-weight: 700; font-size: 9px; letter-spacing: 1.5px; color: var(--bg-deep); background: var(--rose); padding: 2px 8px; border-radius: var(--radius-pill); margin-top: 3px; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,107,.3); } 70%, 100% { box-shadow: 0 0 0 20px rgba(255,107,107,0); } }
+.badge .b-top { font-family: var(--font-round); font-weight: 600; font-size: 11px; letter-spacing: 2px; color: var(--navy-2); }
+.badge .b-stack { font-family: var(--font-round); font-weight: 700; font-size: 26px; line-height: .9; color: var(--red-deep); }
+.badge .b-year { font-family: var(--font-round); font-weight: 700; font-size: 10px; letter-spacing: 2px; color: #fff; background: var(--red); padding: 2px 8px; border-radius: var(--radius-pill); margin-top: 3px; }
 
-/* Footer */
-.foot {
-  text-align: center;
-  margin-top: 18px;
-  padding: 24px 12px;
-  font-family: var(--font-round);
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 1.4px;
-  color: var(--ink-3);
+/* ── Wordmark ── */
+h1.wordmark {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  letter-spacing: 1px; color: var(--navy); margin-bottom: 10px;
 }
-.foot .g { color: var(--rose); }
+h1 .highlight { color: var(--red-deep); display: inline-block; transform: rotate(-2deg); }
+.tagline {
+  font-size: clamp(1rem, 4vw, 1.15rem); color: var(--navy-2);
+  max-width: 34ch; margin-bottom: 8px; font-weight: 600;
+}
+.subtagline { font-size: .95rem; color: var(--navy-3); margin-bottom: 28px; }
 
-/* Comparison highlight bar */
-.badge-row {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 14px;
-  background: rgba(0, 0, 0, 0.18);
-  border-radius: var(--radius-pill);
-  margin: 6px 0;
-  font-family: var(--font-round);
-  font-size: 0.78rem;
-  letter-spacing: 1.5px;
-  font-weight: 600;
+/* ── Hero card ── */
+.hero {
+  width: 100%; background: var(--marshmallow-t);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--powder); border-radius: var(--radius-lg);
+  padding: 28px 24px; box-shadow: var(--shadow-m); margin-bottom: 28px;
+  text-align: left; position: relative; overflow: hidden;
 }
-.badge-row .step { color: var(--ink-3); }
-.badge-row .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+.hero::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--sky-mid), var(--lavender), var(--mint));
+}
+.hero p { margin-bottom: 14px; font-size: .95rem; }
+.hero p:last-child { margin-bottom: 0; }
+.hero strong { color: var(--navy); }
+.hero .emoji { font-size: 1.1em; }
 
-/* Pro/con lists */
-.procon {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 8px;
+/* ── CTA buttons ── */
+.cta-wrap { width: 100%; margin: 6px 0 14px; }
+.cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 16px 24px; border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-deep) 100%);
+  color: #fff; font-family: var(--font-round); font-weight: 700; font-size: 1.1rem;
+  text-decoration: none; box-shadow: 0 10px 28px rgba(224,57,74,.28);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: none; cursor: pointer; position: relative; overflow: hidden;
 }
-@media (min-width: 720px) { .procon { grid-template-columns: 1fr 1fr; } }
-.procon .pcard {
-  padding: 18px;
-  border-radius: var(--radius-md);
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid var(--border);
+.cta::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 50%);
+  opacity: 0; transition: opacity .2s;
 }
-.procon .pcard h4 {
-  font-family: var(--font-round);
-  font-size: 1rem;
-  margin-bottom: 8px;
-}
-.procon .pcard ul { padding-left: 18px; }
-.procon .pcard li { font-size: 0.92rem; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
-.procon .pcard.pros { border-color: rgba(167, 243, 208, 0.3); }
-.procon .pcard.pros h4 { color: var(--mint); }
-.procon .pcard.cons { border-color: rgba(251, 113, 133, 0.3); }
-.procon .pcard.cons h4 { color: var(--coral); }
+.cta:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(224,57,74,.38); }
+.cta:hover::after { opacity: 1; }
+.cta:active { transform: translateY(-1px); }
+.cta-arrow { transition: transform .2s ease; display: inline-block; }
+.cta:hover .cta-arrow { transform: translateX(5px); }
 
-/* Two accent variants */
-.accent-a { color: var(--rose); }
-.accent-b { color: var(--lavender); }
-.accent-c { color: var(--mint); }
-.accent-d { color: var(--butter); }
-
-/* Source chips */
-.sources { display: flex; flex-wrap: wrap; gap: 8px; }
-.sources a {
-  font-family: var(--font-round);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: var(--ink-2);
-  background: var(--bg-pill);
-  border: 1px solid var(--border-strong);
-  padding: 7px 13px;
-  border-radius: var(--radius-pill);
-  transition: all 0.2s ease;
+.cta-secondary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 14px 22px; border-radius: var(--radius-pill);
+  background: var(--marshmallow); color: var(--navy);
+  font-family: var(--font-round); font-weight: 600; font-size: 1rem;
+  text-decoration: none; border: 2px solid var(--sky-mid);
+  box-shadow: var(--shadow-s); margin-top: 14px;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
-.sources a:hover {
-  background: var(--rose-soft);
-  color: var(--rose);
-  border-color: var(--rose);
-  transform: translateY(-2px);
-  text-decoration: none;
+.cta-secondary:hover { background: var(--cloud); transform: translateY(-2px); box-shadow: var(--shadow-m); }
+
+.cta-fineprint { font-size: .82rem; color: var(--navy-3); margin-top: 10px; }
+
+/* ── Section ── */
+.section { margin: 36px 0 8px; width: 100%; text-align: left; }
+.section-title {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: 1.35rem; color: var(--navy); margin-bottom: 6px;
+}
+.section-sub { color: var(--navy-2); font-size: .9rem; margin-bottom: 18px; }
+
+/* ── Platform cards ── */
+.card {
+  background: var(--marshmallow-t);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--powder); border-radius: var(--radius-md);
+  padding: 20px 22px; margin-bottom: 12px; text-align: left;
+  box-shadow: var(--shadow-s);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative; overflow: hidden;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-m); }
+.card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+.card:nth-child(1)::before { background: var(--mint-deep); }
+.card:nth-child(2)::before { background: var(--sky-deep); }
+.card:nth-child(3)::before { background: var(--lavender-deep); }
+.card:nth-child(4)::before { background: var(--gold); }
+.card:nth-child(5)::before { background: var(--peach-deep); }
+
+.card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.card h3 { font-family: var(--font-round); font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0; }
+.pill {
+  display: inline-block; padding: 3px 10px; border-radius: var(--radius-pill);
+  font-family: var(--font-round); font-weight: 700; font-size: .72rem;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.pill-green { background: var(--mint); color: #0F8E5C; }
+.pill-blue { background: var(--sky-mid); color: var(--navy); }
+.pill-red { background: var(--red-soft); color: var(--red-deep); }
+.pill-gray { background: #F0F0F4; color: var(--navy-3); }
+.pill-lavender { background: var(--lavender); color: #6D28D9; }
+
+.card p { font-size: .92rem; color: var(--navy-2); margin-top: 4px; }
+.card .rate {
+  font-family: var(--font-round); font-weight: 700; color: var(--red-deep);
+  font-size: .95rem; margin-top: 10px; display: inline-block;
+  background: var(--red-soft); padding: 3px 12px; border-radius: var(--radius-pill);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+/* ── Deleted cards ── */
+.deleted-card {
+  background: rgba(255,230,230,.5); border: 1px solid var(--red-soft);
+  border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 10px;
+  text-align: left; display: flex; align-items: flex-start; gap: 10px;
+  transition: transform .2s ease;
+}
+.deleted-card:hover { transform: translateX(4px); }
+.deleted-card .x {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: var(--radius-pill);
+  background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .9rem; margin-top: 1px;
+}
+.deleted-card p { font-size: .92rem; color: var(--navy-2); }
+.deleted-card strong { color: var(--navy); font-weight: 700; }
+
+/* ── 48-hour plan card ── */
+.plan-card {
+  width: 100%; background: var(--marshmallow-t);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--powder); border-radius: var(--radius-lg);
+  padding: 24px 22px; box-shadow: var(--shadow-m);
+  text-align: left; margin: 36px 0 8px; position: relative; overflow: hidden;
+}
+.plan-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--peach-deep), var(--red));
+}
+.plan-label {
+  font-family: var(--font-round); font-weight: 700; font-size: .78rem;
+  color: var(--navy-2); letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 10px; display: block;
+}
+.plan-card p { font-size: .95rem; color: var(--navy-2); margin-bottom: 10px; }
+.plan-card p:last-child { margin-bottom: 0; }
+.plan-card em { color: var(--red-deep); font-style: normal; font-weight: 700; }
+
+/* ── Stat tiles ── */
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  width: 100%; margin: 28px 0 8px;
+}
+.stat {
+  background: var(--marshmallow-t); backdrop-filter: blur(6px);
+  border: 1px solid var(--powder); border-radius: var(--radius-md);
+  padding: 18px 12px; text-align: center;
+  box-shadow: var(--shadow-s); transition: transform .2s ease;
+}
+.stat:hover { transform: translateY(-2px); }
+.stat-num {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: 1.6rem; color: var(--red-deep); line-height: 1.1;
+}
+.stat-label { font-size: .78rem; color: var(--navy-3); margin-top: 4px; font-weight: 600; }
+
+/* ── Footer ── */
+footer { width: 100%; text-align: center; padding: 36px 0 10px; color: var(--navy-3); font-size: .82rem; }
+footer a { color: var(--navy-2); text-decoration: none; }
+footer a:hover { color: var(--red-deep); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  :root { --maxw: 100%; }
+  .wrap { padding: 28px 16px 48px; }
+  .badge { width: 100px; height: 100px; }
+  .badge .b-stack { font-size: 22px; }
+  .hero { padding: 22px 18px; }
+  .card { padding: 16px 16px; }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { padding: 14px 8px; }
+  .stat-num { font-size: 1.3rem; }
+  .blob { filter: blur(40px); }
+  .blob.b1 { width: 180px; height: 180px; }
+  .blob.b2 { width: 140px; height: 140px; }
+  .blob.b3 { width: 100px; height: 100px; }
+  .blob.b4 { display: none; }
+  .blob.b5 { display: none; }
+}
+@media (max-width: 380px) {
+  .badge { width: 88px; height: 88px; }
+  .badge .b-stack { font-size: 18px; }
+  .badge .b-top { font-size: 9px; }
+  .stats { grid-template-columns: 1fr; }
+  h1.wordmark { font-size: 1.8rem; }
+}
+@media (min-width: 1200px) {
+  :root { --maxw: 740px; }
 }
 
-/* Scrollbar polish */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: var(--bg-soft); border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: var(--lavender-deep); }
+/* ── Shimmer on cards ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.card:hover::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+  background-size: 200% 100%; animation: shimmer 0.8s ease; pointer-events: none;
+}
 </style>
 </head>
 <body>
 
 <div class="blobs" aria-hidden="true">
-  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+  <div class="blob b5"></div>
 </div>
 
+<div class="wrap">
 
-  <!-- HERO -->
-  <header class="hero reveal">
-    <div class="badge-circle">
-      <span class="b-top">ROBLOX</span>
-      <span class="b-run">BOOST</span>
-      <span class="b-hq">TRADE</span>
+  <!-- Badge -->
+  <div class="badge reveal" aria-hidden="true">
+    <div class="b-top">2026</div>
+    <div class="b-stack">STACK</div>
+    <div class="b-year">FREE</div>
+  </div>
+
+  <!-- Headline -->
+  <h1 class="wordmark reveal">the <span class="highlight">cash</span> audit</h1>
+  <p class="tagline reveal">MTurk is dead. The apps you have installed are paying $2/hr. Here's what still works.</p>
+  <p class="subtagline reveal">No hype. No scams. Just verified hourly rates.</p>
+
+  <!-- Stats -->
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-num" data-count="3">0</div>
+      <div class="stat-label">Platforms that pay</div>
     </div>
-    <h1>The <span class="accent">Roblox Boosting Hub</span></h1>
-    <p class="tagline">Best tradeable items, boosting services, communities in Europe & South Africa - all in one place</p>
-    <p class="asof">Compiled 25 Aug 2026 · Dark & gentle · 7 tabs, pick what you need</p>
-  </header>
+    <div class="stat">
+      <div class="stat-num">$18</div>
+      <div class="stat-label">Top $/hr rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">To first cash</div>
+    </div>
+  </div>
 
-  <!-- TABS -->
-  <nav class="tabs" id="tabs" aria-label="Topic navigation">
-    <button class="tab active" data-tab="home" type="button">Home</button>
-    <button class="tab" data-tab="items" type="button">Best Items</button>
-    <button class="tab" data-tab="boosting" type="button">Boosting Services</button>
-    <button class="tab" data-tab="accounts" type="button">Account Values</button>
-    <button class="tab" data-tab="eu" type="button">EU Communities</button>
-    <button class="tab" data-tab="sa" type="button">SA Communities</button>
-    <button class="tab" data-tab="start" type="button">Quick Start</button>
-  </nav>
+  <!-- Hero card -->
+  <div class="hero reveal">
+    <p><span class="emoji">⚡</span> <strong>The fact:</strong> Amazon stopped accepting new MTurk workers on <strong>30 July 2026</strong>. The platform is in maintenance mode.</p>
+    <p><span class="emoji">✅</span> <strong>The replacement:</strong> 3 platforms still pay $15–$25/hr for simple tasks. One is gated by an unpaid assessment most people fail.</p>
+    <p><span class="emoji">⚠️</span> <strong>The catch:</strong> VPNs and iCloud Private Relay silently kill your Prolific invites. Most "side hustle apps" pay $2–$5/hr.</p>
+  </div>
 
-  <!-- HOME PANEL -->
-  <section class="panel active" id="panel-home">
-    <div class="card hero-card">
-      <p class="kicker">START HERE</p>
-      <h2 class="sec">Seven topics. One hub</h2>
-      <p class="lede">Everything you need to start boosting and trading Roblox items for profit in the EU and South Africa regions. Research compiled August 2026.</p>
-      <ol class="bulleted">
-        <li><a href="#" data-tab-link="items">Best tradeable items</a> — SAB rares, MM2 godlys, Blox Fruits perms, Adopt Me pets, Fisch relics, Roblox limiteds — with actual price bands</li>
-        <li><a href="#" data-tab-link="boosting">Boosting services ranked</a> — which services net the most per hour, platform commissions, and where to find orders</li>
-        <li><a href="#" data-tab-link="accounts">Account valuation guide</a> — what makes a Roblox account worth $3-$80, how to boost accounts to max value</li>
-        <li><a href="#" data-tab-link="eu">Europe communities</a> — EU Discord servers, payment methods, price expectations, arbitrage opportunities</li>
-        <li><a href="#" data-tab-link="sa">South Africa communities</a> — SA Facebook Groups, Discord, Capitec Pay, SnapScan, crypto arbitrage</li>
-        <li><a href="#" data-tab-link="start">Quick start checklist</a> — exact steps to go from zero to first trade in under a week</li>
-      </ol>
+  <!-- Primary CTA -->
+  <div class="cta-wrap reveal">
+    <a href="#free-checklist" class="cta">
+      <span>Get the Free Audit Checklist</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+    <p class="cta-fineprint">No email required. Just scroll down.</p>
+  </div>
+
+  <!-- Verified cards -->
+  <section class="section reveal" id="free-checklist">
+    <h2 class="section-title">Keep these 5</h2>
+    <p class="section-sub">Platforms that actually pay in 2026. Real rates from Mar–Aug 2026 sources.</p>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>1. Prolific</h3>
+        <span class="pill pill-green">Top pick</span>
+      </div>
+      <p>Academic studies, not surveys. US/UK/CA/EU/AU residents get $50–$150/mo at 30–60 min/day. Fill your About You profile completely — that's the #1 reason people get nothing.</p>
+      <span class="rate">$10–$18/hr</span>
     </div>
 
-    <div class="grid2" style="margin-top:6px">
-      <a class="index-card" href="#" data-tab-link="items">
-        <div class="icon item">💎</div>
-        <div><h3>Best Tradeable Items</h3><p>Ranked by profit potential — SAB, MM2, Blox Fruits, Adopt Me, Fisch, Roblox Limiteds</p></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="index-card" href="#" data-tab-link="boosting">
-        <div class="icon boost">⚡</div>
-        <div><h3>Boosting Services</h3><p>Highest hourly rate services, platform fees, where to find orders, commission math</p></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="index-card" href="#" data-tab-link="accounts">
-        <div class="icon start">🎯</div>
-        <div><h3>Account Valuation Guide</h3><p>What makes accounts sell: secrets, items, age, BC, and how to maximize each account's value</p></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="index-card" href="#" data-tab-link="eu">
-        <div class="icon eu">🇪🇺</div>
-        <div><h3>Europe Communities</h3><p>EU/UK Discord servers, fee rates, payment methods, price expectations, middleman services</p></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="index-card" href="#" data-tab-link="sa">
-        <div class="icon sa">🌍</div>
-        <div><h3>South Africa Communities</h3><p>SA Discord servers, Facebook Groups, Capitec Pay, SnapScan, arbitrage with EU buyers</p></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="index-card" href="#" data-tab-link="start">
-        <div class="icon price">🚀</div>
-        <div><h3>Quick Start Guide</h3><p>From zero to first trade — exact steps, reputation building, safe trading checklist</p></div>
-        <span class="arrow">→</span>
-      </a>
+    <div class="card">
+      <div class="card-head">
+        <h3>2. DataAnnotation.tech</h3>
+        <span class="pill pill-blue">$20/hr</span>
+      </div>
+      <p>AI training work — label text, code, or evaluate outputs. Unpaid starter assessment; silent reject if you fail. Pass and earn $15–$25/hr new, up to $50+ for coding/STEM/law.</p>
+      <span class="rate">$15–$50+/hr</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>3. Outlier.ai</h3>
+        <span class="pill pill-lavender">Scale AI</span>
+      </div>
+      <p>Backup AI training queue. Empty queue is normal — 3 weeks on, 2 weeks off. Strict ID/biometric via Persona. VPN = permanent ban, no exceptions.</p>
+      <span class="rate">$15–$60/hr</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>4. UserTesting</h3>
+        <span class="pill pill-gray">Lower volume</span>
+      </div>
+      <p>Screen-record yourself using a website and narrate your thoughts. Realistic now: $20–$100/mo (was $100–$300 pre-PE buyout). Do screeners while already at your desk.</p>
+      <span class="rate">$20–$100/mo</span>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>5. Freecash</h3>
+        <span class="pill pill-gray">Offer walls</span>
+      </div>
+      <p>CPA-style offers — app trials, game installs, signups. Skip the surveys ($2–5/hr). Chase offers, track your hourly rate, drop anything under $5/hr.</p>
+      <span class="rate">$50–$200/mo</span>
     </div>
   </section>
 
-  <!-- BEST ITEMS PANEL -->
-  <section class="panel" id="panel-items">
-    <div class="card">
-      <p class="kicker">TIER 1 — HIGHEST ROI</p>
-      <h2 class="sec">Best Tradeable Items in Roblox</h2>
-      <p class="lede">Ranked by profit potential. Prices are approximate Eldorado.gg shop listings from August 2026.</p>
-      <div class="rank-list">
+  <!-- Deleted apps -->
+  <section class="section reveal">
+    <h2 class="section-title">Delete these today</h2>
+    <p class="section-sub">Apps that look like opportunities but pay less than minimum wage.</p>
 
-        <div class="rank-item">
-          <span class="rank-num">#1</span>
-          <div class="rank-info">
-            <h3>Steal a Brainrot — 67 Variant & Secret Brainrots</h3>
-            <p>Secret brainrots provide permanent passive income boosts. The 67 variant has extremely low drop rate and is the most sought-after in every community. Community demand is highest in EU and SA server communities.</p>
-            <div class="price-tag">Value: $1.99–$50+ per brainrot · Account with top secrets = $20–80</div>
-          </div>
-        </div>
-
-        <div class="rank-item">
-          <span class="rank-num">#2</span>
-          <div class="rank-info">
-            <h3>Murder Mystery 2 — Godly & Chroma Weapons</h3>
-            <p>MM2 has 1,079+ items. Godlys are the rarest tier (125 variants) and have collector demand that never dies. Chroma tier commands premium prices above standard godly values.</p>
-            <div class="price-tag">Value: $0.35–$30+ per item · Prestige + godly account = $3–60</div>
-          </div>
-        </div>
-
-        <div class="rank-item">
-          <span class="rank-num">#3</span>
-          <div class="rank-info">
-            <h3>Adopt Me — Neon Legendaries with Fly/Ride</h3>
-            <p>One of Roblox's biggest games. Neon Frost Dragon, Neon Owl, and other legendaries with fly and ride potions multiply in value. Boosted accounts with these pets sell for 3-5x base price.</p>
-            <div class="price-tag">Value: $0.05–$50+ per pet · Neon+fly/ride account = $2–40</div>
-          </div>
-        </div>
-
-        <div class="rank-item">
-          <span class="rank-num">#4</span>
-          <div class="rank-info">
-            <h3>Blox Fruits — Rare Perm Fruits</h3>
-            <p>Permanent fruit boosts are gold in Blox Fruits. Whale players pay anything for Perm Spin, Perm Rocket, Perm Blade, Perm Spring. Accounts with rare perms + high mastery = immediate buyer interest.</p>
-            <div class="price-tag">Value: $0.30–$2+ per perm fruit · Full perm account = $3–50</div>
-          </div>
-        </div>
-
-        <div class="rank-item">
-          <span class="rank-num">#5</span>
-          <div class="rank-info">
-            <h3>Fisch — Admin Relic & Perfect Stat Relics</h3>
-            <p>Relics are rollable. Admin Relic is the rarest (lowest drop rate). Perfect-stat relics are hunted by whales willing to pay 10-20x base relic price. Rolling perfect stats = time-intensive = boostable.</p>
-            <div class="price-tag">Value: $0.02–$30+ · Perfect stat relic = $5–30 · Admin = $15–30</div>
-          </div>
-        </div>
-
-        <div class="rank-item">
-          <span class="rank-num">#6</span>
-          <div class="rank-info">
-            <h3>Roblox Limited Accessories (Classic)</h3>
-            <p>Never re-released. OG collectibles. Dominus Aureus, Dominus Frigidus, Sparkle Time Fedora, Valkyrie Helm. Supply is fixed, demand grows. Highest per-item value on the list.</p>
-            <div class="price-tag">Value: $5–$500+ · Old account with multiple limiteds = $20–500+</div>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="note" style="margin-top:16px"><b>Best flip lanes (under $2):</b> Steal a Brainrot named brainrots ($0.50–$1.99), MM2 cheap godlys ($0.35–$1.20), Blox Fruits common perms ($0.50–$1.90). Buy in bulk, list fast, move volume.</p>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Swagbucks / InboxDollars / Survey Junkie</strong> — surveys pay $2–$5/hr after disqualifications</p>
     </div>
-
-    <div class="card alt-card">
-      <p class="kicker kicker-r">UNDER-$2 LISTINGS (LIVE AUG 2026)</p>
-      <h2 class="sec">What Actually Sells Cheap</h2>
-      <p class="lede">Items that still list on Eldorado under $2. Sub-$0.50 items exist but fees eat margins — volume only.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Game</th><th>Floor</th><th>Items That Actually List</th><th>Skip</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Steal a Brainrot</td>
-              <td class="num opencell" data-label="Floor">$0.50</td>
-              <td data-label="Under $2 listings">Bacuru, Egguru, Chill Puppy $0.50. Noo my Heart $0.99. Honey Honey Bear, Los Fruits, Los Candies, Ketupat Kepat, 1x1x1x1 $1. Gold Gold Gold $1.30. Chipso and Queso $1.70. Ventoliero Pavonero, Orcaledon, Los Planitos $1.99</td>
-              <td data-label="Skip / trap">Strawberry Elephant / 67 / Eviledon are NOT under-$2. Commons with 100M+ copies sit forever.</td>
-            </tr>
-            <tr>
-              <td>Murder Mystery 2</td>
-              <td class="num opencell" data-label="Floor">$0.35</td>
-              <td data-label="Under $2 listings">Godly Frostbird pet $0.35. Clockwork, Ghostblade $0.50. Fang $0.75. Nebula $0.88. Frostsaber $0.97. Gemstone $0.98. Heart pet $0.98. Shark $1.20. Iceflake $1.94. Chroma Deathshard $1.87</td>
-              <td data-label="Skip / trap">Vintage OG knives dead. Chroma Darkbringer/Lightbringer oversupplied — rarity is not demand.</td>
-            </tr>
-            <tr>
-              <td>Blox Fruits</td>
-              <td class="num opencell" data-label="Floor">$0.30</td>
-              <td data-label="Under $2 listings">Perm Rocket/Spin $0.30–$0.50. Perm Blade $0.50–$1. Perm Spring $0.80–$1.30. Perm Bomb $1.20–$1.50. Perm Smoke $1.30–$1.90. Physical Spin 75R $0.50. Gas $0.95. Yeti $1.15–$1.97. Tiger $1.99</td>
-              <td data-label="Skip / trap">Physical Kitsune starts ~$3. 2x Money pass ~$2.30. Common perms = move them, don't sit.</td>
-            </tr>
-            <tr>
-              <td>Adopt Me</td>
-              <td class="num opencell" data-label="Floor">$0.05</td>
-              <td data-label="Under $2 listings">Diamond Mahi Mahi $0.05. Diamond Griffin $0.06. Sea Turtle, Golden Dragon $0.10. Unicorn $0.30. Quokka $0.65. Firefly (fly) $0.99. Glyptodon NR $1.20. Warthog NR $1.87. Dragonfly NF $1.90</td>
-              <td data-label="Skip / trap">No-potion legendaries = junk volume. Neon + fly/ride is the only under-$2 lane worth listing.</td>
-            </tr>
-            <tr>
-              <td>Fisch</td>
-              <td class="num opencell" data-label="Floor">$0.02</td>
-              <td data-label="Under $2 listings">Cosmic Relic $0.02. Ruby/Lapis $0.10. Chaotic Relic $0.11. Ruby/Opal $0.17. Moonstone $0.19. Admin Relic $0.30</td>
-              <td data-label="Skip / trap">Relics at $0.02–$0.11 need bulk — single-unit listings lose to fees.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Phone "crypto miners"</strong> — you're selling ad views and data for $0. Not real mining</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Alignerr unpaid assessments</strong> — weeks of waiting, possible data-farming. Waitlist only</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>New MTurk account</strong> — door closed to new workers on 30 July 2026</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Remotasks as primary</strong> — $3–$7/hr in most regions. Empty after Scale/Meta drama</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Ad-watching apps</strong> — $0.001/clip. $0.50/hour at best</p>
+    </div>
+    <div class="deleted-card">
+      <div class="x">×</div>
+      <p><strong>Anything that charges to join</strong> — by definition not free. Skip it</p>
     </div>
   </section>
 
-  <!-- BOOSTING PANEL -->
-  <section class="panel" id="panel-boosting">
-    <div class="card">
-      <p class="kicker">TIER 2 — BEST BOOSTING SERVICES</p>
-      <h2 class="sec">Which Boosting Pays the Most Per Hour</h2>
-      <p class="lede">Time-for-margin. Specialists charge more than generalists. Pick one game and master it.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Game</th><th>Service</th><th>Price Range</th><th>Time</th><th>$/hr est.</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Steal a Brainrot</td><td>Secret brainrot unlocks</td><td class="num">$5–$30</td><td class="num">1–8 hrs</td><td class="num cyan-cell">$4–38/hr</td></tr>
-            <tr><td>Steal a Brainrot</td><td>Full income optimization</td><td class="num">$10–$50</td><td class="num">5–20 hrs</td><td class="num cyan-cell">$2–10/hr</td></tr>
-            <tr><td>Blox Fruits</td><td>Level max + perm fruit</td><td class="num">$10–$40</td><td class="num">10–30 hrs</td><td class="num cyan-cell">$1–4/hr</td></tr>
-            <tr><td>Blox Fruits</td><td>Race + mastery unlock</td><td class="num">$5–$20</td><td class="num">3–10 hrs</td><td class="num cyan-cell">$2–7/hr</td></tr>
-            <tr><td>Adopt Me</td><td>Neon pet + potions</td><td class="num">$5–$25</td><td class="num">3–15 hrs</td><td class="num cyan-cell">$2–8/hr</td></tr>
-            <tr><td>MM2</td><td>Prestige boost + godly</td><td class="num">$5–$30</td><td class="num">3–15 hrs</td><td class="num cyan-cell">$2–10/hr</td></tr>
-            <tr><td>Fisch</td><td>Relic rolls (target stats)</td><td class="num">$3–$20</td><td class="num">2–10 hrs</td><td class="num cyan-cell">$2–10/hr</td></tr>
-            <tr><td>Sol's RNG</td><td>Rare aura farming</td><td class="num">$5–$25</td><td class="num">5–20 hrs</td><td class="num cyan-cell">$1–5/hr</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="infobox">Best instant-ROI: SAB secret unlocks ($4–38/hr). Best volume: MM2 prestige + godly farming ($2–10/hr, lots of orders).</p>
-    </div>
+  <!-- 48-hour plan -->
+  <div class="plan-card reveal">
+    <span class="plan-label">The honest 48-hour plan</span>
+    <p>If you need $50 this week, not a 6-month funnel:</p>
+    <p><strong>Day 1 (1.5 hrs):</strong> Sign up for Prolific, DataAnnotation, Outlier, UserTesting, Freecash. Fill every profile. VPN off.</p>
+    <p><strong>Day 2–3:</strong> Prolific studies at US peak + Freecash offers (one at a time, track $/hr) + UserTesting screeners.</p>
+    <p><strong>Day 4–7:</strong> Same rhythm. Add Outlier if a project lands.</p>
+    <p>Realistic 48-hour total: <em>$40–$80</em> if you grind. Not $500. Anyone saying otherwise is showing you a promo outlier.</p>
+  </div>
 
-    <div class="card">
-      <p class="kicker kicker-l">PLATFORM FEES — WHERE TO SELL BOOSTS</p>
-      <h2 class="sec">Commission Guide: Platform vs Direct</h2>
-      <p class="lede">Platform fees cut your hourly rate. Best strategy: find clients in Discord, process privately, use middleman.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Platform</th><th>Fee</th><th>Take-home ($10 order)</th><th>Best For</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Discord (private + MM)</td><td class="num opencell">0%</td><td class="num cyan-cell">$10.00</td><td>VIP traders, repeat clients</td></tr>
-            <tr><td>Eldorado.gg</td><td class="num">10–20%</td><td class="num">$8.00–$9.00</td><td>Discovery channel</td></tr>
-            <tr><td>G2G.com</td><td class="num">15–30%</td><td class="num lockcell">$7.00–$8.50</td><td>Casual sellers</td></tr>
-            <tr><td>PlayerUp</td><td class="num">5–15%</td><td class="num">$8.50–$9.50</td><td>Boost-focused sellers</td></tr>
-            <tr><td>Fiverr</td><td class="num">20% + proc.</td><td class="num lockcell">~$7.80</td><td>New seller visibility</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="warnbox" style="margin-top:14px">All off-platform Discord trades should use a verified middleman for orders over $20. Free middleman services exist in every major server.</div>
-    </div>
+  <!-- Secondary CTA -->
+  <div class="cta-wrap reveal">
+    <a href="#free-checklist" class="cta-secondary">
+      <span>Back to the checklist ↑</span>
+    </a>
+  </div>
 
-    <div class="card">
-      <p class="kicker">TIPS</p>
-      <h2 class="sec">Boosting Do's and Don'ts</h2>
-      <div class="procon">
-        <div class="pcard pros">
-          <h4>Do these</h4>
-          <ul>
-            <li>Pick one game, master it — specialists charge 2-3x generalists</li>
-            <li>Document every order with screenshots (progress proof)</li>
-            <li>Reply within 12 hours on disputes — buyers pick fast completers</li>
-            <li>Accept only orders you can finish on time</li>
-            <li>Build a portfolio (screenshots of completed boosts) — list on Eldorado</li>
-          </ul>
-        </div>
-        <div class="pcard cons">
-          <h4>Never do these</h4>
-          <ul>
-            <li>Cheats or bots — instant permaban on every platform</li>
-            <li>Off-platform payments without middleman protection</li>
-            <li>"Account access" tricks — only use your own boosted accounts</li>
-            <li>Low-ball undercutting — it destroys pricing for everyone</li>
-            <li>Fraud or theft — 3-day support decision then permanent ban</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Footer -->
+  <footer class="reveal">
+    <p>Made by someone who actually tests the platforms. Not affiliated with any app listed.</p>
+    <p style="margin-top:6px">v2026.08 — prices change; pay bands updated monthly</p>
+  </footer>
 
-  <!-- ACCOUNTS PANEL -->
-  <section class="panel" id="panel-accounts">
-    <div class="card">
-      <p class="kicker">WHAT MAKES AN ACCOUNT VALUABLE</p>
-      <h2 class="sec">Account Valuation: What Buyers Actually Pay For</h2>
-      <p class="lede">Boosted accounts sell for 3-30x what it costs to build them. Here's what adds value.</p>
-      <div class="rank-list">
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Ages & Account History</h3>
-            <p>Accounts created pre-2018 carry "OG" status. Buyers will pay up to 100% premium. A 2016 account with nothing on it = $5–10. A 2016 account with limited items = $20–100+.</p>
-            <div class="price-tag">+30–100% value boost</div>
-          </div>
-        </div>
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Builders Club (OBC/TBC)</h3>
-            <p>Outstanding Builders Club or Turbo Builders Club is a monthly premium subscription. Buyers see it as "premium account = less likely banned". Adds immediate value.</p>
-            <div class="price-tag">+20–50% value boost</div>
-          </div>
-        </div>
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Limited Items in Inventory</h3>
-            <p>Direct value. Each limited accessory is a dollar sign. Even common limiteds add up — 10 commons at $1 each = $10 free value.</p>
-            <div class="price-tag">Direct +$ per limited item</div>
-          </div>
-        </div>
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Game-Specific Secrets & Items</h3>
-            <p>SAB top-10 secret brainrots = $20–80 add. MM2 godly collection = $3–30 add. Blox Fruits perm set = $10–50 add.</p>
-            <div class="price-tag">+$3–80 depending on game & rarity</div>
-          </div>
-        </div>
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Username Value</h3>
-            <p>Short, clean, pronounceable usernames have standalone value. "xXShadowXx" = nothing. "Axiom" = $5–$50 premium. Check Roblox username resale markets.</p>
-            <div class="price-tag">+$5–50 for clean usernames</div>
-          </div>
-        </div>
-        <div class="rank-item">
-          <span class="rank-num">★</span>
-          <div class="rank-info">
-            <h3>Verified/Recoverable Email</h3>
-            <p>Buyers need FULL account access: email + password + recovery answers. Gmail verified is standard. Unverified = 50% value reduction.</p>
-            <div class="price-tag">Full access = required / Unverified = -50%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <p class="kicker kicker-g">COMPLETE PRICE BANDS</p>
-      <h2 class="sec">Account Sell Price Reference</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Game</th><th>Base Account</th><th>Boosted to Max</th><th>Build Time</th><th>Net/hr est.</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Steal a Brainrot</td><td class="num">$2–5</td><td class="num cyan-cell">$5–80</td><td class="num">10–40 hrs</td><td class="num opencell">$0.50–8/hr</td></tr>
-            <tr><td>Blox Fruits</td><td class="num">$1–3</td><td class="num cyan-cell">$3–50</td><td class="num">15–50 hrs</td><td class="num opencell">$0.20–3/hr</td></tr>
-            <tr><td>Adopt Me</td><td class="num">$1–2</td><td class="num cyan-cell">$2–40</td><td class="num">10–30 hrs</td><td class="num opencell">$0.20–4/hr</td></tr>
-            <tr><td>MM2</td><td class="num">$1–3</td><td class="num cyan-cell">$3–60</td><td class="num">10–40 hrs</td><td class="num opencell">$0.20–6/hr</td></tr>
-            <tr><td>Fisch</td><td class="num">$1–3</td><td class="num cyan-cell">$5–40</td><td class="num">20–50 hrs</td><td class="num">$0.10–2/hr</td></tr>
-            <tr><td>Sol's RNG</td><td class="num">$1–3</td><td class="num cyan-cell">$5–35</td><td class="num">10–30 hrs</td><td class="num opencell">$0.30–3.5/hr</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="infobox">Best net/hr: SAB ($0.50–8/hr) and MM2 ($0.20–6/hr). Fisch is slowest but demand is rising fast.</p>
-    </div>
-  </section>
-
-  <!-- EU COMMUNITIES PANEL -->
-  <section class="panel" id="panel-eu">
-    <div class="card hero-card">
-      <p class="kicker">EUROPE — WHERE TO SELL</p>
-      <h2 class="sec">European Roblox Trading & Boosting Communities</h2>
-      <p class="lede">EU and UK buyers pay the highest prices. These are the communities where they buy.</p>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">General Roblox Trading Servers (EU-Heavy)</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Server</th><th>Members</th><th>Covers</th><th>Invite/Link</th></tr></thead>
-          <tbody>
-            <tr><td><b>RTH | Roblox Trading Hub</b></td><td>6-figure</td><td>All games, MM</td><td class="num" data-label="Invite">top.gg/rth</td></tr>
-            <tr><td><b>The Trade Hub</b></td><td>Large</td><td>General + MM</td><td class="num" data-label="Invite">discord.gg/thetradehub</td></tr>
-            <tr><td><b>Official MM - RBLX</b></td><td>Large</td><td>Roblox MM</td><td class="num" data-label="Invite">discord.com/invite/officialmm</td></tr>
-            <tr><td><b>Trade Core</b></td><td>Large</td><td>Values + cross-trade MM</td><td class="num" data-label="Invite">discord servers/trade-core</td></tr>
-            <tr><td><b>LeBrOns Trading & MM</b></td><td>Medium</td><td>Trading + MM marketplace</td><td class="num" data-label="Invite">disboard servers/lebrons...</td></tr>
-            <tr><td><b>UNWO's Trading Plaza & MM</b></td><td>Medium</td><td>Trading plaza + MM</td><td class="num" data-label="Invite">disboard servers/unwos...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">Game-Specific Communities (All Have EU Players)</h2>
-      <div class="grid2">
-        <div class="mini">
-          <h3>Steal a Brainrot</h3>
-          <ul class="facts">
-            <li>SAB Trading Hub (discord servers/sab-trading-hub)</li>
-            <li>SAB Central (discord invite/stealabrainrot)</li>
-            <li>SAB Middleman & Index (disboard)</li>
-            <li>SAB Trading Marketplace (discord invite/sab-trading-...)</li>
-            <li>Rick's Middleman Services (discord invite/thebrainrot)</li>
-          </ul>
-        </div>
-        <div class="mini">
-          <h3>Murder Mystery 2</h3>
-          <ul class="facts">
-            <li>MM2 24/7 Trading Server (discord)</li>
-            <li>MM2 Trading Core (discord)</li>
-            <li>MM2 top.gg tag browse</li>
-            <li>MM2 DISBOARD tag search</li>
-            <li>MM2 values: wflcalculator.com, mm2values.app</li>
-          </ul>
-        </div>
-      </div>
-      <div class="mintbox">Strategy: Join general RTH first for visibility, then join game-specific servers. EU players are in all of them.</div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">EU Middleman Services</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Service</th><th>Approx. Online</th><th>Region</th><th>Link</th></tr></thead>
-          <tbody>
-            <tr><td>Jace's MM Services</td><td class="num">~3,200</td><td>Global (EU-friendly)</td><td>jaces.xyz</td></tr>
-            <tr><td>Crosstrading Hub</td><td class="num">~15,000</td><td>Global (EU-heavy)</td><td>discord.me/crosstradinghub</td></tr>
-            <tr><td>RTH Official MM</td><td class="num">Large</td><td>Global/EU</td><td>Via RTH server</td></tr>
-            <tr><td>Bean's MM Services</td><td class="num">~145</td><td>Global</td><td>Discord search</td></tr>
-            <tr><td>BloxyTrade</td><td class="num">~2,100</td><td>Roblox items</td><td>discordify.net/bloxytrade</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">EU Market Specifics</h2>
-      <div class="grid2">
-        <div class="mini">
-          <h3>Payment Methods</h3>
-          <ul class="facts">
-            <li><b>PayPal</b> — most common; buyer protection favors buyers</li>
-            <li><b>Revolut</b> — fast, free within EU; popular for trades</li>
-            <li><b>Wise</b> — best for GBP/EUR conversions</li>
-            <li><b>Crypto (BTC/USDT)</b> — anonymous, fast; preferred by experienced traders</li>
-            <li><b>Bank transfer (EU)</b> — SEPA instant; slower but trusted</li>
-          </ul>
-        </div>
-        <div class="mini">
-          <h3>Pricing Notes</h3>
-          <ul class="facts">
-            <li>UK buyers = highest prices (£5–50 per account)</li>
-            <li>EU buyers pay EUR equivalents; use Revolut for no-fee</li>
-            <li>Post-Brexit UK→EU still works; use Wise/Revolut</li>
-            <li>VAT may apply if you become a registered seller</li>
-            <li>EU KYC on Eldorado/G2G: name + ID required</li>
-          </ul>
-        </div>
-      </div>
-      <div class="infobox">UK buyers are your best ROI. Market to them specifically when possible — they pay fastest and at premium.</div>
-    </div>
-  </section>
-
-  <!-- SA COMMUNITIES PANEL -->
-  <section class="panel" id="panel-sa">
-    <div class="card alt-card">
-      <p class="kicker kicker-r">SOUTH AFRICA — LOCAL MARKET</p>
-      <h2 class="sec">SA Roblox Boosting & Trading Communities</h2>
-      <p class="lede">SA has a fast-growing Roblox teen market. Local payment methods (Capitec, SnapScan) make domestic trades instant and trusted.</p>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">Facebook Groups (Primary SA Marketplace)</h2>
-      <p class="lede">Search Facebook for these groups — this is where most SA-to-SA Roblox trades happen:</p>
-      <ol class="steps">
-        <li><b>"Roblox Trading South Africa"</b> — largest active group</li>
-        <li><b>"Roblox Boosting SA"</b> — boosters and clients</li>
-        <li><b>"Roblox Accounts South Africa"</b> — account buying/selling</li>
-        <li><b>"Roblox Items SA"</b> — item trading</li>
-        <li><b>"Roblox Middleman South Africa"</b> — trusted MM referrals</li>
-      </ol>
-      <div class="okbox">Facebook + Discord is the winning combo in SA. Post in FB groups, take payment via Capitec Pay, close the trade in Discord.</div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">SA Discord Servers</h2>
-      <p class="lede">SA-specific Discord communities for Roblox trading and boosting:</p>
-      <div class="grid2">
-        <div class="mini">
-          <h3>Where to Find SA Discords</h3>
-          <ul class="facts">
-            <li><b>disboard.org</b> — search "South Africa Roblox"</li>
-            <li><b>top.gg</b> — tag search "SA Roblox"</li>
-            <li><b>Discord.me</b> — filter by region</li>
-            <li>SA gaming Discords — Roblox usually has a sub-channel</li>
-            <li>Personal SA booster Discords (small but tight-knit)</li>
-          </ul>
-        </div>
-        <div class="mini">
-          <h3>What to Expect in SA Servers</h3>
-          <ul class="facts">
-            <li>Informal rules — most use honor system + MM referrals</li>
-            <li>Price negotiation is expected ("OBO" — or best offer)</li>
-            <li>Quicksell tags common — price drops 20-30% for urgent sellers</li>
-            <li>Most sellers are teens (14–20) — pricing is negotiable</li>
-            <li>Reputation matters more than platform verification</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">SA Payment Methods Used in Communities</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Method</th><th>Speed</th><th>Fees</th><th>Best For</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><b>Capitec Pay</b></td><td class="num cyan-cell">Instant</td><td class="num cyan-cell">Free</td><td class="num">All trades, R50–2000+</td></tr>
-            <tr><td><b>SnapScan</b></td><td class="num cyan-cell">Instant</td><td class="num cyan-cell">Free</td><td class="num">QR payment, R10–500</td></tr>
-            <tr><td><b>Zapper</b></td><td class="num cyan-cell">Instant</td><td class="num cyan-cell">Free</td><td class="num">Alt QR option</td></tr>
-            <tr><td><b>PayPal</b></td><td class="num">1–3 days</td><td class="num">2.5–3.5%</td><td class="num">International buyers</td></tr>
-            <tr><td><b>Crypto (Luno/Binance P2P)</b></td><td class="num cyan-cell">~10 min</td><td class="num">~1%</td><td class="num">EU buyers, arbitrage trades</td></tr>
-            <tr><td><b>Bank EFT</b></td><td class="num">1–2 days</td><td class="num cyan-cell">Free</td><td class="num">Large amounts (R2000+)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">SA-Specific Strategies</h2>
-      <div class="procon">
-        <div class="pcard pros">
-          <h4 style="color: var(--cyan)">SA advantages</h4>
-          <ul>
-            <li>Lower labor cost = undercut EU boosters by 20-30%</li>
-            <li>Capitec Pay is instant, free, trusted</li>
-            <li>Capitec rewards points on receiving payments</li>
-            <li>Crypto exit via Luno = no forex friction</li>
-            <li>Fast-growing player market = increasing demand</li>
-          </ul>
-        </div>
-        <div class="pcard cons">
-          <h4>SA challenges</h4>
-          <ul>
-            <li>Load-shedding (2–8 hrs/day) — schedule around it</li>
-            <li>SA buyers expect 20–30% discount vs EU/UK pricing</li>
-            <li>ZAR weaker than GBP/EUR — convert via crypto for better rates</li>
-            <li>Scams are common — verify via server rep, always use MM</li>
-            <li>SA forex limit: R1M/year outflow (mitigated via crypto/ZAR)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="mintbox" style="margin-bottom: 14px;"><b>Arbitrage opportunity:</b> Boost for EU/UK buyers at R300–500/hour, accept USDT via Luno P2P at market rate. £1 = ~R22–23. A SA booster charging R400/hour is equivalent to £17.40/hour — well above EU booster rates of £4–12/hour. Both sides win.</div>
-  </section>
-
-  <!-- QUICK START PANEL -->
-  <section class="panel" id="panel-start">
-    <div class="card hero-card">
-      <p class="kicker">FROM ZERO TO FIRST TRADE</p>
-      <h2 class="sec">Quick Start: 7 Steps to Your First $</h2>
-      <p class="lede">This gets you earning. Follow in order — skipping steps creates risk or wasted time.</p>
-    </div>
-
-    <div class="card">
-      <ol class="steps">
-        <li><b>Pick your game.</b> One game only. SAB or MM2 are easiest to start with. Blox Fruits and Adopt Me have larger markets but more competition.</li>
-        <li><b>Join 5–10 Discord servers.</b> 2 general (RTH, Trade Hub) + 3 game-specific + 2 regional (EU or SA). Spend 2 days observing before listing anything.</li>
-        <li><b>Lurk and learn prices.</b> Check #wts channels. Prices shift by time of day and demand. Weekend evenings = highest activity.</li>
-        <li><b>Build reputation cheap.</b> Do 5 small trades under $5 first. Use free Discord middleman. Get verified. Screenshot every trade.</li>
-        <li><b>Create 3–5 source accounts.</b> Never use your main account for trading or boosting. Each game needs its own alt account.</li>
-        <li><b>List on Eldorado.gg</b> (optional) for discovery. Start with items under $2 — fees are 5% and velocity is high.</li>
-        <li><b>Scale.</b> Once you have 10+ verified trades, buyers will message you. Raise prices 10%. Add Telegram/Discord price bot. Consider Eldorado seller account at 20+ trades.</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">Safe Trading Checklist (Every Trade)</h2>
-      <div class="grid2">
-        <div class="mini">
-          <h3>Before trading</h3>
-          <ul class="facts">
-            <li>Check trader's rep in the server</li>
-            <li>Confirm item/game details match listing</li>
-            <li>Agree on price in writing (DM or ticket)</li>
-            <li>Open a ticket in the server for the trade</li>
-         </ul>
-       </div>
-        <div class="mini">
-          <h3>During the trade</h3>
-          <ul class="facts">
-            <li>Use the server's verified middleman</li>
-            <li>Seller trades to MM first, then you pay</li>
-            <li>Screenshot every step</li>
-            <li>Confirm delivery in the ticket before closing</li>
-         </ul>
-       </div>
-     </div>
-      <div class="warnbox">Red flags: MM DMs you first, MM asks you to trade first, fake server invites, MM wants to screen-share "to verify"</div>
-    </div>
-
-    <div class="card">
-      <h2 class="sec">First Week Concrete Targets</h2>
-      <div class="grid2">
-        <div class="mini">
-          <h3>Day 1–2: Setup</h3>
-          <ul class="facts">
-            <li>Create Discord account if needed</li>
-            <li>Join 5 servers from the lists above</li>
-            <li>Join SA FB Groups (if targeting SA)</li>
-            <li>Set up Capitec Pay or PayPal</li>
-            <li>Create 2–3 alt Roblox accounts</li>
-         </ul>
-       </div>
-        <div class="mini">
-          <h3>Day 3–5: Research</h3>
-          <ul class="facts">
-            <li>Observe price movements in #wts channels</li>
-            <li>Note peak times (weekend evenings)</li>
-            <li>Study 3 successful seller profiles</li>
-            <li>Calculate your target margin per item type</li>
-            <li>Write down your first 5 listings</li>
-         </ul>
-       </div>
-     </div>
-      <div class="grid2" style="margin-top:14px">
-        <div class="mini">
-          <h3>Day 6–7: First Trade</h3>
-          <ul class="facts">
-            <li>Post your first listing (under $5)</li>
-            <li>Negotiate — start at 70% asking, settle ~85%</li>
-            <li>Use free MM, document everything</li>
-            <li>Deliver fast, request feedback</li>
-            <li>Bump your price 10% for the next trade</li>
-         </ul>
-       </div>
-        <div class="mini">
-          <h3>Week 2+: Scale</h3>
-          <ul class="facts">
-            <li>Aim for 3–5 trades per week</li>
-            <li>Add one new game category every 2 weeks</li>
-            <li>Track ROI per item type in a spreadsheet</li>
-            <li>Drop underperforming items fast</li>
-            <li>Start offering boosting services alongside items</li>
-         </ul>
-       </div>
-     </div>
-
-      <div class="btn-row">
-        <a class="btn" href="#" data-tab-link="items">Browse Best Items →</a>
-        <a class="btn ghost" href="#" data-tab-link="sa">SA Communities →</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
+</div>
 
 <script>
-(function() {
-  var tabs = document.querySelectorAll('#tabs .tab');
-  var panels = document.querySelectorAll('.panel');
-  var tabLinks = document.querySelectorAll('[data-tab-link]');
+/* ── Scroll reveal (IntersectionObserver) ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  function activate(name) {
-    tabs.forEach(function(t) {
-      t.classList.toggle('active', t.getAttribute('data-tab') === name);
-    });
-    panels.forEach(function(p) {
-      p.classList.toggle('active', p.id === 'panel-' + name);
-    });
-    if (history.replaceState) history.replaceState(null, '', '#' + name);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  tabs.forEach(function(t) {
-    t.addEventListener('click', function() { activate(t.getAttribute('data-tab')); });
+/* ── Stat counter animation ── */
+const counterIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count, 10);
+    if (!target) { counterIo.unobserve(el); return; }
+    let current = 0;
+    const step = Math.ceil(target / 20);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = current;
+    }, 40);
+    counterIo.unobserve(el);
   });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterIo.observe(el));
 
-  tabLinks.forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      activate(a.getAttribute('data-tab-link'));
-    });
+/* ── Smooth scroll for anchor links ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
-
-  // Open tab from URL hash if present
-  var initial = (location.hash || '').replace('#', '');
-  if (initial && document.getElementById('panel-' + initial)) {
-    activate(initial);
-  }
-})();
+});
 </script>
 
 </body>
